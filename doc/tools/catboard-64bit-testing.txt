@@ -1,0 +1,486 @@
+*******************pi4-20*******************
+The files config_cat & reset_cat from the repo 
+https://github.com/develone/catboard_yosys.git
+need to be linked in /usr/local/bin
+
+*******************pi4-30*******************
+09/30/23 updated my repos autofpga, zipcpu, icestorm, yosys, nextpnr, and zipcpu.
+devel@pi4-30:~/icozip $ nextpnr-ice40 -V
+"nextpnr-ice40" -- Next Generation Place and Route (Version e8602fb5)
+
+devel@pi4-20:~ $ nextpnr-ice40 -V
+"nextpnr-ice40" -- Next Generation Place and Route (Version e8602fb5)
+
+devel@pi4-30:~/icozip $ yosys -V
+Yosys 0.33+79 (git sha1 b52f6cb19, gcc 10.2.1-6 -fPIC -Os)
+
+requires a pull request and build
+devel@pi4-20:~ $ yosys -V
+Yosys 0.33+72 (git sha1 7aa26b3a0, gcc 10.2.1-6 -fPIC -Os)
+
+devel@pi4-30:~/icozip $ verilator -V
+Verilator 5.017 devel rev UNKNOWN.REV
+
+09/29/23
+devel@pi4-20:~ $ sudo diff /etc/dphys-swapfile /etc/dphys-swapfile.orig 
+16c16
+< CONF_SWAPSIZE=1000
+---
+> CONF_SWAPSIZE=100
+
+devel@pi4-20:~ $ git clone https://github.com/YosysHQ/yosys.git
+
+cd yosys
+
+make config-gcc
+
+make
+
+devel@pi4-20:~/yosys $ sudo make install
+
+devel@pi4-20:~ $ git clone https://github.com/verilator/verilator
+
+devel@pi4-20:~ $ cd verilator/
+
+autoconf
+
+./configure
+
+make
+
+make[1]: Leaving directory '/home/devel/verilator/src'
+help2man --no-info --no-discard-stderr --version-string=- bin/verilator_gantt -o verilator_gantt.1
+make: help2man: No such file or directory
+make: *** [Makefile:191: verilator_gantt.1] Error 127
+
+sudo apt install help2man
+
+make test
+
+sudo make install
+
+devel@pi4-20:~ $ git clone https://github.com/YosysHQ/icestorm.git
+
+devel@pi4-20:~ $ cd icestorm/
+
+devel@pi4-20:~/icestorm $ make
+
+devel@pi4-20:~/icestorm $ sudo make install
+
+devel@pi4-20:~ $ git clone https://github.com/YosysHQ/nextpnr.git
+
+devel@pi4-20:~ $ cd nextpnr/
+
+devel@pi4-20:~/nextpnr $ cmake . -DARCH=ice40
+
+devel@pi4-20:~/nextpnr $ make
+
+devel@pi4-20:~/nextpnr $ sudo make install
+
+devel@pi4-20:/usr/local/bin $ ls -la
+total 448356
+drwxr-xr-x  2 root root      4096 Sep 30 19:40 .
+drwxr-xr-x 10 root root      4096 May  2 20:50 ..
+lrwxrwxrwx  1 root root        32 Sep 29 13:53 autofpga -> /home/devel/autofpga/sw/autofpga
+lrwxrwxrwx  1 root root        37 Sep 30 19:38 config_cat -> /home/devel/catboard_yosys/config_cat
+-rwxr-xr-x  1 root root     41739 Sep 29 12:48 icebox_asc2hlc
+-rwxr-xr-x  1 root root     10581 Sep 29 12:48 icebox_chipdb
+-rwxr-xr-x  1 root root      5012 Sep 29 12:48 icebox_colbuf
+-rw-r--r--  1 root root    927720 Sep 29 12:48 iceboxdb.py
+-rwxr-xr-x  1 root root      3720 Sep 29 12:48 icebox_diff
+-rwxr-xr-x  1 root root      6291 Sep 29 12:48 icebox_explain
+-rwxr-xr-x  1 root root     43029 Sep 29 12:48 icebox_hlc2asc
+-rwxr-xr-x  1 root root     26049 Sep 29 12:48 icebox_html
+-rwxr-xr-x  1 root root      5119 Sep 29 12:48 icebox_maps
+-rw-r--r--  1 root root    230693 Sep 29 12:48 icebox.py
+-rwxr-xr-x  1 root root      4219 Sep 29 12:48 icebox_stat
+-rwxr-xr-x  1 root root     43447 Sep 29 12:48 icebox_vlog
+-rwxr-xr-x  1 root root     52632 Sep 29 12:48 icebram
+-rwxr-xr-x  1 root root     25880 Sep 29 12:48 icemulti
+-rwxr-xr-x  1 root root     71448 Sep 29 12:48 icepack
+-rwxr-xr-x  1 root root     19584 Sep 29 12:48 icepll
+-rwxr-xr-x  1 root root     37216 Sep 29 12:48 iceprog
+-rwxr-xr-x  1 root root   1074872 Sep 29 12:48 icetime
+lrwxrwxrwx  1 root root         7 Sep 29 12:48 iceunpack -> icepack
+-rwxr-xr-x  1 root root 312133736 Sep 29 13:30 nextpnr-ice40
+-rwxr-xr-x  1 root root     37656 Sep 20 05:32 paho_c_pub
+-rwxr-xr-x  1 root root     32832 Sep 20 05:32 paho_cs_pub
+-rwxr-xr-x  1 root root     32784 Sep 20 05:32 paho_cs_sub
+-rwxr-xr-x  1 root root     33392 Sep 20 05:32 paho_c_sub
+-rwxr-xr-x  1 root root     14664 Sep 20 05:32 paho_c_version
+lrwxrwxrwx  1 root root        36 Sep 30 19:40 reset_cat -> /home/devel/catboard_yosys/reset_cat
+-rwxr-xr-x  1 root root     23496 Sep 29 14:51 verilator
+-rwxr-xr-x  1 root root  13305000 Sep 29 14:51 verilator_bin
+-rwxr-xr-x  1 root root  99014856 Sep 29 14:51 verilator_bin_dbg
+-rwxr-xr-x  1 root root      7066 Sep 29 14:51 verilator_coverage
+-rwxr-xr-x  1 root root   2107512 Sep 29 14:51 verilator_coverage_bin_dbg
+-rwxr-xr-x  1 root root     20606 Sep 29 14:51 verilator_gantt
+-rwxr-xr-x  1 root root      7686 Sep 29 14:51 verilator_profcfunc
+-rwxr-xr-x  1 root root  12832328 Sep 29 13:32 yosys
+-rwxr-xr-x  1 root root  16663848 Sep 29 13:32 yosys-abc
+-rwxr-xr-x  1 root root      3300 Sep 29 13:32 yosys-config
+-rwxr-xr-x  1 root root     35384 Sep 29 13:33 yosys-filterlib
+-rwxr-xr-x  1 root root     69706 Sep 29 13:32 yosys-smtbmc
+-rwxr-xr-x  1 root root     16076 Sep 29 13:32 yosys-witness
+
+devel@pi4-20:~ $ git clone https://github.com/ZipCPU/zipcpu.git
+
+devel@pi4-20:~ $ git clone https://github.com/ZipCPU/autofpga.git  
+
+devel@pi4-20:~ $ cd /usr/local/bin/
+
+devel@pi4-20:/usr/local/bin $ sudo ln -sf /home/devel/autofpga/sw/autofpga autofpga
+
+devel@pi4-20:/usr/local/bin $ ls -la autofpga 
+lrwxrwxrwx 1 root root 32 Sep 29 13:53 autofpga -> /home/devel/autofpga/sw/autofpga
+
+devel@pi4-20:~ $ git clone https://github.com/ZipCPU/icozip.git
+
+Verilator wants to create a folder in /usr/local/share/man named man1
+but a file named man1 was created by the repo paho.mqtt.c /usr/local/share/man
+
+devel@pi4-20:~ $ ls -la /usr/local/share/man/
+total 20
+drwxr-xr-x  3 root root 4096 Sep 29 14:51 .
+drwxr-xr-x 12 root root 4096 Sep 29 14:51 ..
+drwxr-xr-x  2 root root 4096 Sep 29 14:51 man1
+-rw-r--r--  1 root root 4971 Sep 20 05:32 man1-paho
+
+devel@pi4-20:~ $ ls -la /usr/local/share/man/man1
+total 44
+drwxr-xr-x 2 root root  4096 Sep 29 14:51 .
+drwxr-xr-x 3 root root  4096 Sep 29 14:51 ..
+-rw-r--r-- 1 root root 20057 Sep 29 14:51 verilator.1
+-rw-r--r-- 1 root root  6574 Sep 29 14:51 verilator_coverage.1
+-rw-r--r-- 1 root root  1254 Sep 29 14:51 verilator_gantt.1
+-rw-r--r-- 1 root root  1193 Sep 29 14:51 verilator_profcfunc.1
+
+devel@pi4-20:~/icozip/rtl/uart $ git diff Makefile
+diff --git a/rtl/uart/Makefile b/rtl/uart/Makefile
+index 65e7424..d0595c0 100644
+--- a/rtl/uart/Makefile
++++ b/rtl/uart/Makefile
+@@ -45,7 +45,7 @@ all: helloworld speechfifo
+ %.json: %.v
+        yosys -p 'synth_ice40 -json $@' $<
+ %.asc: %.json %.pcf
+-       nextpnr-ice40 --hx8k -r --freq 50 --package ct256 --pcf $*.pcf --json $< --asc $@
++       nextpnr-ice40 --hx8k -r --freq 50 --pcf-allow-unconstrained --package ct256 --pcf $*.pcf --json $< --asc $@
+ %.bin: %.asc
+        icetime -d hx8k -c 50 $<
+        icepack $< $@
+
+*******************pi4-20*******************
+
+
+atboard testing 64bit
+
+
+devel@pi4-30:~ $ git clone https://github.com/verilator/verilator
+
+devel@pi4-30:~/verilator $ git checkout 39eea781
+
+devel@pi4-30:~/verilator $ autoconf
+
+devel@pi4-30:~/verilator $ ./configure
+
+devel@pi4-30:~/verilator $ make
+
+devel@pi4-30:~/verilator $ sudo make install
+
+devel@pi4-30:~ $ git clone https://github.com/develone/zipcpu.git
+
+devel@pi4-30:~ $ cd zipcpu/
+
+devel@pi4-30:~/zipcpu $ git checkout 3c0c9c6b017c
+
+devel@pi4-30:~/zipcpu $ make
+
+devel@pi4-30:~ $ git clone https://github.com/develone/autofpga.git
+
+devel@pi4-30:~ $ cd autofpga/
+
+devel@pi4-30:~/autofpga $ git checkout 95df250da1
+
+devel@pi4-30:~/autofpga $ make
+tar --transform s,^,`date +%Y%m%d`-video/, -chjf `date +%Y%m%d`-autofpga.tjz sw/ auto-data/ demo-out/ doc/
+make --no-print-directory --directory=sw
+g++ -DBUILDDATE=0x`date +%Y%m%d` -std=c++11 -g -Wall -c autofpga.cpp -o obj-pc/autofpga.o
+g++ -std=c++11 -g -Wall -c parser.cpp -o obj-pc/parser.o
+g++ -std=c++11 -g -Wall -c kveval.cpp -o obj-pc/kveval.o
+g++ -std=c++11 -g -Wall -c keys.cpp -o obj-pc/keys.o
+g++ -std=c++11 -g -Wall -c mapdhash.cpp -o obj-pc/mapdhash.o
+g++ -std=c++11 -g -Wall -c ast.cpp -o obj-pc/ast.o
+g++ -std=c++11 -g -Wall -c legalnotice.cpp -o obj-pc/legalnotice.o
+g++ -std=c++11 -g -Wall -c ifdefs.cpp -o obj-pc/ifdefs.o
+g++ -std=c++11 -g -Wall -c bldregdefs.cpp -o obj-pc/bldregdefs.o
+bison --defines=expr.tab.h expr.ypp
+flex --header-file=lex.yy.h -o lex.yy.cpp expr.l
+g++ -std=c++11 -g -Wall -c expr.tab.cpp -o obj-pc/expr.tab.o
+g++ -std=c++11 -g -Wall -Wno-sign-compare -Wno-unused-function -c lex.yy.cpp -o obj-pc/lex.yy.o
+g++ -std=c++11 -g -Wall -c plist.cpp -o obj-pc/plist.o
+g++ -std=c++11 -g -Wall -c bitlib.cpp -o obj-pc/bitlib.o
+g++ -std=c++11 -g -Wall -c bldtestb.cpp -o obj-pc/bldtestb.o
+g++ -std=c++11 -g -Wall -c bldsim.cpp -o obj-pc/bldsim.o
+g++ -std=c++11 -g -Wall -c predicates.cpp -o obj-pc/predicates.o
+g++ -std=c++11 -g -Wall -c businfo.cpp -o obj-pc/businfo.o
+g++ -std=c++11 -g -Wall -c clockinfo.cpp -o obj-pc/clockinfo.o
+g++ -std=c++11 -g -Wall -c subbus.cpp -o obj-pc/subbus.o
+g++ -std=c++11 -g -Wall -c globals.cpp -o obj-pc/globals.o
+g++ -std=c++11 -g -Wall -c gather.cpp -o obj-pc/gather.o
+g++ -std=c++11 -g -Wall -c bldboardld.cpp -o obj-pc/bldboardld.o
+g++ -std=c++11 -g -Wall -c bldrtlmake.cpp -o obj-pc/bldrtlmake.o
+g++ -std=c++11 -g -Wall -c msgs.cpp -o obj-pc/msgs.o
+g++ -std=c++11 -g -Wall -c bldcachable.cpp -o obj-pc/bldcachable.o
+echo obj-pc/autofpga.o obj-pc/parser.o obj-pc/kveval.o obj-pc/keys.o obj-pc/mapdhash.o obj-pc/ast.o obj-pc/legalnotice.o obj-pc/ifdefs.o obj-pc/bldregdefs.o obj-pc/expr.tab.o obj-pc/lex.yy.o obj-pc/plist.o obj-pc/bitlib.o obj-pc/bldtestb.o obj-pc/bldsim.o obj-pc/predicates.o obj-pc/businfo.o obj-pc/clockinfo.o obj-pc/subbus.o obj-pc/globals.o obj-pc/gather.o obj-pc/bldboardld.o obj-pc/bldrtlmake.o obj-pc/msgs.o obj-pc/bldcachable.o
+obj-pc/autofpga.o obj-pc/parser.o obj-pc/kveval.o obj-pc/keys.o obj-pc/mapdhash.o obj-pc/ast.o obj-pc/legalnotice.o obj-pc/ifdefs.o obj-pc/bldregdefs.o obj-pc/expr.tab.o obj-pc/lex.yy.o obj-pc/plist.o obj-pc/bitlib.o obj-pc/bldtestb.o obj-pc/bldsim.o obj-pc/predicates.o obj-pc/businfo.o obj-pc/clockinfo.o obj-pc/subbus.o obj-pc/globals.o obj-pc/gather.o obj-pc/bldboardld.o obj-pc/bldrtlmake.o obj-pc/msgs.o obj-pc/bldcachable.o
+g++ -std=c++11 -g -Wall obj-pc/autofpga.o obj-pc/parser.o obj-pc/kveval.o obj-pc/keys.o obj-pc/mapdhash.o obj-pc/ast.o obj-pc/legalnotice.o obj-pc/ifdefs.o obj-pc/bldregdefs.o obj-pc/expr.tab.o obj-pc/lex.yy.o obj-pc/plist.o obj-pc/bitlib.o obj-pc/bldtestb.o obj-pc/bldsim.o obj-pc/predicates.o obj-pc/businfo.o obj-pc/clockinfo.o obj-pc/subbus.o obj-pc/globals.o obj-pc/gather.o obj-pc/bldboardld.o obj-pc/bldrtlmake.o obj-pc/msgs.o obj-pc/bldcachable.o -o autofpga
+bash runme.sh
+KYPLUSDOT--FLATTEN.PLUS
+KYPLUSDOT--FLATTEN.PLUS
+KYPLUSDOT--FLATTEN.PLUS
+ADDING CLOCK: clk, i_clk
+ADDING CLOCK: hdmi_out_clk, i_hdmi_out_clk, at 148500000 Hz
+ADDING CLOCK: hdmi_in_clk, i_hdmi_in_clk, at 148500000 Hz
+ADDING CLOCK: hdmi_in_hsclk, i_hdmi_in_hsclk, at 1485000000 Hz
+ADDING CLOCK: clk_200mhz, i_clk_200mhz, at 200000000 Hz
+All clocks enumerated
+ADDING BUS: wb (default)
+exit code  0
+
+devel@pi4-30:~/autofpga $ mkdir autodata-repo
+
+devel@pi4-30:~/autofpga $ mv auto-data/ autodata-repo/
+
+devel@pi4-30:~/autofpga $ rsync -avl /home/devel/catboard-software/autofpga/auto-data .
+
+devel@pi4-30:~ $ git clone https://github.com/develone/icestorm.git
+
+devel@pi4-30:~ $ cd  icestorm/
+
+devel@pi4-30:~/icestorm $ git checkout c495861c1
+Note: switching to 'c495861c1'.
+
+devel@pi4-30:~ $ cd yosys/
+
+devel@pi4-30:~ $ git clone https://github.com/develone/yosys.git
+
+devel@pi4-30:~/yosys $ git checkout 7cc9d487ff806
+
+
+devel@pi4-30:~/yosys $ make config-gcc
+
+devel@pi4-30:~/yosys $ make
+
+devel@pi4-30:~/yosys $ sudo make install
+
+devel@pi4-30:~/yosys $ yosys -V
+Yosys 0.9+1706 (git sha1 7cc9d487, gcc 10.2.1-6 -fPIC -Os)
+
+[Makefile.conf] CONFIG := gcc
+mkdir -p /usr/local/bin
+cp yosys yosys-config yosys-abc yosys-filterlib yosys-smtbmc /usr/local/bin
+strip -S /usr/local/bin/yosys
+strip /usr/local/bin/yosys-abc
+strip /usr/local/bin/yosys-filterlib
+mkdir -p /usr/local/share/yosys
+cp -r share/. /usr/local/share/yosys/.
+devel@pi4-30:~/yosys $ yosys -V
+Yosys 0.9+1706 (git sha1 7cc9d487, gcc 10.2.1-6 -fPIC -Os)
+rm -rf share
+rm -rf kernel/*.pyh
+if test -d manual; then cd manual && sh clean.sh; fi
+find ./PRESENTATION_Prog/ -name 'my_cmd.so' | xargs rm -f
+find ./PRESENTATION_Prog/ -name 'my_cmd.d' | xargs rm -f
+find ./PRESENTATION_ExAdv/ -name '*.dot' | xargs rm -f
+find ./ -name '*.aux' | xargs rm -f
+find ./ -name '*.bbl' | xargs rm -f
+find ./ -name '*.blg' | xargs rm -f
+find ./ -name '*.idx' | xargs rm -f
+find ./ -name '*.log' | xargs rm -f
+find ./ -name '*.out' | xargs rm -f
+find ./ -name '*.pdf' | xargs rm -f
+find ./ -name '*.toc' | xargs rm -f
+find ./ -name '*.snm' | xargs rm -f
+find ./ -name '*.nav' | xargs rm -f
+find ./ -name '*.vrb' | xargs rm -f
+find ./ -name '*.ok' | xargs rm -f
+find ./PRESENTATION_ExOth/ -name '*.dot' | xargs rm -f
+find ./PRESENTATION_ExSyn/ -name '*.dot' | xargs rm -f
+find ./CHAPTER_Prog/ -name 'stubnets.so' | xargs rm -f
+find ./CHAPTER_Prog/ -name 'stubnets.d' | xargs rm -f
+find ./CHAPTER_Prog/ -name '*.log' | xargs rm -f
+find ./PRESENTATION_Intro/ -name 'counter_00.dot' | xargs rm -f
+find ./PRESENTATION_Intro/ -name 'counter_01.dot' | xargs rm -f
+find ./PRESENTATION_Intro/ -name 'counter_02.dot' | xargs rm -f
+find ./PRESENTATION_Intro/ -name 'counter_03.dot' | xargs rm -f
+rm -f kernel/version_7cc9d487.o kernel/driver.o kernel/register.o kernel/rtlil.o kernel/log.o kernel/calc.o kernel/yosys.o kernel/cellaigs.o kernel/celledges.o libs/bigint/BigIntegerAlgorithms.o libs/bigint/BigInteger.o libs/bigint/BigIntegerUtils.o libs/bigint/BigUnsigned.o libs/bigint/BigUnsignedInABase.o libs/sha1/sha1.o libs/json11/json11.o libs/subcircuit/subcircuit.o libs/ezsat/ezsat.o libs/ezsat/ezminisat.o libs/minisat/Options.o libs/minisat/SimpSolver.o libs/minisat/Solver.o libs/minisat/System.o frontends/aiger/aigerparse.o frontends/ast/ast.o frontends/ast/simplify.o frontends/ast/genrtlil.o frontends/ast/dpicall.o frontends/blif/blifparse.o frontends/ilang/ilang_parser.tab.o frontends/ilang/ilang_lexer.o frontends/ilang/ilang_frontend.o frontends/json/jsonparse.o frontends/liberty/liberty.o frontends/rpc/rpc_frontend.o frontends/verific/verific.o frontends/verilog/verilog_parser.tab.o frontends/verilog/verilog_lexer.o frontends/verilog/preproc.o frontends/verilog/verilog_frontend.o frontends/verilog/const2ast.o passes/cmds/add.o passes/cmds/delete.o passes/cmds/design.o passes/cmds/select.o passes/cmds/show.o passes/cmds/rename.o passes/cmds/autoname.o passes/cmds/connect.o passes/cmds/scatter.o passes/cmds/setundef.o passes/cmds/splitnets.o passes/cmds/stat.o passes/cmds/setattr.o passes/cmds/copy.o passes/cmds/splice.o passes/cmds/scc.o passes/cmds/torder.o passes/cmds/logcmd.o passes/cmds/tee.o passes/cmds/write_file.o passes/cmds/connwrappers.o passes/cmds/cover.o passes/cmds/trace.o passes/cmds/plugin.o passes/cmds/check.o passes/cmds/qwp.o passes/cmds/edgetypes.o passes/cmds/portlist.o passes/cmds/chformal.o passes/cmds/chtype.o passes/cmds/blackbox.o passes/cmds/ltp.o passes/cmds/bugpoint.o passes/cmds/scratchpad.o passes/equiv/equiv_make.o passes/equiv/equiv_miter.o passes/equiv/equiv_simple.o passes/equiv/equiv_status.o passes/equiv/equiv_add.o passes/equiv/equiv_remove.o passes/equiv/equiv_induct.o passes/equiv/equiv_struct.o passes/equiv/equiv_purge.o passes/equiv/equiv_mark.o passes/equiv/equiv_opt.o passes/fsm/fsm.o passes/fsm/fsm_detect.o passes/fsm/fsm_extract.o passes/fsm/fsm_opt.o passes/fsm/fsm_expand.o passes/fsm/fsm_recode.o passes/fsm/fsm_info.o passes/fsm/fsm_export.o passes/fsm/fsm_map.o passes/hierarchy/hierarchy.o passes/hierarchy/uniquify.o passes/hierarchy/submod.o passes/memory/memory.o passes/memory/memory_dff.o passes/memory/memory_share.o passes/memory/memory_collect.o passes/memory/memory_unpack.o passes/memory/memory_bram.o passes/memory/memory_map.o passes/memory/memory_memx.o passes/memory/memory_nordff.o passes/opt/opt.o passes/opt/opt_merge.o passes/opt/opt_mem.o passes/opt/opt_muxtree.o passes/opt/opt_reduce.o passes/opt/opt_rmdff.o passes/opt/opt_share.o passes/opt/opt_clean.o passes/opt/opt_expr.o passes/opt/share.o passes/opt/wreduce.o passes/opt/opt_demorgan.o passes/opt/rmports.o passes/opt/opt_lut.o passes/opt/opt_lut_ins.o passes/opt/pmux2shiftx.o passes/opt/muxpack.o passes/pmgen/test_pmgen.o passes/pmgen/ice40_dsp.o passes/pmgen/ice40_wrapcarry.o passes/pmgen/xilinx_dsp.o passes/pmgen/peepopt.o passes/pmgen/xilinx_srl.o passes/proc/proc.o passes/proc/proc_prune.o passes/proc/proc_clean.o passes/proc/proc_rmdead.o passes/proc/proc_init.o passes/proc/proc_arst.o passes/proc/proc_mux.o passes/proc/proc_dlatch.o passes/proc/proc_dff.o passes/sat/sat.o passes/sat/freduce.o passes/sat/eval.o passes/sat/sim.o passes/sat/miter.o passes/sat/expose.o passes/sat/assertpmux.o passes/sat/clk2fflogic.o passes/sat/async2sync.o passes/sat/supercover.o passes/sat/fmcombine.o passes/sat/mutate.o passes/sat/cutpoint.o passes/sat/fminit.o passes/techmap/techmap.o passes/techmap/simplemap.o passes/techmap/dfflibmap.o passes/techmap/maccmap.o passes/techmap/libparse.o passes/techmap/abc.o passes/techmap/abc9.o passes/techmap/abc9_exe.o passes/techmap/abc9_ops.o passes/techmap/iopadmap.o passes/techmap/clkbufmap.o passes/techmap/hilomap.o passes/techmap/extract.o passes/techmap/extract_fa.o passes/techmap/extract_counter.o passes/techmap/extract_reduce.o passes/techmap/alumacc.o passes/techmap/dff2dffe.o passes/techmap/dffinit.o passes/techmap/pmuxtree.o passes/techmap/muxcover.o passes/techmap/aigmap.o passes/techmap/tribuf.o passes/techmap/lut2mux.o passes/techmap/nlutmap.o passes/techmap/dffsr2dff.o passes/techmap/shregmap.o passes/techmap/deminout.o passes/techmap/insbuf.o passes/techmap/attrmvcp.o passes/techmap/attrmap.o passes/techmap/zinit.o passes/techmap/dff2dffs.o passes/techmap/flowmap.o passes/techmap/extractinv.o passes/tests/test_autotb.o passes/tests/test_cell.o passes/tests/test_abcloop.o backends/aiger/aiger.o backends/aiger/xaiger.o backends/blif/blif.o backends/btor/btor.o backends/edif/edif.o backends/firrtl/firrtl.o backends/ilang/ilang_backend.o backends/intersynth/intersynth.o backends/json/json.o backends/simplec/simplec.o backends/smt2/smt2.o backends/smv/smv.o backends/spice/spice.o backends/table/table.o backends/verilog/verilog_backend.o techlibs/achronix/synth_achronix.o techlibs/anlogic/synth_anlogic.o techlibs/anlogic/anlogic_eqn.o techlibs/anlogic/anlogic_fixcarry.o techlibs/common/synth.o techlibs/common/prep.o techlibs/coolrunner2/synth_coolrunner2.o techlibs/coolrunner2/coolrunner2_sop.o techlibs/easic/synth_easic.o techlibs/ecp5/synth_ecp5.o techlibs/ecp5/ecp5_ffinit.o techlibs/ecp5/ecp5_gsr.o techlibs/efinix/synth_efinix.o techlibs/efinix/efinix_gbuf.o techlibs/efinix/efinix_fixcarry.o techlibs/gowin/synth_gowin.o techlibs/gowin/determine_init.o techlibs/greenpak4/synth_greenpak4.o techlibs/greenpak4/greenpak4_dffinv.o techlibs/ice40/synth_ice40.o techlibs/ice40/ice40_braminit.o techlibs/ice40/ice40_ffssr.o techlibs/ice40/ice40_ffinit.o techlibs/ice40/ice40_opt.o techlibs/intel/synth_intel.o techlibs/sf2/synth_sf2.o techlibs/sf2/sf2_iobs.o techlibs/xilinx/synth_xilinx.o techlibs/xilinx/xilinx_dffopt.o frontends/ilang/ilang_parser.tab.cc frontends/ilang/ilang_parser.tab.hh frontends/ilang/ilang_parser.output frontends/ilang/ilang_lexer.cc frontends/verilog/verilog_parser.tab.cc frontends/verilog/verilog_parser.tab.hh frontends/verilog/verilog_parser.output frontends/verilog/verilog_lexer.cc passes/techmap/techmap.inc techlibs/common/simlib_help.inc techlibs/common/simcells_help.inc techlibs/ice40/brams_init1.vh techlibs/ice40/brams_init2.vh techlibs/ice40/brams_init3.vh techlibs/xilinx/brams_init_36.vh techlibs/xilinx/brams_init_32.vh techlibs/xilinx/brams_init_18.vh techlibs/xilinx/brams_init_16.vh techlibs/xilinx/brams_init_9.vh techlibs/xilinx/brams_init_8.vh yosys yosys-config yosys-abc yosys-filterlib yosys-smtbmc share/include/kernel/yosys.h share/include/kernel/hashlib.h share/include/kernel/log.h share/include/kernel/rtlil.h share/include/kernel/register.h share/include/kernel/celltypes.h share/include/kernel/celledges.h share/include/kernel/consteval.h share/include/kernel/sigtools.h share/include/kernel/modtools.h share/include/kernel/macc.h share/include/kernel/utils.h share/include/kernel/satgen.h share/include/libs/ezsat/ezsat.h share/include/libs/ezsat/ezminisat.h share/include/libs/sha1/sha1.h share/include/libs/json11/json11.hpp share/include/passes/fsm/fsmdata.h share/include/frontends/ast/ast.h share/include/backends/ilang/ilang_backend.h share/python3/smtio.py share/achronix/speedster22i/cells_sim.v share/achronix/speedster22i/cells_map.v share/anlogic/cells_map.v share/anlogic/arith_map.v share/anlogic/cells_sim.v share/anlogic/eagle_bb.v share/anlogic/lutrams.txt share/anlogic/lutrams_map.v share/anlogic/lutram_init_16x4.vh share/simlib.v share/simcells.v share/techmap.v share/pmux2mux.v share/adff2dff.v share/dff2ff.v share/gate2lut.v share/cmp2lut.v share/cells.lib share/mul2dsp.v share/coolrunner2/cells_latch.v share/coolrunner2/cells_sim.v share/coolrunner2/tff_extract.v share/coolrunner2/xc2_dff.lib share/ecp5/cells_ff.vh share/ecp5/cells_io.vh share/ecp5/cells_map.v share/ecp5/cells_sim.v share/ecp5/cells_bb.v share/ecp5/lutrams_map.v share/ecp5/lutrams.txt share/ecp5/brams_map.v share/ecp5/brams.txt share/ecp5/arith_map.v share/ecp5/latches_map.v share/ecp5/dsp_map.v share/ecp5/abc9_map.v share/ecp5/abc9_unmap.v share/ecp5/abc9_model.v share/ecp5/abc9_5g.box share/ecp5/abc9_5g.lut share/ecp5/abc9_5g_nowide.lut share/ecp5/bram_init_1_2_4.vh share/ecp5/bram_init_9_18_36.vh share/ecp5/bram_conn_1.vh share/ecp5/bram_conn_2.vh share/ecp5/bram_conn_4.vh share/ecp5/bram_conn_9.vh share/ecp5/bram_conn_18.vh share/ecp5/bram_conn_36.vh share/efinix/cells_map.v share/efinix/arith_map.v share/efinix/cells_sim.v share/efinix/brams_map.v share/efinix/brams.txt share/gowin/cells_map.v share/gowin/cells_sim.v share/gowin/arith_map.v share/gowin/brams_map.v share/gowin/brams.txt share/gowin/lutrams_map.v share/gowin/lutrams.txt share/gowin/brams_init3.vh share/gowin/bram_init_16.vh share/greenpak4/cells_blackbox.v share/greenpak4/cells_latch.v share/greenpak4/cells_map.v share/greenpak4/cells_sim.v share/greenpak4/cells_sim_ams.v share/greenpak4/cells_sim_digital.v share/greenpak4/cells_sim_wip.v share/greenpak4/gp_dff.lib share/ice40/arith_map.v share/ice40/cells_map.v share/ice40/cells_sim.v share/ice40/latches_map.v share/ice40/brams.txt share/ice40/brams_map.v share/ice40/dsp_map.v share/ice40/abc9_model.v share/ice40/abc9_hx.box share/ice40/abc9_hx.lut share/ice40/abc9_lp.box share/ice40/abc9_lp.lut share/ice40/abc9_u.box share/ice40/abc9_u.lut share/ice40/brams_init1.vh share/ice40/brams_init2.vh share/ice40/brams_init3.vh share/intel/common/m9k_bb.v share/intel/common/altpll_bb.v share/intel/common/brams_m9k.txt share/intel/common/brams_map_m9k.v share/intel/max10/cells_sim.v share/intel/arria10gx/cells_sim.v share/intel/cyclonev/cells_sim.v share/intel/cyclone10lp/cells_sim.v share/intel/cycloneiv/cells_sim.v share/intel/cycloneive/cells_sim.v share/intel/max10/cells_map.v share/intel/arria10gx/cells_map.v share/intel/cyclonev/cells_map.v share/intel/cyclone10lp/cells_map.v share/intel/cycloneiv/cells_map.v share/intel/cycloneive/cells_map.v share/sf2/arith_map.v share/sf2/cells_map.v share/sf2/cells_sim.v share/xilinx/cells_map.v share/xilinx/cells_sim.v share/xilinx/cells_xtra.v share/xilinx/xc2v_brams.txt share/xilinx/xc2v_brams_map.v share/xilinx/xc3sa_brams.txt share/xilinx/xc3sda_brams.txt share/xilinx/xc6s_brams.txt share/xilinx/xc6s_brams_map.v share/xilinx/xc7_xcu_brams.txt share/xilinx/xc7_brams_map.v share/xilinx/xcu_brams_map.v share/xilinx/xcup_urams.txt share/xilinx/xcup_urams_map.v share/xilinx/lut4_lutrams.txt share/xilinx/lut6_lutrams.txt share/xilinx/lutrams_map.v share/xilinx/arith_map.v share/xilinx/xc6s_ff_map.v share/xilinx/xc7_ff_map.v share/xilinx/lut_map.v share/xilinx/mux_map.v share/xilinx/xc3s_mult_map.v share/xilinx/xc3sda_dsp_map.v share/xilinx/xc6s_dsp_map.v share/xilinx/xc4v_dsp_map.v share/xilinx/xc5v_dsp_map.v share/xilinx/xc7_dsp_map.v share/xilinx/xcu_dsp_map.v share/xilinx/abc9_map.v share/xilinx/abc9_unmap.v share/xilinx/abc9_model.v share/xilinx/abc9_xc7.box share/xilinx/abc9_xc7.lut share/xilinx/abc9_xc7_nowide.lut share/xilinx/brams_init_36.vh share/xilinx/brams_init_32.vh share/xilinx/brams_init_18.vh share/xilinx/brams_init_16.vh share/xilinx/brams_init_9.vh share/xilinx/brams_init_8.vh passes/pmgen/test_pmgen_pm.h passes/pmgen/ice40_dsp_pm.h passes/pmgen/ice40_wrapcarry_pm.h passes/pmgen/xilinx_dsp_pm.h passes/pmgen/xilinx_dsp48a_pm.h passes/pmgen/xilinx_dsp_CREG_pm.h passes/pmgen/xilinx_dsp_cascade_pm.h passes/pmgen/peepopt_pm.h passes/pmgen/xilinx_srl_pm.h passes/techmap/filterlib.o techlibs/ecp5/brams_init.mk techlibs/ecp5/brams_connect.mk techlibs/gowin/brams_init.mk techlibs/ice40/brams_init.mk techlibs/xilinx/brams_init.mk  .cc
+rm -f kernel/version_*.o kernel/version_*.cc
+rm -f libs/*/*.d frontends/*/*.d passes/*/*.d backends/*/*.d kernel/*.d techlibs/*/*.d
+rm -rf tests/asicworld/*.out tests/asicworld/*.log
+rm -rf tests/hana/*.out tests/hana/*.log
+rm -rf tests/simple/*.out tests/simple/*.log
+rm -rf tests/memories/*.out tests/memories/*.log tests/memories/*.dmp
+rm -rf tests/sat/*.log tests/techmap/*.log tests/various/*.log
+rm -rf tests/bram/temp tests/fsm/temp tests/realmath/temp tests/share/temp tests/smv/temp
+rm -rf vloghtb/Makefile vloghtb/refdat vloghtb/rtl vloghtb/scripts vloghtb/spec vloghtb/check_yosys vloghtb/vloghammer_tb.tar.bz2 vloghtb/temp vloghtb/log_test_*
+rm -f tests/svinterfaces/*.log_stdout tests/svinterfaces/*.log_stderr tests/svinterfaces/dut_result.txt tests/svinterfaces/reference_result.txt tests/svinterfaces/a.out tests/svinterfaces/*_syn.v tests/svinterfaces/*.diff
+rm -f  tests/tools/cmp_tbdata
+echo 'CONFIG := gcc' > Makefile.conf
+
+devel@pi4-30:~/icestorm $ make
+make -C icebox all
+make[1]: Entering directory '/home/devel/icestorm/icebox'
+python3 icebox_chipdb.py -3 > chipdb-384.new
+mv chipdb-384.new chipdb-384.txt
+python3 icebox_chipdb.py > chipdb-1k.new
+mv chipdb-1k.new chipdb-1k.txt
+python3 icebox_chipdb.py -8 > chipdb-8k.new
+mv chipdb-8k.new chipdb-8k.txt
+python3 icebox_chipdb.py -5 > chipdb-5k.new
+mv chipdb-5k.new chipdb-5k.txt
+python3 icebox_chipdb.py -4 > chipdb-lm4k.new
+mv chipdb-lm4k.new chipdb-lm4k.txt
+python3 icebox_chipdb.py -u > chipdb-u4k.new
+mv chipdb-u4k.new chipdb-u4k.txt
+make[1]: Leaving directory '/home/devel/icestorm/icebox'
+make -C icepack all
+make[1]: Entering directory '/home/devel/icestorm/icepack'
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include   -c -o icepack.o icepack.cc
+g++ -o icepack  icepack.o -lm -lstdc++
+ln -sf icepack iceunpack
+make[1]: Leaving directory '/home/devel/icestorm/icepack'
+make -C icemulti all
+make[1]: Entering directory '/home/devel/icestorm/icemulti'
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include   -c -o icemulti.o icemulti.cc
+g++ -o icemulti  icemulti.o -lm -lstdc++
+make[1]: Leaving directory '/home/devel/icestorm/icemulti'
+make -C icepll all
+make[1]: Entering directory '/home/devel/icestorm/icepll'
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include   -c -o icepll.o icepll.cc
+g++ -o icepll  icepll.o -lm -lstdc++
+make[1]: Leaving directory '/home/devel/icestorm/icepll'
+make -C icebram all
+make[1]: Entering directory '/home/devel/icestorm/icebram'
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include   -c -o icebram.o icebram.cc
+g++ -o icebram  icebram.o -lm -lstdc++
+make[1]: Leaving directory '/home/devel/icestorm/icebram'
+make -C icetime all
+make[1]: Entering directory '/home/devel/icestorm/icetime'
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include -DPREFIX='"/usr/local"' -DCHIPDB_SUBDIR='"icebox"'   -c -o icetime.o icetime.cc
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include -DPREFIX='"/usr/local"' -DCHIPDB_SUBDIR='"icebox"'   -c -o iceutil.o iceutil.cc
+python3 timings.py lp384 > timings-lp384.cc
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include -DPREFIX='"/usr/local"' -DCHIPDB_SUBDIR='"icebox"'   -c -o timings-lp384.o timings-lp384.cc
+python3 timings.py lp1k > timings-lp1k.cc
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include -DPREFIX='"/usr/local"' -DCHIPDB_SUBDIR='"icebox"'   -c -o timings-lp1k.o timings-lp1k.cc
+python3 timings.py lp8k > timings-lp8k.cc
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include -DPREFIX='"/usr/local"' -DCHIPDB_SUBDIR='"icebox"'   -c -o timings-lp8k.o timings-lp8k.cc
+python3 timings.py hx1k > timings-hx1k.cc
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include -DPREFIX='"/usr/local"' -DCHIPDB_SUBDIR='"icebox"'   -c -o timings-hx1k.o timings-hx1k.cc
+python3 timings.py hx8k > timings-hx8k.cc
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include -DPREFIX='"/usr/local"' -DCHIPDB_SUBDIR='"icebox"'   -c -o timings-hx8k.o timings-hx8k.cc
+python3 timings.py up5k > timings-up5k.cc
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include -DPREFIX='"/usr/local"' -DCHIPDB_SUBDIR='"icebox"'   -c -o timings-up5k.o timings-up5k.cc
+python3 timings.py u4k > timings-u4k.cc
+g++ -MD -MP -O2  -Wall -std=c++11 -I/usr/local/include -DPREFIX='"/usr/local"' -DCHIPDB_SUBDIR='"icebox"'   -c -o timings-u4k.o timings-u4k.cc
+g++ -o icetime  icetime.o iceutil.o timings-lp384.o timings-lp1k.o timings-lp8k.o timings-hx1k.o timings-hx8k.o timings-up5k.o timings-u4k.o -lm -lstdc++
+make[1]: Leaving directory '/home/devel/icestorm/icetime'
+make -C iceprog all
+make[1]: Entering directory '/home/devel/icestorm/iceprog'
+cc -MD -MP -O2  -Wall -std=c99 -I/usr/local/include    -c -o iceprog.o iceprog.c
+cc -MD -MP -O2  -Wall -std=c99 -I/usr/local/include    -c -o mpsse.o mpsse.c
+cc -o iceprog  iceprog.o mpsse.o -L/usr/local/lib -lm -lftdi
+make[1]: Leaving directory '/home/devel/icestorm/iceprog'
+
+devel@pi4-30:~/icestorm $ sudo make install
+
+devel@pi4-30:~/icestorm $ ls /usr/local/bin/
+geek-timer.sh   icebox_diff     icebox.py    icepack    paho_c_pub
+icebox_asc2hlc  icebox_explain  icebox_stat  icepll     paho_cs_pub
+icebox_chipdb   icebox_hlc2asc  icebox_vlog  iceprog    paho_cs_sub
+icebox_colbuf   icebox_html     icebram      icetime    paho_c_sub
+iceboxdb.py     icebox_maps     icemulti     iceunpack  paho_c_version
+
+devel@pi4-30:~/icestorm $ ls /usr/local/share/icebox/
+chipdb-1k.txt   chipdb-lm4k.txt   timings_lp1k.txt   timings_up5k.txt
+chipdb-384.txt  chipdb-u4k.txt    timings_lp384.txt
+chipdb-5k.txt   timings_hx1k.txt  timings_lp8k.txt
+chipdb-8k.txt   timings_hx8k.txt  timings_u4k.txt
+
+for dir in icebox icepack icemulti icepll icebram icetime iceprog; do \
+	make -C $dir install || exit; \
+done
+make[1]: Entering directory '/home/devel/icestorm/icebox'
+mkdir -p /usr/local/share/icebox
+mkdir -p /usr/local/bin
+cp chipdb-384.txt    /usr/local/share/icebox/
+cp chipdb-1k.txt     /usr/local/share/icebox/
+cp chipdb-8k.txt     /usr/local/share/icebox/
+cp chipdb-5k.txt     /usr/local/share/icebox/
+cp chipdb-u4k.txt    /usr/local/share/icebox/
+cp chipdb-lm4k.txt   /usr/local/share/icebox/
+cp icebox.py         /usr/local/bin/icebox.py
+cp iceboxdb.py       /usr/local/bin/iceboxdb.py
+cp icebox_chipdb.py  /usr/local/bin/icebox_chipdb
+cp icebox_diff.py    /usr/local/bin/icebox_diff
+cp icebox_explain.py /usr/local/bin/icebox_explain
+cp icebox_asc2hlc.py /usr/local/bin/icebox_asc2hlc
+cp icebox_hlc2asc.py /usr/local/bin/icebox_hlc2asc
+cp icebox_colbuf.py  /usr/local/bin/icebox_colbuf
+cp icebox_html.py    /usr/local/bin/icebox_html
+cp icebox_maps.py    /usr/local/bin/icebox_maps
+cp icebox_vlog.py    /usr/local/bin/icebox_vlog
+cp icebox_stat.py    /usr/local/bin/icebox_stat
+sed -i 's+import iceboxdb+import iceboxdb as iceboxdb+g' /usr/local/bin/icebox.py
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_chipdb
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_diff
+sed -i 's+from icebox+from icebox+g' /usr/local/bin/icebox_diff
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_explain
+sed -i 's+from icebox+from icebox+g' /usr/local/bin/icebox_explain
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_asc2hlc
+sed -i 's+from icebox+from icebox+g' /usr/local/bin/icebox_asc2hlc
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_hlc2asc
+sed -i 's+from icebox+from icebox+g' /usr/local/bin/icebox_hlc2asc
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_colbuf
+sed -i 's+from icebox+from icebox+g' /usr/local/bin/icebox_colbuf
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_html
+sed -i 's+from icebox+from icebox+g' /usr/local/bin/icebox_html
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_maps
+sed -i 's+from icebox+from icebox+g' /usr/local/bin/icebox_maps
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_vlog
+sed -i 's+from icebox+from icebox+g' /usr/local/bin/icebox_vlog
+sed -i 's+/usr/local/share/icebox+/usr/local/share/icebox+g' /usr/local/bin/icebox_vlog
+sed -i 's+import icebox+import icebox as icebox+g' /usr/local/bin/icebox_stat
+sed -i 's+from icebox+from icebox+g' /usr/local/bin/icebox_stat
+make[1]: Leaving directory '/home/devel/icestorm/icebox'
+make[1]: Entering directory '/home/devel/icestorm/icepack'
+mkdir -p /usr/local/bin
+cp icepack /usr/local/bin/icepack
+ln -sf icepack /usr/local/bin/iceunpack
+make[1]: Leaving directory '/home/devel/icestorm/icepack'
+make[1]: Entering directory '/home/devel/icestorm/icemulti'
+mkdir -p /usr/local/bin
+cp icemulti /usr/local/bin/icemulti
+make[1]: Leaving directory '/home/devel/icestorm/icemulti'
+make[1]: Entering directory '/home/devel/icestorm/icepll'
+mkdir -p /usr/local/bin
+cp icepll /usr/local/bin/icepll
+make[1]: Leaving directory '/home/devel/icestorm/icepll'
+make[1]: Entering directory '/home/devel/icestorm/icebram'
+mkdir -p /usr/local/bin
+cp icebram /usr/local/bin/icebram
+make[1]: Leaving directory '/home/devel/icestorm/icebram'
+make[1]: Entering directory '/home/devel/icestorm/icetime'
+mkdir -p /usr/local/bin
+mkdir -p /usr/local/share/icebox
+cp icetime /usr/local/bin/icetime
+cp ../icefuzz/timings_*.txt /usr/local/share/icebox/
+make[1]: Leaving directory '/home/devel/icestorm/icetime'
+make[1]: Entering directory '/home/devel/icestorm/iceprog'
+mkdir -p /usr/local/bin
+cp iceprog /usr/local/bin/iceprog
+make[1]: Leaving directory '/home/devel/icestorm/iceprog'
+
+
+
+devel@pi4-30:~ $ git clone https://github.com/develone/yosys.git

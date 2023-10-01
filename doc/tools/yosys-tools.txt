@@ -1,0 +1,90 @@
+yosys-tools icestorm, nextpnr, and yosys.
+tools were compiled on pi4-30
+nextpnr requires a working icestorm
+
+icestorm
+devel@pi4-30:~/icestorm $ less .git/config
+commit d20a5e9001f46262bf0cef220f1a6943946e421d (HEAD -> master, origin/master, origin/HEAD)
+Merge: 5991092 dd2dce8
+Author: myrtle <gatecat@ds0.me>
+Date:   Sat Feb 18 16:37:53 2023 +0100
+
+    Merge pull request #311 from YosysHQ/fix-wasm-compat
+    
+    icebram: fix WebAssembly compatibility
+
+devel@pi4-30:~/icestorm $ less .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = https://github.com/develone/icestorm.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+
+yosys
+devel@pi4-30:~/yosys $ git log
+commit b52f6cb1991b7117d23fa119bf808f9fc1849789 (HEAD -> master, origin/master, origin/HEAD)
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   Sat Sep 30 00:14:39 2023 +0000
+
+    Bump version
+
+devel@pi4-30:~/yosys $ less .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = https://github.com/develone/yosys.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+
+nextpnr
+devel@pi4-30:~/nextpnr $ git log
+commit e8602fb56dce316be506fb69a12f6380eb113712 (HEAD -> master, origin/master, origin/HEAD)
+Author: rowanG077 <goemansrowan@gmail.com>
+Date:   Thu Sep 28 14:26:13 2023 +0200
+
+    std::numeric_limits<delay_t>::lowest() -> ::min()
+
+devel@pi4-30:~/nextpnr $ less .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = https://github.com/develone/nextpnr.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+
+verilator
+devel@pi4-30:~/verilator $ git log
+commit 44e7d2ebe6c6fbd09ae939623623d8ea3e599690 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ryszard Rozak <rrozak@antmicro.com>
+Date:   Fri Sep 29 12:23:51 2023 +0200
+
+    Internals: rename VPurity class and related functions. No functional change (#4523)
+
+devel@pi4-30:~/verilator $ less .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = https://github.com/develone/verilator.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
