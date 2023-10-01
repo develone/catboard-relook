@@ -1,0 +1,40 @@
+devel@pi4-40:~ $ git clone https://github.com/develone/catboard_yosys.git
+
+cd /usr/local/bin
+
+sudo ln -sf  /home/devel/catboard_yosys/config_cat config_cat
+
+sudo ln -sf /home/devel/catboard_yosys/reset_cat reset_cat
+
+devel@pi4-40:~/rtl-testing/basic $ ls -la /usr/local/bin/config_cat 
+lrwxrwxrwx 1 root root 37 Oct  1 11:40 /usr/local/bin/config_cat -> /home/devel/catboard_yosys/config_cat
+
+lrwxrwxrwx 1 root root 36 Oct  1 11:40 /usr/local/bin/reset_cat -> /home/devel/catboard_yosys/reset_cat
+
+devel@pi4-40:~/rtl-testing/basic $ sudo config_cat blinky.bin 
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0248966 s, 5.4 MB/s
+Setting output to high
+1
+Checking DONE pin
+0
