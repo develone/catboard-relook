@@ -1,4 +1,8 @@
 10/04/23
+modified:   rtl/catzip/wbxbar.v
+https://github.com/ZipCPU/eth10g/blob/master/rtl/wb2axip/wbxbar.v
+was recommended by Dan Gisselquist 
+
 git clone https://github.com/develone/102121icozip.git -b catzip
 
 commit 4a3eb6ffc351f1659112f764e3aaa789d6d7a7a1 (HEAD -> catzip, origin/catzip)
@@ -46,6 +50,10 @@ index ed403ee..9a2135d 100644
 
 devel@pi4-20:~/102121icozip $ . myenv-a.sh 
 /home/devel/zipcpu/sw/install/cross-tools/bin:/home/devel/zipcpu/sw/install/cross-tools/bin:/home/devel/zipcpu/sw/install/cross-tools/bin:/home/devel/.pyenv/plugins/pyenv-virtualenv/shims:/home/devel/.pyenv/shims:/home/devel/.pyenv/bin:/home/devel/local/openocd/bin:/home/devel/qemu-6.2.0-rpios/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+
+make gets errror
+make rtl
+make sw
 
 devel@pi4-40:~/rtl-testing/pi4-20/102121icozip/rtl/catzip $ sudo config_cat catzip.bin 
 
