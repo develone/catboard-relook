@@ -88,3 +88,80 @@ devel@pi4-30:~/verilator $ less .git/config
 [branch "master"]
         remote = origin
         merge = refs/heads/master
+devel@pi4-20:~ $ git clone https://github.com/develone/arachne-pnr.git
+Cloning into 'arachne-pnr'...
+remote: Enumerating objects: 1965, done.
+remote: Total 1965 (delta 0), reused 0 (delta 0), pack-reused 1965
+Receiving objects: 100% (1965/1965), 633.31 KiB | 1.34 MiB/s, done.
+Resolving deltas: 100% (1374/1374), done.
+devel@pi4-20:~ $ cd arachne-pnr/
+devel@pi4-20:~/arachne-pnr $ make
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/arachne-pnr.o src/arachne-pnr.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/netlist.o src/netlist.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/blif.o src/blif.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/pack.o src/pack.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/place.o src/place.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/util.o src/util.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/io.o src/io.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/route.o src/route.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/chipdb.o src/chipdb.cc
+In file included from src/bstream.hh:19,
+                 from src/location.hh:19,
+                 from src/chipdb.hh:19,
+                 from src/chipdb.cc:16:
+src/util.hh: In instantiation of ‘std::set<typename M::key_type> keys(const M&) [with M = std::map<CBit, bool>; typename M::key_type = CBit]’:
+src/chipdb.cc:73:23:   required from here
+src/util.hh:191:24: warning: moving a local object in a return statement prevents copy elision [-Wpessimizing-move]
+  191 |   return std::move(keys);
+      |                        ^
+src/util.hh:191:24: note: remove ‘std::move’ call
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/location.o src/location.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/configuration.o src/configuration.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/line_parser.o src/line_parser.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/pcf.o src/pcf.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/global.o src/global.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/constant.o src/constant.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/designstate.o src/designstate.cc
+echo "const char *version_str = \"arachne-pnr 0.1+328+0 (git sha1 c40fb22, g++ `g++ --version | tr ' ()' '\n' | grep '^[0-9]' | head -n1` -O2)\";" > src/version_34321.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare   -c -o src/version_34321.o src/version_34321.cc
+g++ -Isrc -std=c++11 -MD -O2 -Wall -Wshadow -Wsign-compare  -o bin/arachne-pnr src/arachne-pnr.o src/netlist.o src/blif.o src/pack.o src/place.o src/util.o src/io.o src/route.o src/chipdb.o src/location.o src/configuration.o src/line_parser.o src/pcf.o src/global.o src/constant.o src/designstate.o src/version_34321.o -lm
+cp bin/arachne-pnr bin/arachne-pnr-host
+mkdir -p share/arachne-pnr
+./bin/arachne-pnr-host -d 384 -c /usr/local/share/icebox/chipdb-384.txt --write-binary-chipdb share/arachne-pnr/chipdb-384.bin
+seed: 1
+device: 384
+read_chipdb /usr/local/share/icebox/chipdb-384.txt...
+write_binary_chipdb share/arachne-pnr/chipdb-384.bin
+mkdir -p share/arachne-pnr
+./bin/arachne-pnr-host -d 1k -c /usr/local/share/icebox/chipdb-1k.txt --write-binary-chipdb share/arachne-pnr/chipdb-1k.bin
+seed: 1
+device: 1k
+read_chipdb /usr/local/share/icebox/chipdb-1k.txt...
+write_binary_chipdb share/arachne-pnr/chipdb-1k.bin
+mkdir -p share/arachne-pnr
+./bin/arachne-pnr-host -d 8k -c /usr/local/share/icebox/chipdb-8k.txt --write-binary-chipdb share/arachne-pnr/chipdb-8k.bin
+seed: 1
+device: 8k
+read_chipdb /usr/local/share/icebox/chipdb-8k.txt...
+write_binary_chipdb share/arachne-pnr/chipdb-8k.bin
+mkdir -p share/arachne-pnr
+./bin/arachne-pnr-host -d 8k -c /usr/local/share/icebox/chipdb-5k.txt --write-binary-chipdb share/arachne-pnr/chipdb-5k.bin
+seed: 1
+device: 8k
+read_chipdb /usr/local/share/icebox/chipdb-5k.txt...
+write_binary_chipdb share/arachne-pnr/chipdb-5k.bin
+mkdir -p share/arachne-pnr
+./bin/arachne-pnr-host -d 8k -c /usr/local/share/icebox/chipdb-lm4k.txt --write-binary-chipdb share/arachne-pnr/chipdb-lm4k.bin
+seed: 1
+device: 8k
+read_chipdb /usr/local/share/icebox/chipdb-lm4k.txt...
+write_binary_chipdb share/arachne-pnr/chipdb-lm4k.bin
+devel@pi4-20:~/arachne-pnr $ sudo make install
+mkdir -p /usr/local/bin
+cp bin/arachne-pnr /usr/local/bin/arachne-pnr
+mkdir -p /usr/local/share/arachne-pnr
+cp share/arachne-pnr/chipdb-384.bin /usr/local/share/arachne-pnr/chipdb-384.bin
+cp share/arachne-pnr/chipdb-1k.bin /usr/local/share/arachne-pnr/chipdb-1k.bin
+cp share/arachne-pnr/chipdb-8k.bin /usr/local/share/arachne-pnr/chipdb-8k.bin
+cp share/arachne-pnr/chipdb-5k.bin /usr/local/share/arachne-pnr/chipdb-5k.bin
+cp share/arachne-pnr/chipdb-lm4k.bin /usr/local/share/arachne-pnr/chipdb-lm4k.bin
