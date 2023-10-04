@@ -1,0 +1,10 @@
+devel@pi4-20:~ $ pip3 install myhdl
+
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting myhdl
+  Downloading https://www.piwheels.org/simple/myhdl/myhdl-0.11-py2.py3-none-any.whl (152 kB)
+     |████████████████████████████████| 152 kB 228 kB/s 
+Installing collected packages: myhdl
+Successfully installed myhdl-0.11
+
+https://github.com/develone/learning_hdl.git
