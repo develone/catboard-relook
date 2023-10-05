@@ -1,0 +1,82 @@
+pi4-30
+
+devel@pi4-40:~/rtl-testing/pi4-30/102121icozip/rtl/catzip $ sudo config_cat catzip.bin 
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0289794 s, 4.7 MB/s
+Setting output to high
+1
+Checking DONE pin
+
+
+devel@pi4-40:~/rtl-testing/pi4-30/102121icozip/sw/host $ ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+
+devel@pi4-40:~/rtl-testing/pi4-30/102121icozip/sw/host $ ./arm-zipload ../board/cputest
+Halting the CPU
+Loading: ../board/cputest
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+
+devel@pi4-40:~/rtl-testing/pi4-30/102121icozip/sw/host $ ./arm-wbregs cpu 0x0f
+04000000 (     CPU)-> 0000000f
+
+Command port disconnect
+. 
+. Running CPU self-test
+. -----------------------------------
+. SIM Instructions                Pass
+. CIS Instructions                Supported
+. Break test #1                   Pass
+. Break test #2                   Pass
+. Break test #3                   Pass
+. Early Branch test               Pass
+. Trap test/AND                   Pass
+. Trap test/CLR                   Pass
+. Overflow test                   Pass
+. Carry test                      Pass
+. Loop test                       Pass
+. Shift test                      Pass
+. Pipeline test                   Pass
+. Mem-Pipeline test               Pass
+. Conditional Execution test      Pass
+. No-waiting pipeline test        Pass
+. Conditional Branching test      Pass
+. Ill Instruction test, NULL PC   Pass
+. Ill Instruction test, two       Pass
+. Comparison test, ==             Pass
+. Comparison test, !=             Pass
+. CC Register test                Pass
+. Multi-Arg test                  Pass
+. Multiply test                   Pass
+. Multiply HI-word test           Pass
+. Divide test                     Pass
+. 
+. -----------------------------------
+. All tests passed.  Halting CPU.
+
