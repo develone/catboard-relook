@@ -1,0 +1,71 @@
+pi4-30
+
+devel@pi4-40:~/rtl-testing/pi4-30/102121icozip/rtl/catzip $ sudo config_cat catzip.bin 
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0289794 s, 4.7 MB/s
+Setting output to high
+1
+Checking DONE pin
+
+
+devel@pi4-40:~/rtl-testing/pi4-30/102121icozip/sw/host $ ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+
+devel@pi4-40:~/rtl-testing/pi4-30/102121icozip/sw/host $ ./arm-zipload ../board/jpeg
+Halting the CPU
+Loading: ../board/jpeg
+Clearing the CPUs registers
+Setting PC to 02000000
+The CPU should be fully loaded, you may now
+start it (from reset/reboot) with:
+> wbregs cpu 0x0f
+
+CPU Status is: 0000060f
+
+
+devel@pi4-40:~/rtl-testing/pi4-30/102121icozip/sw/host $ ./arm-wbregs cpu 0x0f
+Command port disconnect
+. w=256  h=256
+. 1401000 0 
+. flag 0 0x204fdf8
+. 1401004 0 
+. 140100c 200fdf8 
+.  ptrs.alt 0x2054498 0x200fdf8
+. 131072 
+. 0x200fdf8 0x0
+. 0x200fdfc 0x0
+. 0x200fe00 0x0
+. 0x200fe04 0x0
+. 
+. 0x202fdf8 0x0
+. 0x202fdfc 0x0
+. 0x202fe00 0x0
+. 0x202fe04 0x0
+. 
+. 0x204fde8 0x0
+. 0x204fdec 0x0
+. 0x204fdf0 0x0
+. 0x204fdf4 0x0
+. 256 0x200fdf8 0x2054498 0x 1401004 
+. 256  
