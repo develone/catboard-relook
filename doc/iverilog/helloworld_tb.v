@@ -1,3 +1,5 @@
+`timescale 1ns/10ps
+
 module helloworld_tb();
 wire o_ledg,i_rts,i_uart_rx,o_cts,o_uart_tx;
 reg i_clk;
@@ -9,6 +11,12 @@ forever begin
 i_clk = 0;
 #10 i_clk = ~i_clk;
 end
+end
+
+initial
+begin
+#1920000
+$finish();
 end
 
 initial
