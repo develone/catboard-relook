@@ -1,0 +1,54 @@
+https://www.youtube.com/watch?v=PJGvZSlsLKs
+This course will provide an overview of the Verilog hardware description language (HDL) 
+and its use in programmable logic design. The emphasis is on the synthesis constructs 
+of Verilog HDL; however, you will also learn about some simulation constructs. 
+You will gain a basic understanding of Verilog HDL that will enable you to begin creating your design.
+
+Course Outline
+	Verilog HDL Overview
+	Basic Structure of a Verilog HDL Model
+	Components of a Verilog HDL Module
+		Ports
+		Data Types
+		Assigning Values and Numbers
+		Operators
+		Behavioral Modeling
+			Continusous Assignments
+			Procedural Blocks
+		Tasks and Functions
+What is Verilog?
+	IEEE indsustry standard Hardware Description Language (HDL)
+	used to describe a digital system.
+	Used in both hard simulation & synthesis
+Verilog History
+	Introduced in 1984 by Gateway Design Automation
+	1989 Cadence puchased Gateway and subsequently 
+	released Verilog to the public
+	Open Verilog International (OVI) was formed to control
+	the language specfications
+	1995 IEEE accepted OVI Verilog as a standard
+	2001 and 2005 IEEE revised standard
+	2009 Merged with SystemVerilog becoming IEEE
+	Standard 1800-2009
+Verilog HDL Terminology
+	HDL: A text based programing language that is used 
+	to model a piece of hardware
+	Behavior Model: A componebtis described by its
+	input/output response
+	Structual Modeling: A component is descrribed by
+	interconnecting lower-level components/primitives
+Connecting Module Instantiation Ports
+	Two methids to define port connections
+		By order list
+		By name
+By order list (1st half adder*)
+	Port connections defined by the order of 
+	the port in the lower-level module
+	declaration
+		module half_adder (co, sum, a, b);
+	Order of the port connections does matter
+		co > c1, sum -> s1, a -> a, b -> b
+By name (2nd half_adder)
+	Port connections defined by name
+	Reecomended method
+	Order of port connections does not matter
