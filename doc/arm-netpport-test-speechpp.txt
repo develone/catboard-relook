@@ -1,3 +1,49 @@
+This required building the tree on pi4-20 & pi4-30.
+	autofpga-093023-326013.img
+	icestorm-093023-d20a5e9.img
+ 	nextpnr-093023-e8602f.img
+ 	verilator-093023-44e7d2.img
+	yosys-093023-b52f6c.img
+	zipcpu-093023-760853.img
+	WiringPi-093023-f97a62.img
+devel@pi4-60:~ $ cd WiringPi/
+devel@pi4-60:~/WiringPi $ ./build
+devel@pi4-30:~ $ scp 102121icozip/rtl/catzip/wbxbar.v pi4-60:/home/devel/catzip-build/102121icozip/rtl/catzip/
+rtl/catzip/cpu/zipcpu.v need to comment ln # 256
+
+
+devel@pi4-30:~ $ ls -la /usr/local/bin/autofpga 
+lrwxrwxrwx 1 root root 32 Sep 28 19:52 /usr/local/bin/autofpga -> /home/devel/autofpga/sw/autofpga
+devel@pi4-30:~ $ shasum /usr/local/bin/autofpga 
+9875a409ab014caea43324d79cb4127a6f5391a7  /usr/local/bin/autofpga
+devel@pi4-30:~ $ cd autofpga/sw/
+devel@pi4-30:~/autofpga/sw $ shasum /usr/local/bin/autofpga 
+9875a409ab014caea43324d79cb4127a6f5391a7  /usr/local/bin/autofpga
+
+sudo unsquashfs the tools
+
+devel@pi4-20:/usr/local/bin $ ls -la autofpga 
+
+lrwxrwxrwx 1 root root 32 Oct  6 05:26 autofpga -> /home/devel/autofpga/sw/autofpga
+
+cd icestorm
+sudo make install
+
+cd nextpnr
+sudo make install
+
+cd yosys
+sudo make install
+
+cd verialator
+sudo make install
+
+devel@pi4-20:~/autofpga/sw $ shasum autofpga 
+9875a409ab014caea43324d79cb4127a6f5391a7  autofpga
+
+git clone https://github.com/develone/102121icozip.git -b catzip
+devel@pi4-30:~ $ rsync -avl --delete 102121icozip pi4-40:/home/devel/rtl-testing/pi4-30/
+
 devel@pi4-40:~/rtl-testing/pi4-30/102121icozip/rtl/pptest $ sudo config_cat speechpp.bin 
 
 OK: GPIO 25 exported
@@ -62,3 +108,65 @@ Listening on port 8364
 . |===================================================================|
 . 
  
+devel@pi4-40:~/rtl-testing/pi4-20/102121icozip/rtl/pptest $ sudo config_cat speechpp.bin
+
+OK: GPIO 25 exported
+OK: GPIO 17 exported
+OK: GPIO 22 exported
+
+OK: SPI driver loaded
+
+Setting GPIO directions
+out
+out
+in
+Setting output to low
+0
+Reseting FPGA
+0
+1
+Checking DONE pin
+0
+Continuing with configuration procedure
+263+1 records in
+263+1 records out
+135100 bytes (135 kB, 132 KiB) copied, 0.0297501 s, 4.5 MB/s
+Setting output to high
+1
+Checking DONE pin
+1
+devel@pi4-40:~/rtl-testing/pi4-20/102121icozip/sw/host $ ./arm-netpport 
+Listening on port 8363
+Listening on port 8364
+. |===================================================================|
+. |                                                                   |
+. | Four score and seven years ago our fathers brought forth on this  |
+. | continent, a new nation, conceived in Liberty, and dedicated to   |
+. | the proposition that all men are created equal.                   |
+. |                                                                   |
+. | Now we are engaged in a great civil war, testing whether that     |
+. | nation, or any nation so conceived and so dedicated, can long     |
+. | endure. We are met on a great battle-field of that war. We have   |
+. | come to dedicate a portion of that field, as a final resting      |
+. | place for those who here gave their lives that that nation might  |
+. | live. It is altogether fitting and proper that we should do this. |
+. |                                                                   |
+. | But, in a larger sense, we can not dedicate-we can not consecrate-|
+. | we can not hallow-this ground. The brave men, living and dead,    |
+. | who struggled here, have consecrated it, far above our poor power |
+. | to add or detract. The world will little note, nor long remember  |
+. | what we say here, but it can never forget what they did here. It  |
+. | is for us the living, rather, to be dedicated here to the         |
+. | unfinished work which they who fought here have thus far so nobly |
+. | advanced. It is rather for us to be here dedicated to the great   |
+. | task remaining before us-that from these honored dead we take     |
+. | increased devotion to that cause for which they gave the last     |
+. | full measure of devotion-that we here highly resolve that these   |
+. | dead shall not have died in vain-that this nation, under God,     |
+. | shall have a new birth of freedom-and that government of the      |
+. | people, by the people, for the people, shall not perish from the  |
+. | earth.                                                            |
+. |                                                                   |
+. |                                                                   |
+. |===================================================================|
+.
