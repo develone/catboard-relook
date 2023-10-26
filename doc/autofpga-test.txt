@@ -1,0 +1,65 @@
+The following was added to the Makefile in 102121icozip/autodata
+
+DATA := global.txt bkram.txt buserr.txt clockpll40.txt          \
+        pic.txt pwrcount.txt version.txt                        \
+        hbconsole.txt gpio.txt  zipbones.txt sdramdev.txt \
+        mem_sdram_bkram.txt wbscopc.txt
+
+make --no-print-directory --directory=auto-data
+autofpga -d -o . global.txt bkram.txt buserr.txt clockpll40.txt pic.txt pwrcount.txt version.txt hbconsole.txt gpio.txt  zipbones.txt sdramdev.txt mem_sdram_bkram.txt wbscopc.txt
+Opened autofpga.dbg
+Clock: clk, is i_clk at 40 MHz
+All clocks enumerated
+WARNING: Bus wb has no associated reset wire, using 'i_reset'
+WARNING: Bus hb has no associated reset wire, using 'i_reset'
+Checking whether or not yosys is installed and in your path
+Checking whether or not icepack is installed and in your path
+Checking whether or not icetime is installed and in your path
+make --no-print-directory -C rtl
+make --no-print-directory -C catzip
+Building cpudefs.h
+Building design.h
+make[2]: *** No rule to make target 'wbscope/wbscopc.v', needed by 'obj-arm/Vmain.h'.  Stop.
+make[1]: *** [Makefile:72: catzip] Error 2
+make: *** [Makefile:151: rtl] Error 2
+
++`ifdef SCOPC_SCOPC
++       // {{{
++       wbscopc #(.LGMEM(12),
++               .SYNCHRONOUS(1))
++       scopci(i_clk, 1'b1, @$(TRIGGER), @$(DEBUG),
++               i_clk, wb_scopc_cyc, wb_scopc_stb, wb_scopc_we,
++                       wb_scopc_addr[1-1:0],
++                       wb_scopc_data, // 32 bits wide
++                       wb_scopc_sel,  // 32/8 bits wide
++               wb_scopc_stall, wb_scopc_ack, wb_scopc_idata,
++               scopc_int);
++       // }}}
++`else  // SCOPC_SCOPC
++       // {{{
++       assign  scopc_int = 0;
++       // Null bus slave
++       // {{{
++
++       //
++       // In the case that there is no wb_scopc peripheral
++       // responding on the wb bus
++       assign  wb_scopc_ack   = 1'b0;
++       assign  wb_scopc_err   = (wb_scopc_stb);
++       assign  wb_scopc_stall = 0;
++       assign  wb_scopc_idata = 0;
++
++       // }}}
++       // }}}
++`endif // SCOPC_SCOPC
+
+
+devel@pi4-30:~/102121icozip/rtl/catzip $ find . -name wbscopc.v
+./wbscopc.v
+./wbscope/wbscopc.v
+
+devel@pi4-30:~/102121icozip/rtl/catzip $ make bin
+yosys -ql yosys.log -p synth_ice40 -top toplevel ...
+main.v:843: ERROR: syntax error, unexpected '@'
+make: *** [Makefile:109: catzip.json] Error 1
+
