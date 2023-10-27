@@ -1,3 +1,5 @@
+rtl/debounce compiled before the chg in the pcf
+
 devel@pi4-20:~ $ icepll -i 100 -o 66
 
 F_PLLIN:   100.000 MHz (given)
