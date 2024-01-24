@@ -25,7 +25,8 @@ wire [8 * (uarts - 1) + 7:0] sig_rx_data;
 wire [8 * (uarts - 1) + 7:0] sig_tx_data;  //signal sig_rx_data : std_logic_vector(7 downto 0);
 //signal sig_tx_data : std_logic_vector(7 downto 0);
 reg [4:0] sig_led;
-
+wire [15:0] dout;
+wire [11:0] addrrom;
   assign led = sig_led;
   assign sig_led[4] = sig_counter[(23)];
   //led(3) <= sig_counter(sig_counter'left - 1);
@@ -54,7 +55,10 @@ reg [4:0] sig_led;
       end
     end
   end
-
+rom dutrom(
+    dout,
+    addrrom
+);
   genvar i;
   generate for (i=0; i <= uarts - 1; i = i + 1) begin: gen_loop
       uart #(
