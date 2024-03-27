@@ -14,16 +14,52 @@ wget https://raw.githubusercontent.com/enjoy-digital/litex/master/litex_setup.py
 
 chmod +x litex_setup.py
 
-./litex_setup.py --init --install --user (--user to install to user directory)
+(--user to install to user directory)
 ./litex_setup.py --init --install devel
 
-git clone git://github.com/m-labs/migen.git
+pip3 install scipy
 
-git clone https://github.com/m-labs/migen.git
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting scipy
+  Using cached scipy-1.12.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (34.8 MB)
+Collecting numpy<1.29.0,>=1.22.4
+  Using cached numpy-1.26.4-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (14.2 MB)
+Installing collected packages: numpy, scipy
+Successfully installed numpy-1.26.4 scipy-1.12.0
+
+pip3 install matplotlib
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting matplotlib
+  Using cached matplotlib-3.8.3-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (11.4 MB)
+Collecting pillow>=8
+  Using cached pillow-10.2.0-cp39-cp39-manylinux_2_28_aarch64.whl (4.3 MB)
+Collecting pyparsing>=2.3.1
+  Using cached https://www.piwheels.org/simple/pyparsing/pyparsing-3.1.2-py3-none-any.whl (103 kB)
+Requirement already satisfied: numpy<2,>=1.21 in ./env/lib/python3.9/site-packages (from matplotlib) (1.26.4)
+Collecting cycler>=0.10
+  Using cached https://www.piwheels.org/simple/cycler/cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Collecting importlib-resources>=3.2.0
+  Using cached https://www.piwheels.org/simple/importlib-resources/importlib_resources-6.4.0-py3-none-any.whl (38 kB)
+Requirement already satisfied: packaging>=20.0 in ./env/lib/python3.9/site-packages (from matplotlib) (24.0)
+Collecting fonttools>=4.22.0
+  Using cached fonttools-4.50.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (4.6 MB)
+Collecting python-dateutil>=2.7
+  Using cached https://www.piwheels.org/simple/python-dateutil/python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Collecting kiwisolver>=1.3.1
+  Using cached kiwisolver-1.4.5-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (1.4 MB)
+Collecting contourpy>=1.0.1
+  Using cached contourpy-1.2.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (292 kB)
+Collecting zipp>=3.1.0
+  Using cached https://www.piwheels.org/simple/zipp/zipp-3.18.1-py3-none-any.whl (8.2 kB)
+Collecting six>=1.5
+  Using cached https://www.piwheels.org/simple/six/six-1.16.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: zipp, six, python-dateutil, pyparsing, pillow, kiwisolver, importlib-resources, fonttools, cycler, contourpy, matplotlib
+Successfully installed contourpy-1.2.0 cycler-0.12.1 fonttools-4.50.0 importlib-resources-6.4.0 kiwisolver-1.4.5 matplotlib-3.8.3 pillow-10.2.0 pyparsing-3.1.2 python-dateutil-2.9.0.post0 six-1.16.0 zipp-3.18.1
+
 
 python3 setup.py install
 
-export PYTHONPATH=‘pwd‘/migen
+
 
 https://github.com/enjoy-digital/litex/wiki/Tutorials-Resources
 
@@ -37,9 +73,8 @@ arrays.v  local_cd.v  namer.v  record.v   tristate.v
 fsm.v     memory.v    psync.v  reslice.v  two_dividers.v
 cd ~/litex-migen/migen/examples/sim
 
-pip3 install scipy
 
-python3 install matplotlib
+ 
 
 https://m-labs.hk/migen/manual/introduction.html
 
