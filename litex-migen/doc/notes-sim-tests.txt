@@ -1,0 +1,2648 @@
+pip3 install meson
+sudo ./litex_setup.py --gcc=riscv
+sudo apt-get install libjson-c-dev
+cd verilator_testing
+litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware
+
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ chmod +x build_sim.sh
+
+(env) devel@pi4-30:~/litex-migen/verilator_testing $ litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware
+INFO:SoC:        __   _ __      _  __  
+INFO:SoC:       / /  (_) /____ | |/_/  
+INFO:SoC:      / /__/ / __/ -_)>  <    
+INFO:SoC:     /____/_/\__/\__/_/|_|  
+INFO:SoC:  Build your hardware, easily!
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Creating SoC... (2024-03-27 19:23:31)
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:FPGA device : SIM.
+INFO:SoC:System clock: 1.000MHz.
+INFO:SoCBusHandler:Creating Bus Handler...
+INFO:SoCBusHandler:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoCBusHandler:Adding reserved Bus Regions...
+INFO:SoCBusHandler:Bus Handler created.
+INFO:SoCCSRHandler:Creating CSR Handler...
+INFO:SoCCSRHandler:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoCCSRHandler:Adding reserved CSRs...
+INFO:SoCCSRHandler:CSR Handler created.
+INFO:SoCIRQHandler:Creating IRQ Handler...
+INFO:SoCIRQHandler:IRQ Handler (up to 32 Locations).
+INFO:SoCIRQHandler:Adding reserved IRQs...
+INFO:SoCIRQHandler:IRQ Handler created.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Initial SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoC:IRQ Handler (up to 32 Locations).
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Controller ctrl added.
+INFO:SoC:CPU vexriscv added.
+INFO:SoC:CPU vexriscv adding IO Region 0 at 0x80000000 (Size: 0x80000000).
+INFO:SoCBusHandler:io0 Region added at Origin: 0x80000000, Size: 0x80000000, Mode:  RW, Cached: False, Linker: False.
+INFO:SoC:CPU vexriscv overriding sram mapping from 0x01000000 to 0x10000000.
+INFO:SoC:CPU vexriscv setting reset address to 0x00000000.
+INFO:SoC:CPU vexriscv adding Bus Master(s).
+INFO:SoCBusHandler:cpu_bus0 added as Bus Master.
+INFO:SoCBusHandler:cpu_bus1 added as Bus Master.
+INFO:SoC:CPU vexriscv adding Interrupt(s).
+INFO:SoC:CPU vexriscv adding SoC components.
+INFO:SoCBusHandler:rom Region added at Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:rom added as Bus Slave.
+INFO:SoC:RAM rom added Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram Region added at Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram added as Bus Slave.
+INFO:SoC:RAM sram added Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram Region added at Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram added as Bus Slave.
+INFO:SoC:RAM main_ram added Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCIRQHandler:uart IRQ allocated at Location 0.
+INFO:SoCIRQHandler:timer0 IRQ allocated at Location 1.
+INFO:SoC:        __   _ __      _  __  
+INFO:SoC:       / /  (_) /____ | |/_/  
+INFO:SoC:      / /__/ / __/ -_)>  <    
+INFO:SoC:     /____/_/\__/\__/_/|_|  
+INFO:SoC:  Build your hardware, easily!
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Creating SoC... (2024-03-27 19:23:32)
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:FPGA device : SIM.
+INFO:SoC:System clock: 1.000MHz.
+INFO:SoCBusHandler:Creating Bus Handler...
+INFO:SoCBusHandler:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoCBusHandler:Adding reserved Bus Regions...
+INFO:SoCBusHandler:Bus Handler created.
+INFO:SoCCSRHandler:Creating CSR Handler...
+INFO:SoCCSRHandler:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoCCSRHandler:Adding reserved CSRs...
+INFO:SoCCSRHandler:CSR Handler created.
+INFO:SoCIRQHandler:Creating IRQ Handler...
+INFO:SoCIRQHandler:IRQ Handler (up to 32 Locations).
+INFO:SoCIRQHandler:Adding reserved IRQs...
+INFO:SoCIRQHandler:IRQ Handler created.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Initial SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoC:IRQ Handler (up to 32 Locations).
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Controller ctrl added.
+INFO:SoC:CPU vexriscv added.
+INFO:SoC:CPU vexriscv adding IO Region 0 at 0x80000000 (Size: 0x80000000).
+INFO:SoCBusHandler:io0 Region added at Origin: 0x80000000, Size: 0x80000000, Mode:  RW, Cached: False, Linker: False.
+INFO:SoC:CPU vexriscv setting reset address to 0x00000000.
+INFO:SoC:CPU vexriscv adding Bus Master(s).
+INFO:SoCBusHandler:cpu_bus0 added as Bus Master.
+INFO:SoCBusHandler:cpu_bus1 added as Bus Master.
+INFO:SoC:CPU vexriscv adding Interrupt(s).
+INFO:SoC:CPU vexriscv adding SoC components.
+INFO:SoCBusHandler:rom Region added at Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:rom added as Bus Slave.
+INFO:SoC:RAM rom added Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram Region added at Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram added as Bus Slave.
+INFO:SoC:RAM sram added Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram Region added at Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram added as Bus Slave.
+INFO:SoC:RAM main_ram added Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCIRQHandler:uart IRQ allocated at Location 0.
+INFO:SoCIRQHandler:timer0 IRQ allocated at Location 1.
+INFO:SoC:CSR Bridge csr added.
+INFO:SoCBusHandler:csr Region added at Origin: 0xf0000000, Size: 0x00010000, Mode:  RW, Cached: False, Linker: False.
+INFO:SoCBusHandler:csr added as Bus Slave.
+INFO:SoCCSRHandler:csr added as CSR Master.
+INFO:SoCBusHandler:Interconnect: InterconnectShared (2 <-> 4).
+INFO:SoCCSRHandler:ctrl CSR allocated at Location 0.
+INFO:SoCCSRHandler:identifier_mem CSR allocated at Location 1.
+INFO:SoCCSRHandler:timer0 CSR allocated at Location 2.
+INFO:SoCCSRHandler:uart CSR allocated at Location 3.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Finalized SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+IO Regions: (1)
+io0                 : Origin: 0x80000000, Size: 0x80000000, Mode:  RW, Cached: False, Linker: False
+Bus Regions: (4)
+rom                 : Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False
+sram                : Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False
+main_ram            : Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False
+csr                 : Origin: 0xf0000000, Size: 0x00010000, Mode:  RW, Cached: False, Linker: False
+Bus Masters: (2)
+- cpu_bus0
+- cpu_bus1
+Bus Slaves: (4)
+- rom
+- sram
+- main_ram
+- csr
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+CSR Locations: (4)
+- ctrl           : 0
+- identifier_mem : 1
+- timer0         : 2
+- uart           : 3
+INFO:SoC:IRQ Handler (up to 32 Locations).
+IRQ Locations: (2)
+- uart   : 0
+- timer0 : 1
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:SoC Hierarchy:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:
+SimSoC
+└─── crg (CRG)
+└─── bus (SoCBusHandler)
+│    └─── _interconnect (InterconnectShared)
+│    │    └─── arbiter (Arbiter)
+│    │    │    └─── rr (RoundRobin)
+│    │    └─── decoder (Decoder)
+│    │    └─── timeout (Timeout)
+│    │    │    └─── waittimer_0* (WaitTimer)
+└─── csr (SoCCSRHandler)
+└─── irq (SoCIRQHandler)
+└─── ctrl (SoCController)
+└─── cpu (VexRiscv)
+│    └─── [VexRiscv]
+└─── rom (SRAM)
+└─── sram (SRAM)
+└─── main_ram (SRAM)
+└─── identifier (Identifier)
+└─── uart_phy (RS232PHYModel)
+└─── uart (UART)
+│    └─── ev (EventManager)
+│    │    └─── eventsourceprocess_0* (EventSourceProcess)
+│    │    └─── eventsourceprocess_1* (EventSourceProcess)
+│    └─── tx_fifo (SyncFIFO)
+│    │    └─── fifo (SyncFIFOBuffered)
+│    │    │    └─── fifo (SyncFIFO)
+│    └─── rx_fifo (SyncFIFO)
+│    │    └─── fifo (SyncFIFOBuffered)
+│    │    │    └─── fifo (SyncFIFO)
+└─── timer0 (Timer)
+│    └─── ev (EventManager)
+│    │    └─── eventsourceprocess_0* (EventSourceProcess)
+└─── csr_bridge (Wishbone2CSR)
+│    └─── fsm (FSM)
+└─── csr_bankarray (CSRBankArray)
+│    └─── csrbank_0* (CSRBank)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstorage_1* (CSRStorage)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    └─── sram_0* (SRAM)
+│    └─── csrbank_1* (CSRBank)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstorage_1* (CSRStorage)
+│    │    └─── csrstorage_2* (CSRStorage)
+│    │    └─── csrstorage_3* (CSRStorage)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    │    └─── csrstatus_1* (CSRStatus)
+│    │    └─── csrstatus_2* (CSRStatus)
+│    │    └─── csrstorage_4* (CSRStorage)
+│    └─── csrbank_2* (CSRBank)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    │    └─── csrstatus_1* (CSRStatus)
+│    │    └─── csrstatus_2* (CSRStatus)
+│    │    └─── csrstatus_3* (CSRStatus)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstatus_4* (CSRStatus)
+│    │    └─── csrstatus_5* (CSRStatus)
+└─── csr_interconnect (InterconnectShared)
+* : Generated name.
+[]: BlackBox.
+
+INFO:SoC:--------------------------------------------------------------------------------
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libc'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libc'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libcompiler_rt'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libcompiler_rt'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libbase'
+ CC       console.o
+ CC       system.o
+ CC       memtest.o
+ CC       uart.o
+ CC       spiflash.o
+ CC       i2c.o
+ CC       isr.o
+ AR       libbase.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libbase'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libfatfs'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libfatfs'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitespi'
+ CC       spiflash.o
+ AR       liblitespi.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitespi'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitedram'
+ CC       sdram.o
+ CC       bist.o
+ CC       sdram_dbg.o
+ CC       sdram_spd.o
+ CC       utils.o
+ CC       accessors.o
+ AR       liblitedram.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitedram'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libliteeth'
+ CC       udp.o
+ CC       mdio.o
+ AR       libliteeth.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libliteeth'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesdcard'
+ CC       sdcard.o
+ CC       spisdcard.o
+ AR       liblitesdcard.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesdcard'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesata'
+ CC       sata.o
+ AR       liblitesata.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesata'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/bios'
+ CC       boot.o
+ CC       cmd_bios.o
+ CC       cmd_mem.o
+ CC       cmd_boot.o
+ CC       cmd_i2c.o
+ CC       cmd_spiflash.o
+ CC       cmd_litedram.o
+ CC       cmd_liteeth.o
+ CC       cmd_litesdcard.o
+ CC       cmd_litesata.o
+ CC       sim_debug.o
+ CC       main.o
+ CC       crt0.o
+ CC       bios.elf
+chmod -x bios.elf
+ OBJCOPY  bios.bin
+chmod -x bios.bin
+python3 -m litex.soc.software.crcfbigen bios.bin --little
+python3 -m litex.soc.software.memusage bios.elf /home/devel/litex-migen/verilator_testing/build/sim/software/bios/../include/generated/regions.ld riscv64-unknown-elf
+
+ROM usage: 23.34KiB 	(18.24%)
+RAM usage: 1.62KiB 	(20.21%)
+
+rm crt0.o
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/bios'
+INFO:SoC:Initializing ROM rom with contents (Size: 0x5d70).
+INFO:SoC:Auto-Resizing ROM rom from 0x20000 to 0x5d70.
+(env) devel@pi4-30:~/litex-migen/verilator_testing $ cd sim
+-bash: cd: sim: No such file or directory
+(env) devel@pi4-30:~/litex-migen/verilator_testing $ cd build/sim/
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim $ ls
+gateware  software
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim $ cd gateware/
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ ls
+build_sim.sh   sim_header.h       sim_mem.init   sim.v
+modules        sim_init.cpp       sim_rom.init   variables.mak
+sim_config.js  sim_main_ram.init  sim_sram.init
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ ./build_sim.sh 
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware'
+mkdir -p modules
+make -C modules -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/Makefile
+make[1]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules'
+mkdir -p xgmii_ethernet
+make MOD=xgmii_ethernet -C xgmii_ethernet -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/xgmii_ethernet/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/xgmii_ethernet'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/xgmii_ethernet/../.. -o xgmii_ethernet.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/xgmii_ethernet/xgmii_ethernet.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o tapcfg.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/tapcfg.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o taplog.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/taplog.c
+cc -levent -shared -fPIC -lz -Wl,-soname,xgmii_ethernet.so -o xgmii_ethernet.so xgmii_ethernet.o tapcfg.o taplog.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/xgmii_ethernet'
+cp xgmii_ethernet/xgmii_ethernet.so xgmii_ethernet.so
+mkdir -p ethernet
+make MOD=ethernet -C ethernet -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/ethernet/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/ethernet'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/ethernet/../.. -o ethernet.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/ethernet/ethernet.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o tapcfg.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/tapcfg.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o taplog.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/taplog.c
+cc -levent -shared -fPIC -Wl,-soname,ethernet.so -o ethernet.so ethernet.o tapcfg.o taplog.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/ethernet'
+cp ethernet/ethernet.so ethernet.so
+mkdir -p serial2console
+make MOD=serial2console -C serial2console -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2console/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/serial2console'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2console/../.. -o serial2console.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2console/serial2console.c
+cc -levent -shared -fPIC -Wl,-soname,serial2console.so -o serial2console.so serial2console.o
+rm serial2console.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/serial2console'
+cp serial2console/serial2console.so serial2console.so
+mkdir -p serial2tcp
+make MOD=serial2tcp -C serial2tcp -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2tcp/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/serial2tcp'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2tcp/../.. -o serial2tcp.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2tcp/serial2tcp.c
+cc -levent -shared -fPIC -Wl,-soname,serial2tcp.so -o serial2tcp.so serial2tcp.o
+rm serial2tcp.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/serial2tcp'
+cp serial2tcp/serial2tcp.so serial2tcp.so
+mkdir -p clocker
+make MOD=clocker -C clocker -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/clocker/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/clocker'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/clocker/../.. -o clocker.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/clocker/clocker.c
+cc -levent -shared -fPIC -Wl,-soname,clocker.so -o clocker.so clocker.o
+rm clocker.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/clocker'
+cp clocker/clocker.so clocker.so
+mkdir -p spdeeprom
+make MOD=spdeeprom -C spdeeprom -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/spdeeprom/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/spdeeprom'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/spdeeprom/../.. -o spdeeprom.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/spdeeprom/spdeeprom.c
+cc -levent -shared -fPIC -Wl,-soname,spdeeprom.so -o spdeeprom.so spdeeprom.o
+rm spdeeprom.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/spdeeprom'
+cp spdeeprom/spdeeprom.so spdeeprom.so
+mkdir -p gmii_ethernet
+make MOD=gmii_ethernet -C gmii_ethernet -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/gmii_ethernet/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/gmii_ethernet'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/gmii_ethernet/../.. -o gmii_ethernet.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/gmii_ethernet/gmii_ethernet.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o tapcfg.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/tapcfg.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o taplog.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/taplog.c
+cc -levent -shared -fPIC -lz -Wl,-soname,gmii_ethernet.so -o gmii_ethernet.so gmii_ethernet.o tapcfg.o taplog.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/gmii_ethernet'
+cp gmii_ethernet/gmii_ethernet.so gmii_ethernet.so
+mkdir -p jtagremote
+make MOD=jtagremote -C jtagremote -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/jtagremote/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/jtagremote'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/jtagremote/../.. -o jtagremote.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/jtagremote/jtagremote.c
+cc -levent -shared -fPIC -Wl,-soname,jtagremote.so -o jtagremote.so jtagremote.o
+rm jtagremote.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/jtagremote'
+cp jtagremote/jtagremote.so jtagremote.so
+make[1]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules'
+mkdir -p /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/libdylib.o /home/devel/litex-migen/litex/litex/build/sim/core/libdylib.c
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/modules.o /home/devel/litex-migen/litex/litex/build/sim/core/modules.c
+In file included from /home/devel/litex-migen/litex/litex/build/sim/core/modules.c:6:
+In function ‘tinydir_readfile’,
+    inlined from ‘litex_sim_load_ext_modules’ at /home/devel/litex-migen/litex/litex/build/sim/core/modules.c:68:14:
+/home/devel/litex-migen/litex/litex/build/sim/core/tinydir.h:81:25: warning: ‘strcat’ accessing 4097 or more bytes at offsets 0 and 4096 may overlap 1 byte at offset 4096 [-Wrestrict]
+   81 | #define _tinydir_strcat strcat
+      |                         ^
+/home/devel/litex-migen/litex/litex/build/sim/core/tinydir.h:532:2: note: in expansion of macro ‘_tinydir_strcat’
+  532 |  _tinydir_strcat(file->path, file->name);
+      |  ^~~~~~~~~~~~~~~
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/pads.o /home/devel/litex-migen/litex/litex/build/sim/core/pads.c
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/parse.o /home/devel/litex-migen/litex/litex/build/sim/core/parse.c
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/sim.o /home/devel/litex-migen/litex/litex/build/sim/core/sim.c
+verilator -Wno-fatal -O3 --cc /home/devel/litex-migen/pythondata-cpu-vexriscv/pythondata_cpu_vexriscv/verilog/VexRiscv.v --cc /home/devel/litex-migen/verilator_testing/build/sim/gateware/sim.v  --top-module sim --exe \
+	-DPRINTF_COND=0 \
+	sim_init.cpp /home/devel/litex-migen/litex/litex/build/sim/core/veril.cpp libdylib.o modules.o pads.o parse.o sim.o \
+	--top-module sim \
+	 \
+	-CFLAGS "-ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core" \
+	-LDFLAGS "-lpthread -Wl,--no-as-needed -ljson-c -lz -lm -lstdc++ -Wl,--no-as-needed -ldl -levent " \
+	--trace \
+	 \
+	 \
+	--unroll-count 256 \
+	--output-split 5000 \
+	--output-split-cfuncs 500 \
+	--output-split-ctrace 500 \
+	 \
+	-Wno-BLKANDNBLK \
+	-Wno-WIDTH \
+	-Wno-COMBDLY \
+	-Wno-CASEINCOMPLETE \
+	--relative-includes
+make -j -C /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir -f Vsim.mk Vsim
+make[1]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir'
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -Os -c -o veril.o /home/devel/litex-migen/litex/litex/build/sim/core/veril.cpp
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -Os -c -o sim_init.o ../sim_init.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -x c++-header Vsim__pch.h -o Vsim__pch.h.fast.gch
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -x c++-header Vsim__pch.h -o Vsim__pch.h.slow.gch
+echo "" > Vsim__ALL.verilator_deplist.tmp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim.o Vsim.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim___024root__DepSet_h104c642d__0.o Vsim___024root__DepSet_h104c642d__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim___024root__DepSet_hb1836b75__0.o Vsim___024root__DepSet_hb1836b75__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_sim__DepSet_h837b84dc__0.o Vsim_sim__DepSet_h837b84dc__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_sim__DepSet_h40728c06__0.o Vsim_sim__DepSet_h40728c06__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_VexRiscv__DepSet_hda50bfa8__0.o Vsim_VexRiscv__DepSet_hda50bfa8__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_VexRiscv__DepSet_h9f7c89a9__0.o Vsim_VexRiscv__DepSet_h9f7c89a9__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_VexRiscv__DepSet_h9f7c89a9__1.o Vsim_VexRiscv__DepSet_h9f7c89a9__1.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim__Dpi.o Vsim__Dpi.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim__Trace__0.o Vsim__Trace__0.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__ConstPool_0.o Vsim__ConstPool_0.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim___024root__Slow.o Vsim___024root__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim___024root__DepSet_h104c642d__0__Slow.o Vsim___024root__DepSet_h104c642d__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim___024root__DepSet_hb1836b75__0__Slow.o Vsim___024root__DepSet_hb1836b75__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_sim__Slow.o Vsim_sim__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_sim__DepSet_h837b84dc__0__Slow.o Vsim_sim__DepSet_h837b84dc__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_sim__DepSet_h40728c06__0__Slow.o Vsim_sim__DepSet_h40728c06__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_VexRiscv__Slow.o Vsim_VexRiscv__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.o Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.o Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.o Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__Syms.o Vsim__Syms.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__Trace__0__Slow.o Vsim__Trace__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__TraceDecls__0__Slow.o Vsim__TraceDecls__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__Trace__1__Slow.o Vsim__Trace__1__Slow.cpp
+Archive ar -rcs Vsim__ALL.a Vsim.o Vsim___024root__DepSet_h104c642d__0.o Vsim___024root__DepSet_hb1836b75__0.o Vsim_sim__DepSet_h837b84dc__0.o Vsim_sim__DepSet_h40728c06__0.o Vsim_VexRiscv__DepSet_hda50bfa8__0.o Vsim_VexRiscv__DepSet_h9f7c89a9__0.o Vsim_VexRiscv__DepSet_h9f7c89a9__1.o Vsim__Dpi.o Vsim__Trace__0.o Vsim__ConstPool_0.o Vsim___024root__Slow.o Vsim___024root__DepSet_h104c642d__0__Slow.o Vsim___024root__DepSet_hb1836b75__0__Slow.o Vsim_sim__Slow.o Vsim_sim__DepSet_h837b84dc__0__Slow.o Vsim_sim__DepSet_h40728c06__0__Slow.o Vsim_VexRiscv__Slow.o Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.o Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.o Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.o Vsim__Syms.o Vsim__Trace__0__Slow.o Vsim__TraceDecls__0__Slow.o Vsim__Trace__1__Slow.o
+g++    veril.o sim_init.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vsim__ALL.a   libdylib.o modules.o pads.o parse.o sim.o -lpthread -Wl,--no-as-needed -ljson-c -lz -lm -lstdc++ -Wl,--no-as-needed -ldl -levent  -pthread -lpthread -latomic   -o Vsim
+rm Vsim__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir'
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware'
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ ls
+build_sim.sh  sim_config.js  sim_main_ram.init  sim_sram.init
+modules       sim_header.h   sim_mem.init       sim.v
+obj_dir       sim_init.cpp   sim_rom.init       variables.mak
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ ls modules/
+clocker      gmii_ethernet     serial2console     spdeeprom
+clocker.so   gmii_ethernet.so  serial2console.so  spdeeprom.so
+ethernet     jtagremote        serial2tcp         xgmii_ethernet
+ethernet.so  jtagremote.so     serial2tcp.so      xgmii_ethernet.so
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ ls obj_dir/
+libdylib.o
+modules.o
+pads.o
+parse.o
+sim_init.d
+sim_init.o
+sim.o
+verilated.d
+verilated_dpi.d
+verilated_dpi.o
+verilated.o
+verilated_threads.d
+verilated_threads.o
+verilated_vcd_c.d
+verilated_vcd_c.o
+veril.d
+veril.o
+Vsim
+Vsim___024root__DepSet_h104c642d__0.cpp
+Vsim___024root__DepSet_h104c642d__0.d
+Vsim___024root__DepSet_h104c642d__0.o
+Vsim___024root__DepSet_h104c642d__0__Slow.cpp
+Vsim___024root__DepSet_h104c642d__0__Slow.d
+Vsim___024root__DepSet_h104c642d__0__Slow.o
+Vsim___024root__DepSet_hb1836b75__0.cpp
+Vsim___024root__DepSet_hb1836b75__0.d
+Vsim___024root__DepSet_hb1836b75__0.o
+Vsim___024root__DepSet_hb1836b75__0__Slow.cpp
+Vsim___024root__DepSet_hb1836b75__0__Slow.d
+Vsim___024root__DepSet_hb1836b75__0__Slow.o
+Vsim___024root.h
+Vsim___024root__Slow.cpp
+Vsim___024root__Slow.d
+Vsim___024root__Slow.o
+Vsim__ALL.a
+Vsim_classes.mk
+Vsim__ConstPool_0.cpp
+Vsim__ConstPool_0.d
+Vsim__ConstPool_0.o
+Vsim.cpp
+Vsim.d
+Vsim__Dpi.cpp
+Vsim__Dpi.d
+Vsim__Dpi.h
+Vsim__Dpi.o
+Vsim.h
+Vsim.mk
+Vsim.o
+Vsim__pch.h
+Vsim__pch.h.fast.d
+Vsim__pch.h.fast.gch
+Vsim__pch.h.slow.d
+Vsim__pch.h.slow.gch
+Vsim_sim__DepSet_h40728c06__0.cpp
+Vsim_sim__DepSet_h40728c06__0.d
+Vsim_sim__DepSet_h40728c06__0.o
+Vsim_sim__DepSet_h40728c06__0__Slow.cpp
+Vsim_sim__DepSet_h40728c06__0__Slow.d
+Vsim_sim__DepSet_h40728c06__0__Slow.o
+Vsim_sim__DepSet_h837b84dc__0.cpp
+Vsim_sim__DepSet_h837b84dc__0.d
+Vsim_sim__DepSet_h837b84dc__0.o
+Vsim_sim__DepSet_h837b84dc__0__Slow.cpp
+Vsim_sim__DepSet_h837b84dc__0__Slow.d
+Vsim_sim__DepSet_h837b84dc__0__Slow.o
+Vsim_sim.h
+Vsim_sim__Slow.cpp
+Vsim_sim__Slow.d
+Vsim_sim__Slow.o
+Vsim__Syms.cpp
+Vsim__Syms.d
+Vsim__Syms.h
+Vsim__Syms.o
+Vsim__Trace__0.cpp
+Vsim__Trace__0.d
+Vsim__Trace__0.o
+Vsim__Trace__0__Slow.cpp
+Vsim__Trace__0__Slow.d
+Vsim__Trace__0__Slow.o
+Vsim__Trace__1__Slow.cpp
+Vsim__Trace__1__Slow.d
+Vsim__Trace__1__Slow.o
+Vsim__TraceDecls__0__Slow.cpp
+Vsim__TraceDecls__0__Slow.d
+Vsim__TraceDecls__0__Slow.o
+Vsim__ver.d
+Vsim__verFiles.dat
+Vsim_VexRiscv__DepSet_h9f7c89a9__0.cpp
+Vsim_VexRiscv__DepSet_h9f7c89a9__0.d
+Vsim_VexRiscv__DepSet_h9f7c89a9__0.o
+Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.cpp
+Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.d
+Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.o
+Vsim_VexRiscv__DepSet_h9f7c89a9__1.cpp
+Vsim_VexRiscv__DepSet_h9f7c89a9__1.d
+Vsim_VexRiscv__DepSet_h9f7c89a9__1.o
+Vsim_VexRiscv__DepSet_hda50bfa8__0.cpp
+Vsim_VexRiscv__DepSet_hda50bfa8__0.d
+Vsim_VexRiscv__DepSet_hda50bfa8__0.o
+Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.cpp
+Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.d
+Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.o
+Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.cpp
+Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.d
+Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.o
+Vsim_VexRiscv.h
+Vsim_VexRiscv__Slow.cpp
+Vsim_VexRiscv__Slow.d
+Vsim_VexRiscv__Slow.o
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ history
+ 1183  less ~/vhd2icestorm/verilog/Makefile 
+ 1184  ./build.sh 
+ 1185  less top.pnr
+ 1186  less top.asc
+ 1187  ./build.sh 
+ 1188  less top.json 
+ 1189  ps -a
+ 1190  kill -9 2382
+ 1191  cd nandland/uart/Verilog/
+ 1192  cd source/
+ 1193  geany &
+ 1194  ./build.sh 
+ 1195  ls
+ 1196  less ~/vhd2icestorm/verilog/Makefile 
+ 1197  ls
+ 1198  mv ../Makefile  .
+ 1199  make clean
+ 1200  make
+ 1201  make clean
+ 1202  make
+ 1203  diffuse Makefile ~/102121icozip/rtl/led_digit_scroll/Makefile 
+ 1204  yosys -l simple.log -p 'synth_ice40 -blif top.blif -json top.json -top top' top.v
+ 1205  nextpnr-ice40 --seed 8 --freq 100 --hx8k --pcf helloworld.pcf --json top.json --asc top.asc
+ 1206  make clean
+ 1207  make
+ 1208  diffuse Makefile ~/102121icozip/rtl/led_digit_scroll/Makefile 
+ 1209  make
+ 1210  make clean
+ 1211  diffuse Makefile ~/102121icozip/rtl/led_digit_scroll/Makefile 
+ 1212  ls
+ 1213  less myuart,v 
+ 1214  vi top.v
+ 1215  mv top.v myuart.v
+ 1216  make
+ 1217  make clean
+ 1218  make
+ 1219  diffuse Makefile ~/102121icozip/rtl/led_digit_scroll/Makefile 
+ 1220  yosys -l simple.log -p 'synth_ice40 -blif myuart.blif -json myuart.json -top myuart' myuart.v
+ 1221  ls -la
+ 1222  mv myuart,v myuart.v
+ 1223  make
+ 1224  less myuart.v
+ 1225  ls
+ 1226  less myuart.v
+ 1227  cp ../sim/UART_TB.v myart.v
+ 1228  mv myart.v myuart.v
+ 1229  make
+ 1230  make clean
+ 1231  make
+ 1232  cp ~/102121icozip/rtl/led_digit_scroll/Makefile 
+ 1233  cp ~/102121icozip/rtl/led_digit_scroll/Makefile  .
+ 1234  less ~/102121icozip/rtl/led_digit_scroll/led_digits_scroll.v
+ 1235  make
+ 1236  mkaw
+ 1237  make
+ 1238  ls
+ 1239  mv led_duguts_scroll.v led_digts_scroll.v
+ 1240  make
+ 1241  ls 
+ 1242  make
+ 1243  diffuse Makefile ~/102121icozip/rtl/led_digit_scroll/Makefile 
+ 1244  make clean
+ 1245  make
+ 1246  yosys -l simple.log -p 'synth_ice40 -blif led_digits_scroll.blif -json led_digits_scroll.json -top led_digits_scroll' led_digits_scroll.v
+ 1247  ls
+ 1248  mv led_digts_scroll.v led_digits_scroll.v
+ 1249  make
+ 1250  yosys -l simple.log -p 'synth_ice40 -blif led_digits_scroll.blif -json led_digits_scroll.json -top led_digits_scroll' led_digits_scroll.v
+ 1251  nextpnr-ice40 --seed 8 --freq 100 --hx8k --pcf helloworld.pcf --json led_digits_scroll.json --asc led_digits_scroll.asc
+ 1252  make
+ 1253  make clean
+ 1254  make
+ 1255  yosys -l simple.log -p 'synth_ice40 -blif led_digits_scroll.blif -json led_digits_scroll.json -top led_digits_scroll' led_digits_scroll.v
+ 1256  less led_digits_scroll.json 
+ 1257  make all
+ 1258  diffuse Makefile ~/102121icozip/rtl/led_digit_scroll/Makefile 
+ 1259  ls
+ 1260  diffuse led_digits_scroll.v ~/102121icozip/rtl/led_digit_scroll/led_digits_scroll.v
+ 1261  yosys -l simple.log -p 'synth_ice40 -blif led_digits_scroll.blif -json led_digits_scroll.json -top led_digits_scroll' led_digits_scroll.v
+ 1262  make
+ 1263  yosys -l simple.log -p 'synth_ice40 -blif led_digits_scroll.blif -json led_digits_scroll.json -top led_digits_scroll' led_digits_scroll.v
+ 1264  nextpnr-ice40 --package ct256 --seed 8 --freq 100 --hx8k --pcf helloworld.pcf --json led_digits_scroll.json --asc led_digits_scroll.asc
+ 1265  cd 102121icozip/rtl/led_digit_scroll
+ 1266  git checkout Makefile
+ 1267  exit
+ 1268  sudo reboot
+ 1269  cd tang-nano/
+ 1270  cat virtp.sh 
+ 1271  python3 -m venv env ; source env/bin/activate
+ 1272  export PATH=/home/devel/tang-nano/nextpnr:$PATH
+ 1273  echo $PATH
+ 1274  cd tangnano9k-series-examples/uart/
+ 1275  ls
+ 1276  make clean
+ 1277  make
+ 1278  ls
+ 1279  geany uart.v &
+ 1280  ls *.vcd
+ 1281  iverilog -o dsn uart_tb.v uart.v
+ 1282  vvp dsn 
+ 1283  gtkwave uart.vcd
+ 1284  git branch -a
+ 1285  ld ../catboard/uart/
+ 1286  ls ../catboard/uart/
+ 1287  cp tangnano9k.cst catboard.pcf
+ 1288  scp catboard.pcf pi4-50:/home/devel/master-repos/tangnano9k-series-examples/catboard/uart/
+ 1289  git add catboard.pcf 
+ 1290  git commit catboard.pcf 
+ 1291  git config --global user.email "develone@sbcglobal.net"
+ 1292  git config --global user.name "Edward Vidal Jr."
+ 1293  git commit catboard.pcf 
+ 1294  git push
+ 1295  cd ../
+ 1296  git clone  https://github.com/develone/tangnano9k-series-examples.git -b dev
+ 1297  less ~/102121icozip/rtl/led_digit_scroll/Makefile 
+ 1298  less ~/vhd2icestorm/constraint/helloworld.pcf 
+ 1299  cd tangnano9k-series-examples/uart/
+ 1300  ls
+ 1301  less tangnano9k.cst 
+ 1302  less ~/102121icozip/rtl/switch_leds/switch_leds.pcf 
+ 1303  make clean
+ 1304  make
+ 1305  git pull
+ 1306  git log
+ 1307  deactivate 
+ 1308  cd ~/102121icozip/rtl/basic/
+ 1309  make
+ 1310  make clean
+ 1311  make
+ 1312  ls
+ 1313  cd tang-nano/
+ 1314  less virtp.sh 
+ 1315  python3 -m venv env ; source env/bin/activate
+ 1316  cd tangnano9k-series-examples/
+ 1317  ls
+ 1318  cd uart/
+ 1319  ls
+ 1320  cd ..
+ 1321  ls
+ 1322  find . -name catboard
+ 1323  git pull
+ 1324  cd catboard/
+ 1325  ls
+ 1326  make
+ 1327  make clean
+ 1328  make
+ 1329  ls
+ 1330  cd uart/
+ 1331  ls
+ 1332  make
+ 1333  make clean
+ 1334  make
+ 1335  vi Makefile 
+ 1336  make clean
+ 1337  make
+ 1338  vi Makefile 
+ 1339  ls
+ 1340  git pull
+ 1341  cd ~/tang-nano/
+ 1342  rm -rf tangnano9k-series-examples/
+ 1343  cd tangnano9k-series-examples/catboard/uart/
+ 1344  ls
+ 1345  vi Makefile 
+ 1346  make clean
+ 1347  make
+ 1348  ls
+ 1349  vi Makefile 
+ 1350  make
+ 1351  vi Makefile 
+ 1352  make
+ 1353  vi catboard.pcf 
+ 1354  ls -la
+ 1355  vi catboard.pcf 
+ 1356  make
+ 1357  vi catboard.pcf 
+ 1358  make
+ 1359  vi Makefile 
+ 1360  make
+ 1361  vi Makefile 
+ 1362  make
+ 1363  ls
+ 1364  make clean
+ 1365  make
+ 1366  vi Makefile 
+ 1367  make
+ 1368  ls
+ 1369  less nextpnr-uart.log 
+ 1370  vi catboard.pcf 
+ 1371  make
+ 1372  less nextpnr-uart.log 
+ 1373  ls 
+ 1374  make clean 
+ 1375  vi Makefile 
+ 1376  make clean
+ 1377  make
+ 1378  ls
+ 1379  scp catboard.pcf pi4-50:/home/devel/master-repos/tangnano9k-series-examples/catboard/uart/
+ 1380  mv catboard.pcf catboard.pcf.tmp
+ 1381  git pull
+ 1382  diffuse catboard.pcf catboard.pcf.tmp 
+ 1383  rm -f catboard.pcf.tmp 
+ 1384  make clean
+ 1385  make
+ 1386  ls
+ 1387  scp Makefile pi4-50:/home/devel/master-repos/tangnano9k-series-examples/catboard/uart/
+ 1388  git status | less
+ 1389  scp nextpnr-uart.log yosys-uart.log pi4-50:/home/devel/master-repos/tangnano9k-series-examples/catboard/uart/
+ 1390  git status | less
+ 1391  mv Makefile Makefile.tmp 
+ 1392  mv nextpnr-uart.log nextpnr-uart.log.tmp
+ 1393  mv yosys-uart.log yosys-uart.log.tmp
+ 1394  git pull
+ 1395  make clean
+ 1396  make
+ 1397  ls
+ 1398  rm -f *.tmp
+ 1399  ls
+ 1400  ls -la
+ 1401  git status | less
+ 1402  ls
+ 1403  git status | less
+ 1404  git pull
+ 1405  git status | less
+ 1406  git log
+ 1407  diffuse Makefile ~/102121icozip/rtl/basic/Makefile 
+ 1408  make
+ 1409  ls
+ 1410  less Makefile 
+ 1411  ls ~/102121icozip/rtl/basic/
+ 1412  make
+ 1413  ls
+ 1414  diffuse Makefile ~/102121icozip/rtl/basic/Makefile 
+ 1415  make
+ 1416  make  clean
+ 1417  make
+ 1418  make clean
+ 1419  make
+ 1420  make clean
+ 1421  make
+ 1422  make clean
+ 1423  make
+ 1424  make clean
+ 1425  make
+ 1426  mousepad ~/102121icozip/rtl/leddigits/Makefile &
+ 1427  make
+ 1428  make uart
+ 1429  git checkout Makefile
+ 1430  make clean
+ 1431  make
+ 1432  ls
+ 1433  icepack uart.asc uart.bin
+ 1434  ls
+ 1435  ls -la
+ 1436  icetime -d hx8k -c 100 uart.asc
+ 1437  history 
+ 1438  git diff 
+ 1439  make
+ 1440  make clean 
+ 1441  make
+ 1442  ls
+ 1443  git diff nextpnr-uart.log
+ 1444  scp Makefile pi4-50:/home/devel/master-repos/tangnano9k-series-examples/catboard/uart/
+ 1445  mv Makefile Makefile.tmp
+ 1446  git pull
+ 1447  ls
+ 1448  make uart_test.o
+ 1449  make test
+ 1450  ls
+ 1451  gtkwave uart.vcd
+ 1452  history
+ 1453  gtkwave uart.vcd
+ 1454  git pull
+ 1455  gpicview ../doc/uart_vcd.png 
+ 1456  exit
+ 1457  cd tang-nano/catboard/uart
+ 1458  mousepad uart.v &
+ 1459  geany  ~/102121icozip/rtl/pptest/speechpp.v &
+ 1460  git diff uart.v
+ 1461  git diff
+ 1462  make clean
+ 1463  cd ../
+ 1464  cd tangnano9k-series-examples/catboard/uart/
+ 1465  mousepad uart.v &
+ 1466  make clean
+ 1467  make
+ 1468  make clean
+ 1469  make
+ 1470  ls
+ 1471  yosys -l yosys-uart.log -p "read_verilog uart.v; synth_ice40 -top uart -json uart.json"
+ 1472  git checkout uart.v
+ 1473  git status | less
+ 1474  make clean
+ 1475  make
+ 1476  ls
+ 1477  less ../doc/notes_tests.txt 
+ 1478  icepack uart.asc uart.bin
+ 1479  ls
+ 1480  make clean 
+ 1481  make
+ 1482  make clean 
+ 1483  make
+ 1484  make clean 
+ 1485  make
+ 1486  make clean 
+ 1487  make
+ 1488  make clean 
+ 1489  make
+ 1490  yosys -l yosys-uart.log -p "read_verilog uart.v; synth_ice40 -top uart -json uart.json"
+ 1491  git checkout uart.v
+ 1492  make clean 
+ 1493  make
+ 1494  make clean 
+ 1495  make
+ 1496  make clean 
+ 1497  make
+ 1498  make clean 
+ 1499  make
+ 1500  git checkout uart.v
+ 1501  make clean 
+ 1502  make
+ 1503  make clean 
+ 1504  make
+ 1505  git checkout uart.v
+ 1506  make clean 
+ 1507  make
+ 1508  make clean 
+ 1509  make
+ 1510  make clean 
+ 1511  make
+ 1512  make clean 
+ 1513  make
+ 1514  make clean 
+ 1515  make
+ 1516  make clean 
+ 1517  make
+ 1518  make clean 
+ 1519  make
+ 1520  make clean 
+ 1521  make
+ 1522  make clean 
+ 1523  make
+ 1524  less ../doc/notes_tests.txt 
+ 1525  icepack uart.asc uart.bin
+ 1526  less ../doc/notes_tests.txt 
+ 1527  icetime -d hx8k -c 66 uart.asc
+ 1528  cd virtual-python-xstools/CAT-Board/
+ 1529  grep -R pull-up */*
+ 1530  ls
+ 1531  cd tests/
+ 1532  grep -R pull */*
+ 1533  grep -R sb */*
+ 1534  ls
+ 1535  mousepad led_digits_scroll.v &
+ 1536  grep -R SB_IO */*
+ 1537  grep -R 'SB_IO #' */*
+ 1538  exit
+ 1539  cd tang-nano/
+ 1540  cat virtp.sh 
+ 1541  python3 -m venv env ; source env/bin/activate
+ 1542  cd tangnano9k-series-examples/catboard/uart/
+ 1543  geany uart.v &
+ 1544  make clean
+ 1545  make
+ 1546  icepack uart.asc uart.bin
+ 1547  icetime -d hx8k -c 66 uart.asc
+ 1548  scp uart.bin pi4-28:~/
+ 1549  less ~/vhd2icestorm/constraint/helloworld.pcf 
+ 1550  gitk &
+ 1551  git diff uart.v | less
+ 1552  make uart_test.o
+ 1553  make test.o
+ 1554  make uart_test.o
+ 1555  make test
+ 1556  ls
+ 1557  gtkwave uart.vcd 
+ 1558  make uart_test.o
+ 1559  make test
+ 1560  gtkwave uart.vcd 
+ 1561  less ~/vhd2icestorm/verilog/top.v
+ 1562  make uart_test.o
+ 1563  make test
+ 1564  gtkwave uart.vcd 
+ 1565  make uart_test.o
+ 1566  make test
+ 1567  gtkwave uart.vcd 
+ 1568  make uart_test.o
+ 1569  make test
+ 1570  gtkwave uart.vcd 
+ 1571  make uart_test.o
+ 1572  make test
+ 1573  gtkwave uart.vcd 
+ 1574  make clean
+ 1575  make
+ 1576  icepack uart.asc uart.bin
+ 1577  icetime -d hx8k -c 66 uart.asc
+ 1578  scp uart.bin pi4-28:~/
+ 1579  make clean
+ 1580  make
+ 1581  icepack uart.asc uart.bin
+ 1582  icetime -d hx8k -c 66 uart.asc
+ 1583  make uart_test.o
+ 1584  make test
+ 1585  scp uart.bin pi4-28:~/
+ 1586  git status | less
+ 1587  scp uart.v Makefile ../doc/notes_tests.txt pi4-50:/home/devel/master-repos/tangnano9k-series-examples/catboard/uart/
+ 1588  ls
+ 1589  mv Makefile Makefile.tmp 
+ 1590  mv uart.v uart.v.tmp
+ 1591  mv ../doc/notes_tests.txt ../doc/notes_tests.txt.tmp
+ 1592  git diff uart.v
+ 1593  less uart.v
+ 1594  make
+ 1595  make clean
+ 1596  make
+ 1597  git pull
+ 1598  make clean
+ 1599  make
+ 1600  icepack uart.asc uart.bin
+ 1601  icetime -d hx8k -c 66 uart.asc
+ 1602  scp uart.bin pi4-28:~/
+ 1603  make uart_test.o
+ 1604  make test
+ 1605  gtkwave uart.vcd 
+ 1606  git pull
+ 1607  gpicview ../doc/Lushay_Labs.png 
+ 1608  cd ~/
+ 1609  ./scripts-rpi/shutdown/sd
+ 1610  cd tang-nano/tangnano9k-series-examples/
+ 1611  git pull
+ 1612  cd catboard/uart/
+ 1613  make clean
+ 1614  make
+ 1615  icepack uart.asc uart.bin
+ 1616  icetime -d hx8k -c 66 uart.asc
+ 1617  scp uart.bin pi4-28:~/
+ 1618  cd ..
+ 1619  cp -R uart/ speech
+ 1620  cp ~/102121icozip/rtl/pptest/speech.hex speech/
+ 1621  cd speech/
+ 1622  geany uart.v
+ 1623  geany uart.v &
+ 1624  make clean
+ 1625  make
+ 1626  diffuse uart.v ../uart/uart.v
+ 1627  make clean
+ 1628  make
+ 1629  vi uart.v
+ 1630  make clean
+ 1631  make
+ 1632  icepack uart.asc uart.bin
+ 1633  icetime -d hx8k -c 66 uart.asc
+ 1634  scp uart.bin pi4-28:~/speech.bin
+ 1635  scp speech.hex pi4-28:~/
+ 1636  cd ..
+ 1637  scp -r speech/ pi4-28:~/
+ 1638  cd speech/
+ 1639  make clean
+ 1640  make
+ 1641  icepack uart.asc uart.bin
+ 1642  icetime -d hx8k -c 66 uart.asc
+ 1643  scp uart.bin  pi4-28:~/speech
+ 1644  cd ../
+ 1645  rm -rf speech/
+ 1646  cd virtual-python-xstools/
+ 1647  cat virtp.sh 
+ 1648  python3 -m venv env ; source env/bin/activate
+ 1649  ls
+ 1650  ls examples/
+ 1651  ls myhdl/example/manual/
+ 1652  cp  myhdl/example/manual/fifo.py examples/
+ 1653  cd examples/
+ 1654  python3 fifo.py 
+ 1655  ls
+ 1656  geany fifo.py &
+ 1657  python3 fifo.py  6
+ 1658  ls
+ 1659  python3 fifo.py  
+ 1660  export maxint=8
+ 1661  python3 fifo.py  
+ 1662  env
+ 1663  python3 fifo.py < 8
+ 1664  python3 fifo.py < maxint
+ 1665  python3 fifo.py
+ 1666  clear
+ 1667  python3 fifo.py
+ 1668  diffuse fifo.py ../myhdl/example/manual/fifo.py 
+ 1669  python3 fifo.py
+ 1670  python3 fifo_convert.py 
+ 1671  ls
+ 1672  python3 fifo_convert.py 
+ 1673  ls
+ 1674  less fifo2.v 
+ 1675  deactivate 
+ 1676  cd ~/nandland/
+ 1677  ls
+ 1678  cd memory/
+ 1679  ls
+ 1680  cd Verilog/
+ 1681  ls
+ 1682  cd sim/
+ 1683  ls
+ 1684  cp ../source/FIFO.v .
+ 1685  iverilog -o dsn FIFO_TB.v 
+ 1686  iverilog -o dsn FIFO_TB.v FIFO.v 
+ 1687  less FIFO_TB.v 
+ 1688  ls ../source/
+ 1689  less FIFO_TB.v 
+ 1690  iverilog -o dsn FIFO_TB.v FIFO.v 
+ 1691  cd ~/
+ 1692  ./scripts-rpi/shutdown/sd
+ 1693  cd nandland/memory/Verilog/sim
+ 1694  ls
+ 1695  iverilog -o dsn FIFO_TB.v FIFO.v 
+ 1696  iverilog --help
+ 1697  iverilog -h
+ 1698  iverilog -g2005v -o dsn FIFO_TB.v FIFO.v 
+ 1699  iverilog -h
+ 1700  iverilog -g2005-sv -o dsn FIFO_TB.v FIFO.v 
+ 1701  cp ../source/RAM_2Port.v .
+ 1702  iverilog -g2005-sv -o dsn FIFO_TB.v FIFO.v 
+ 1703  iverilog -g2005-sv -o dsn FIFO_TB.v FIFO.v RAM_2Port.v
+ 1704  vvp dsn 
+ 1705  vvp -h
+ 1706  iverilog -g2005-sv -o dsn FIFO_TB.v FIFO.v RAM_2Port.v
+ 1707  geany FIFO_TB.v &
+ 1708  iverilog -g2005-sv -o dsn RAM_2Port_TB.v  RAM_2Port.v
+ 1709  vvp dsn 
+ 1710  vvp -h
+ 1711  ls
+ 1712  ls ..
+ 1713  ls
+ 1714  cd ..
+ 1715  ls
+ 1716  cd ..
+ 1717  ls
+ 1718  less README.md 
+ 1719  cd Binary_To_BCD_Double_Dabble/
+ 1720  ls
+ 1721  cd Verilog/sim/
+ 1722  ls
+ 1723  ls ../source/
+ 1724  cp ../source/Binary_to_BCD.v 
+ 1725  cp ../source/Binary_to_BCD.v .
+ 1726  vvp -o dsn Binary_to_BCD.v Binary_to_BCD.v 
+ 1727  iverilog -o dsn Binary_to_BCD.v Binary_to_BCD.v 
+ 1728  cd ~/tang-nano/tangnano9k-series-examples/
+ 1729  ls
+ 1730  cd ~/virtual-python-xstools/
+ 1731  cat virtp.sh 
+ 1732  python3 -m venv env ; source env/bin/activate
+ 1733  tar xvfz myhdl_lib-0.1.0.tar.gz 
+ 1734  cd myhdl_lib-0.1.0/lib/
+ 1735  cd myhdl_lib-0.1.0/
+ 1736  ls
+ 1737  python3 setup.py 
+ 1738  less README.rst 
+ 1739  python3 setup.py 
+ 1740  python3 setup.py cmd --help
+ 1741  ls
+ 1742  cd myhdl_lib
+ 1743  ls
+ 1744  less fifo.py 
+ 1745  python3 fifo.py 
+ 1746  ls
+ 1747  python3 fifo.py 
+ 1748  ls
+ 1749  python3 fifo_async.py 
+ 1750  ls
+ 1751  ls ../../SDRAM_Controller
+ 1752  ls ../../SDRAM_Controller/iverilog_test/
+ 1753  ls
+ 1754  diffuse tb_fifo_async.v ../../SDRAM_Controller/iverilog_test/tb_sdram_cntl.v 
+ 1755  iverilog -o dn tb_fifo_async.v fifo_async.v
+ 1756  iverilog -o dsn tb_fifo_async.v fifo_async.v
+ 1757  vvp dsn 
+ 1758  gtkwave dump.vcd 
+ 1759  iverilog -o dsn tb_fifo_async.v fifo_async.v
+ 1760  vvp dsn 
+ 1761  iverilog -o dsn tb_fifo_async.v fifo_async.v
+ 1762  vvp dsn 
+ 1763  gtkwave dump.vcd 
+ 1764  iverilog -o dsn tb_fifo_async.v fifo_async.v
+ 1765  vvp dsn 
+ 1766  gtkwave dump.vcd 
+ 1767  iverilog -o dsn tb_fifo_async.v fifo_async.v
+ 1768  vvp dsn 
+ 1769  gtkwave dump.vcd 
+ 1770  iverilog -o dsn tb_fifo_async.v fifo_async.v
+ 1771  vvp dsn 
+ 1772  gtkwave dump.vcd 
+ 1773  iverilog -o dsn tb_fifo_async.v fifo_async.v
+ 1774  vvp dsn 
+ 1775  gtkwave dump.vcd 
+ 1776  iverilog -o dsn tb_fifo_async.v fifo_async.v
+ 1777  vvp dsn 
+ 1778  gtkwave dump.vcd 
+ 1779  python3 fifo_async.py 
+ 1780  ls
+ 1781  cp tb_fifo_async.v ../../
+ 1782  cd ../../
+ 1783  rm -rf myhdl_lib-0.1.0
+ 1784  tar xvfz myhdl_lib-0.1.0.tar.gz
+ 1785  cd myhdl_lib-0.1.0/
+ 1786  ls
+ 1787  xs myhdl_lib
+ 1788  ls myhdl_lib
+ 1789  cd myhdl_lib
+ 1790  ls
+ 1791  python3 fifo.py 
+ 1792  ls
+ 1793  python3 fifo_async.py 
+ 1794  diffuse ../../tb_fifo_async.v tb_fifo_async.v 
+ 1795  deactivate 
+ 1796  cd ~/
+ 1797  ./scripts-rpi/shutdown/sd
+ 1798  cd virtual-python-xstools/
+ 1799  cat virtp.sh 
+ 1800  python3 -m venv env ; source env/bin/activate
+ 1801  cd examples/
+ 1802  ls
+ 1803  geany fifo.py &
+ 1804  python3 fifo.py 
+ 1805  python3 fifo_convert.py 
+ 1806  ls
+ 1807  ls litex/
+ 1808  pwd
+ 1809  cd litex/
+ 1810  ls litex-boards/
+ 1811  ls litex-boards/litex_boards
+ 1812  ls litespi/
+ 1813  ls litespi/tools/
+ 1814  ls litespi/tools/spi_nor_config_generator/
+ 1815  cd ~/litex-migen/
+ 1816  ls
+ 1817  less virtp.sh 
+ 1818  cd /usr/lib/
+ 1819  ls
+ 1820  cd python3
+ 1821  ls
+ 1822  cd dist-packages/
+ 1823  ls
+ 1824  cd ~/
+ 1825  python3
+ 1826  ./scripts-rpi/pi/update 
+ 1827  mkdir litex; cd litex; wget https://raw.githubusercontent.com/enjoy-digital/litex/master/litex_setup.py
+ 1828  chmod +x litex_setup.py
+ 1829  ls -la
+ 1830  ./litex_setup.py --init --install devel
+ 1831  history
+ 1832  cd ../
+ 1833  mkdir litex-migen
+ 1834  ls litex
+ 1835  cp litex/litex_setup.py litex-migen/
+ 1836  rm -rf litex
+ 1837  cp tang-nano/virtp.sh 
+ 1838  cp tang-nano/virtp.sh litex-migen/
+ 1839  cd litex-migen/
+ 1840  cat virtp.sh 
+ 1841  python3 -m venv env ; source env/bin/activate
+ 1842  ./litex_setup.py --init --install devel
+ 1843  ls
+ 1844  env
+ 1845  ls env/
+ 1846  ls env/bin/
+ 1847  less env/bin/litex_read_verilog 
+ 1848  ls
+ 1849  python3 
+ 1850  dir(litex)
+ 1851  python3
+ 1852  ls
+ 1853  python3
+ 1854  git clone https://github.com/m-labs/migen.git
+ 1855  ls
+ 1856  cd migen/
+ 1857  less .git/config 
+ 1858  ls -la
+ 1859  python3 setup.py 
+ 1860  python3 setup.py install
+ 1861  ls
+ 1862  ls examples/
+ 1863  ls examples/basic/
+ 1864  python3 examples/basic/fsm.py 
+ 1865  ls
+ 1866  python3 examples/basic/fsm.py 
+ 1867  ls examples/
+ 1868  ls examples/sim/
+ 1869  ls examples/sim/memory.py 
+ 1870  ls
+ 1871  ls examples/sim/
+ 1872  python3 examples/sim/
+ 1873  ls examples/
+ 1874  ls examples/basic/
+ 1875  ls examples/basic/memory.py 
+ 1876  ls
+ 1877  ls examples/basic/
+ 1878  ls examples/basic/instance.py 
+ 1879  ls doc/
+ 1880  less doc/introduction.rst 
+ 1881  ls examples/basic/fsm.py 
+ 1882  ls examples/basic/
+ 1883  deactivate 
+ 1884  sudo reboot
+ 1885  cd 102121icozip/rtl/leddigits/
+ 1886  iverilog -o dsn tb_leddigits.v leddigits.
+ 1887  iverilog -o dsn tb_leddigits.v leddigits.v
+ 1888  ls
+ 1889  iverilog -o dsn tb_leddigits.v leddigits.v
+ 1890  ls
+ 1891  diffuse tb_leddigits.v ~/virtual-python-xstools/CAT-Board/tests/tb_led_digits_scroll.v 
+ 1892  iverilog -o dsn tb_leddigits.v leddigits.v
+ 1893  cd litex-migen/
+ 1894  cat virtp.sh 
+ 1895  python3 -m venv env ; source env/bin/activate
+ 1896  ls
+ 1897  cd migen/
+ 1898  python3 examples/basic/fsm.py 
+ 1899  python3 examples/basic/memory.py
+ 1900  python3 examples/basic/record.py 
+ 1901  python3 examples/basic/graycounter.py 
+ 1902  python3 examples/basic/arrays.py 
+ 1903  cd  ..
+ 1904  ls
+ 1905  cd cd litedram/
+ 1906  cd litedram/
+ 1907  ls
+ 1908  cd examples/
+ 1909  ls
+ 1910  less  xcu1525.yml 
+ 1911  grep -R mt48 */*
+ 1912  grep -R mt48* */*
+ 1913  grep -R MT48* */*
+ 1914  grep -R MT* */*
+ 1915  ls
+ 1916  grep -R MT* *
+ 1917  cd ..
+ 1918  grep -R MT* *
+ 1919  grep -R MT48 *
+ 1920  ls
+ 1921  cd examples/
+ 1922  ls
+ 1923  less ulx3s.yml 
+ 1924  cd ..
+ 1925  ls
+ 1926  vf litescope/
+ 1927  ls litescope/
+ 1928  ls litescope/examples/
+ 1929  python3 litescope/examples/arty.py 
+ 1930  less litescope/examples/arty.py 
+ 1931  cd migen/examples/
+ 1932  ls
+ 1933  cd basic/
+ 1934  ls
+ 1935  python3 two_dividers.py 
+ 1936  python3 fsm.py 
+ 1937  python3 graycounter.py 
+ 1938  python3 memory.py 
+ 1939  python3 arrays.py 
+ 1940  python3 arrays.py > ../../arrays.v
+ 1941  python3 arrays.py > ../../../arrays.v
+ 1942  rm -f ../../arrays.v 
+ 1943  gtkwave graycounter.vcd
+ 1944  python3 instance.py 
+ 1945  less a.out 
+ 1946  ./a.out 
+ 1947  ls
+ 1948  ./a.out 
+ 1949  less a.out 
+ 1950  python3 namer.py 
+ 1951  python3 record.py > ../../../record.v
+ 1952  python3 psync.py 
+ 1953  python3 local_cd.py 
+ 1954  python3 tristate.py 
+ 1955  python3 reslice.py 
+ 1956  cd litex-migen/
+ 1957  cd migen/
+ 1958  cd ..
+ 1959  cat virtp.sh 
+ 1960  python3 -m venv env ; source env/bin/activate
+ 1961  pcmanfm &
+ 1962  mousepad two_dividers.v &
+ 1963  cd jpeg-2000-test/
+ 1964  find . -name fifo.py
+ 1965  less ipython_fixbv/fifo.py 
+ 1966  cp ipython_fixbv/fifo.py ~/virtual-python-xstools/examples/
+ 1967  cd ~/virtual-python-xstools/
+ 1968  cat virtp.sh 
+ 1969  python3 -m venv env ; source env/bin/activate
+ 1970  cd examples/
+ 1971  python3 fifo.py
+ 1972  2to3 -w fifo.py 
+ 1973  python3 fifo.py
+ 1974  ls
+ 1975  gtkwave fifo.vcd 
+ 1976  cd virtual-python-xstools/examples/
+ 1977  ls -la
+ 1978  ls -la -t
+ 1979  diffuse fifo.py ../myhdl/example/manual/fifo.py 
+ 1980  exit 
+ 1981  cd litex-migen/
+ 1982  cat virtp.sh 
+ 1983  python3 -m venv env ; source env/bin/activate
+ 1984  cd migen/examples/basic/
+ 1985  ls
+ 1986  mousepad verilog_generated/record.v &
+ 1987  python3 record.py 
+ 1988  cd virtual-python-xstools/
+ 1989  cat virtp.sh 
+ 1990  python3 -m venv env ; source env/bin/activate
+ 1991  cd examples/
+ 1992  diffuse fifo.py ~/jpeg-2000-test/ipython_fixbv/fifo.py 
+ 1993  python3 fifo.py 
+ 1994  date
+ 1995  ls -la fifo*
+ 1996  gtkwave fifo.vcd 
+ 1997  cd ~/
+ 1998  ./scripts-rpi/shutdown/sd
+ 1999  cd litex-migen/
+ 2000  cat virtp.sh 
+ 2001  python3 -m venv env ; source env/bin/activate
+ 2002  mousepad migen/examples/basic/record.py &
+ 2003  python3 
+ 2004  cd migen/examples/basic/verilog_generated/
+ 2005  ls
+ 2006  yosys -l yosys-uart.log -p "read_verilog fsm.v; synth_ice40 -top top -json fsm.json"
+ 2007  less fsm.json 
+ 2008  cp ~/tang-nano/catboard/uart/helloworld.pcf .
+ 2009  vi helloworld.pcf 
+ 2010  nextpnr-ice40 --hx8k --pcf-allow-unconstrained --package ct256 -l ../place_and_route.log --pcf helloworld.pcf --json fsm.json --asc fsm.asc
+ 2011  ls
+ 2012  icepack fsm.asc fsm.bin
+ 2013  icetime -d hx8k -c 100 fsm.asc
+ 2014  ls
+ 2015  less yosys-uart.log 
+ 2016  less ../place_and_route.log 
+ 2017  ls -la
+ 2018  ls ../vcd_generated/
+ 2019  pcmanfm &
+ 2020  yosys -l yosys-fsm.log -p "read_verilog fsm.v; synth_ice40 -top top -json fsm.json"
+ 2021  nextpnr-ice40 --hx8k --pcf-allow-unconstrained --package ct256 -l place_and_route.log --pcf helloworld.pcf --json fsm.json --asc fsm.asc
+ 2022  icepack fsm.asc fsm.bin
+ 2023  icetime -d hx8k -c 100 fsm.asc
+ 2024  ls ../
+ 2025  cat ../../../../virtp.sh 
+ 2026  less yosys-fsm.log 
+ 2027  less helloworld.pcf 
+ 2028  deactivate 
+ 2029  cd ~/
+ 2030  sudo mksquashfs litex-migen/ litex-migem032524.img
+ 2031  ls -la
+ 2032  cd litex-migen/migen/
+ 2033  ls
+ 2034  cd ~/
+ 2035  mv litex-migen litex-migen032524
+ 2036  mkdir litex-migen
+ 2037  cd litex-migen
+ 2038  cp ../litex-migen032524/virtp.sh 
+ 2039  cp ../litex-migen032524/virtp.sh .
+ 2040  cat virtp.sh 
+ 2041  python3 -m venv env ; source env/bin/activate
+ 2042  wget https://raw.githubusercontent.com/enjoy-digital/litex/master/litex_setup.py
+ 2043  chmod +x litex_setup.py 
+ 2044  ./litex_setup.py --init --install devel
+ 2045  ls
+ 2046  cd migen/examples/basic/
+ 2047  ls
+ 2048  cd ..
+ 2049  pip3 install scipy
+ 2050  pip3 install matplotlib
+ 2051  cd migen/
+ 2052  cd examples/basic/
+ 2053  ls
+ 2054  mkdir generated_verilog
+ 2055  mkdir generated_vcd
+ 2056  python3 arrays.py > generated_verilog/array.v
+ 2057  python3 graycounter.py 
+ 2058  ls
+ 2059  mv graycounter.vcd generated_vcd/
+ 2060  python3 fsm.py generated_verilog/fsm.v
+ 2061  python3 fsm.py > generated_verilog/fsm.v
+ 2062  ls
+ 2063  python3 memory.py > generated_verilog/memory.v
+ 2064  python3 instance.py > generated_verilog/instance.v
+ 2065  python3 local_cd.py > generated_verilog/local_cd.v
+ 2066  python3 namer.py > generated_verilog/namer.v
+ 2067  python3 record.py > generated_verilog/record.v
+ 2068  python3 reslice.py > generated_verilog/reslice.v
+ 2069  python3 tristate.py > generated_verilog/tristate.v
+ 2070  python3 two_dividers.py > generated_verilog/two_dividers.v
+ 2071  ls generated_verilog/
+ 2072  python3 psync.py > generated_verilog/psync.v
+ 2073  ls generated_verilog/
+ 2074  less generated_verilog/memory.v 
+ 2075  ls
+ 2076  less memory.py 
+ 2077  less a.out 
+ 2078  mv ChildModule.v ParentModule.v generated_verilog/
+ 2079  ls
+ 2080  cd ../
+ 2081  ls
+ 2082  cd sim/
+ 2083  ls
+ 2084  python3 basic1.py 
+ 2085  ls
+ 2086  python3 basic2.py 
+ 2087  python3 display.py 
+ 2088  ls
+ 2089  python3 fir.py 
+ 2090  python3 memory.py 
+ 2091  ls
+ 2092  less memory.py 
+ 2093  python3 memory.py 
+ 2094  ls ../basic/
+ 2095  cp *.vcd ../basic/generated_vcd/
+ 2096  cd ../
+ 2097  cd basic/
+ 2098  scp -r generated_verilog/ pi4-50:/home/devel/master-repos/catboard-relook/litex-migen/
+ 2099  scp -r generated_vcd pi4-50:/home/devel/master-repos/catboard-relook/litex-migen/
+ 2100  history
+ 2101  cd generated_vcd/
+ 2102  ls
+ 2103  gtkwave graycounter.vcd 
+ 2104  cd ~/
+ 2105  cd litex-migen/
+ 2106  mkdir verilator_testing
+ 2107  cd verilator_testing/
+ 2108  litex_sim
+ 2109  ls
+ 2110  cd build/
+ 2111  ls
+ 2112  cd sim/
+ 2113  ls
+ 2114  cd software/
+ 2115  ls
+ 2116  cd ..
+ 2117  pip3 install meson
+ 2118  cd ~/
+ 2119  cd litex-migen/
+ 2120  ./litex_setup.py --gcc=riscv
+ 2121  sudo ./litex_setup.py --gcc=riscv
+ 2122  ls
+ 2123  cd verilator_testing/
+ 2124  litex_sim
+ 2125  cd build/sim/gateware/
+ 2126  ls
+ 2127  ls modules/
+ 2128  cd ../
+ 2129  ls
+ 2130  cd software/
+ 2131  ls
+ 2132  cd ../gateware/
+ 2133  ls
+ 2134  less build_sim.sh 
+ 2135  chmod +x build_sim.sh 
+ 2136  ./build_sim.sh 
+ 2137  cd ../../
+ 2138  cd ../
+ 2139  litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware
+ 2140  cd build/
+ 2141  ls
+ 2142  cd sim/
+ 2143  ls
+ 2144  cd ..
+ 2145  cd ../
+ 2146  rm -rf *
+ 2147  litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware
+ 2148  ls
+ 2149  cd build/
+ 2150  ls
+ 2151  cd sim/
+ 2152  ls
+ 2153  cd gateware/
+ 2154  ls
+ 2155  chmod +x build_sim.sh 
+ 2156  ./build_sim.sh 
+ 2157  cd ..
+ 2158  ls
+ 2159  cd software/
+ 2160  ls
+ 2161  cd ../
+ 2162  cd ..
+ 2163  ls
+ 2164  cd ..
+ 2165  ls
+ 2166  litex sim
+ 2167  litex_sim
+ 2168  pip3 install json
+ 2169  sudo apt-get json-dev
+ 2170  sudo apt-get install json-dev
+ 2171  sudo apt-get install libjson-c-dev
+ 2172  litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware
+ 2173  cd sim
+ 2174  cd build/sim/
+ 2175  ls
+ 2176  cd gateware/
+ 2177  ls
+ 2178  ./build_sim.sh 
+ 2179  ls
+ 2180  ls modules/
+ 2181  ls obj_dir/
+ 2182  history
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ cd ../../
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build $ cd ..
+(env) devel@pi4-30:~/litex-migen/verilator_testing $ ls
+build
+(env) devel@pi4-30:~/litex-migen/verilator_testing $ rm -rf build/
+(env) devel@pi4-30:~/litex-migen/verilator_testing $ litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware
+INFO:SoC:        __   _ __      _  __  
+INFO:SoC:       / /  (_) /____ | |/_/  
+INFO:SoC:      / /__/ / __/ -_)>  <    
+INFO:SoC:     /____/_/\__/\__/_/|_|  
+INFO:SoC:  Build your hardware, easily!
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Creating SoC... (2024-03-27 19:29:33)
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:FPGA device : SIM.
+INFO:SoC:System clock: 1.000MHz.
+INFO:SoCBusHandler:Creating Bus Handler...
+INFO:SoCBusHandler:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoCBusHandler:Adding reserved Bus Regions...
+INFO:SoCBusHandler:Bus Handler created.
+INFO:SoCCSRHandler:Creating CSR Handler...
+INFO:SoCCSRHandler:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoCCSRHandler:Adding reserved CSRs...
+INFO:SoCCSRHandler:CSR Handler created.
+INFO:SoCIRQHandler:Creating IRQ Handler...
+INFO:SoCIRQHandler:IRQ Handler (up to 32 Locations).
+INFO:SoCIRQHandler:Adding reserved IRQs...
+INFO:SoCIRQHandler:IRQ Handler created.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Initial SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoC:IRQ Handler (up to 32 Locations).
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Controller ctrl added.
+INFO:SoC:CPU vexriscv added.
+INFO:SoC:CPU vexriscv adding IO Region 0 at 0x80000000 (Size: 0x80000000).
+INFO:SoCBusHandler:io0 Region added at Origin: 0x80000000, Size: 0x80000000, Mode:  RW, Cached: False, Linker: False.
+INFO:SoC:CPU vexriscv overriding sram mapping from 0x01000000 to 0x10000000.
+INFO:SoC:CPU vexriscv setting reset address to 0x00000000.
+INFO:SoC:CPU vexriscv adding Bus Master(s).
+INFO:SoCBusHandler:cpu_bus0 added as Bus Master.
+INFO:SoCBusHandler:cpu_bus1 added as Bus Master.
+INFO:SoC:CPU vexriscv adding Interrupt(s).
+INFO:SoC:CPU vexriscv adding SoC components.
+INFO:SoCBusHandler:rom Region added at Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:rom added as Bus Slave.
+INFO:SoC:RAM rom added Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram Region added at Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram added as Bus Slave.
+INFO:SoC:RAM sram added Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram Region added at Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram added as Bus Slave.
+INFO:SoC:RAM main_ram added Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCIRQHandler:uart IRQ allocated at Location 0.
+INFO:SoCIRQHandler:timer0 IRQ allocated at Location 1.
+INFO:SoC:        __   _ __      _  __  
+INFO:SoC:       / /  (_) /____ | |/_/  
+INFO:SoC:      / /__/ / __/ -_)>  <    
+INFO:SoC:     /____/_/\__/\__/_/|_|  
+INFO:SoC:  Build your hardware, easily!
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Creating SoC... (2024-03-27 19:29:33)
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:FPGA device : SIM.
+INFO:SoC:System clock: 1.000MHz.
+INFO:SoCBusHandler:Creating Bus Handler...
+INFO:SoCBusHandler:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoCBusHandler:Adding reserved Bus Regions...
+INFO:SoCBusHandler:Bus Handler created.
+INFO:SoCCSRHandler:Creating CSR Handler...
+INFO:SoCCSRHandler:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoCCSRHandler:Adding reserved CSRs...
+INFO:SoCCSRHandler:CSR Handler created.
+INFO:SoCIRQHandler:Creating IRQ Handler...
+INFO:SoCIRQHandler:IRQ Handler (up to 32 Locations).
+INFO:SoCIRQHandler:Adding reserved IRQs...
+INFO:SoCIRQHandler:IRQ Handler created.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Initial SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoC:IRQ Handler (up to 32 Locations).
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Controller ctrl added.
+INFO:SoC:CPU vexriscv added.
+INFO:SoC:CPU vexriscv adding IO Region 0 at 0x80000000 (Size: 0x80000000).
+INFO:SoCBusHandler:io0 Region added at Origin: 0x80000000, Size: 0x80000000, Mode:  RW, Cached: False, Linker: False.
+INFO:SoC:CPU vexriscv setting reset address to 0x00000000.
+INFO:SoC:CPU vexriscv adding Bus Master(s).
+INFO:SoCBusHandler:cpu_bus0 added as Bus Master.
+INFO:SoCBusHandler:cpu_bus1 added as Bus Master.
+INFO:SoC:CPU vexriscv adding Interrupt(s).
+INFO:SoC:CPU vexriscv adding SoC components.
+INFO:SoCBusHandler:rom Region added at Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:rom added as Bus Slave.
+INFO:SoC:RAM rom added Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram Region added at Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram added as Bus Slave.
+INFO:SoC:RAM sram added Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram Region added at Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram added as Bus Slave.
+INFO:SoC:RAM main_ram added Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCIRQHandler:uart IRQ allocated at Location 0.
+INFO:SoCIRQHandler:timer0 IRQ allocated at Location 1.
+INFO:SoC:CSR Bridge csr added.
+INFO:SoCBusHandler:csr Region added at Origin: 0xf0000000, Size: 0x00010000, Mode:  RW, Cached: False, Linker: False.
+INFO:SoCBusHandler:csr added as Bus Slave.
+INFO:SoCCSRHandler:csr added as CSR Master.
+INFO:SoCBusHandler:Interconnect: InterconnectShared (2 <-> 4).
+INFO:SoCCSRHandler:ctrl CSR allocated at Location 0.
+INFO:SoCCSRHandler:identifier_mem CSR allocated at Location 1.
+INFO:SoCCSRHandler:timer0 CSR allocated at Location 2.
+INFO:SoCCSRHandler:uart CSR allocated at Location 3.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Finalized SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+IO Regions: (1)
+io0                 : Origin: 0x80000000, Size: 0x80000000, Mode:  RW, Cached: False, Linker: False
+Bus Regions: (4)
+rom                 : Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False
+sram                : Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False
+main_ram            : Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False
+csr                 : Origin: 0xf0000000, Size: 0x00010000, Mode:  RW, Cached: False, Linker: False
+Bus Masters: (2)
+- cpu_bus0
+- cpu_bus1
+Bus Slaves: (4)
+- rom
+- sram
+- main_ram
+- csr
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+CSR Locations: (4)
+- ctrl           : 0
+- identifier_mem : 1
+- timer0         : 2
+- uart           : 3
+INFO:SoC:IRQ Handler (up to 32 Locations).
+IRQ Locations: (2)
+- uart   : 0
+- timer0 : 1
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:SoC Hierarchy:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:
+SimSoC
+└─── crg (CRG)
+└─── bus (SoCBusHandler)
+│    └─── _interconnect (InterconnectShared)
+│    │    └─── arbiter (Arbiter)
+│    │    │    └─── rr (RoundRobin)
+│    │    └─── decoder (Decoder)
+│    │    └─── timeout (Timeout)
+│    │    │    └─── waittimer_0* (WaitTimer)
+└─── csr (SoCCSRHandler)
+└─── irq (SoCIRQHandler)
+└─── ctrl (SoCController)
+└─── cpu (VexRiscv)
+│    └─── [VexRiscv]
+└─── rom (SRAM)
+└─── sram (SRAM)
+└─── main_ram (SRAM)
+└─── identifier (Identifier)
+└─── uart_phy (RS232PHYModel)
+└─── uart (UART)
+│    └─── ev (EventManager)
+│    │    └─── eventsourceprocess_0* (EventSourceProcess)
+│    │    └─── eventsourceprocess_1* (EventSourceProcess)
+│    └─── tx_fifo (SyncFIFO)
+│    │    └─── fifo (SyncFIFOBuffered)
+│    │    │    └─── fifo (SyncFIFO)
+│    └─── rx_fifo (SyncFIFO)
+│    │    └─── fifo (SyncFIFOBuffered)
+│    │    │    └─── fifo (SyncFIFO)
+└─── timer0 (Timer)
+│    └─── ev (EventManager)
+│    │    └─── eventsourceprocess_0* (EventSourceProcess)
+└─── csr_bridge (Wishbone2CSR)
+│    └─── fsm (FSM)
+└─── csr_bankarray (CSRBankArray)
+│    └─── csrbank_0* (CSRBank)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstorage_1* (CSRStorage)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    └─── sram_0* (SRAM)
+│    └─── csrbank_1* (CSRBank)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstorage_1* (CSRStorage)
+│    │    └─── csrstorage_2* (CSRStorage)
+│    │    └─── csrstorage_3* (CSRStorage)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    │    └─── csrstatus_1* (CSRStatus)
+│    │    └─── csrstatus_2* (CSRStatus)
+│    │    └─── csrstorage_4* (CSRStorage)
+│    └─── csrbank_2* (CSRBank)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    │    └─── csrstatus_1* (CSRStatus)
+│    │    └─── csrstatus_2* (CSRStatus)
+│    │    └─── csrstatus_3* (CSRStatus)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstatus_4* (CSRStatus)
+│    │    └─── csrstatus_5* (CSRStatus)
+└─── csr_interconnect (InterconnectShared)
+* : Generated name.
+[]: BlackBox.
+
+INFO:SoC:--------------------------------------------------------------------------------
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libc'
+if [ -d "/home/devel/litex-migen/litex/litex/soc/software/libc/riscv" ]; then \
+	cp /home/devel/litex-migen/litex/litex/soc/software/libc/riscv/* /home/devel/litex-migen/pythondata-software-picolibc/pythondata_software_picolibc/data/newlib/libc/machine/riscv/ ;\
+fi
+meson /home/devel/litex-migen/pythondata-software-picolibc/pythondata_software_picolibc/data \
+	-Dmultilib=false \
+	-Dpicocrt=false \
+	-Datomic-ungetc=false \
+	-Dthread-local-storage=false \
+	-Dio-long-long=true \
+	-Dformat-default=integer \
+	-Dincludedir=picolibc/riscv64-unknown-elf/include \
+	-Dlibdir=picolibc/riscv64-unknown-elf/lib \
+	--cross-file cross.txt
+WARNING: Unknown CPU family riscv, please report this at https://github.com/mesonbuild/meson/issues/new
+The Meson build system
+Version: 1.4.0
+Source dir: /home/devel/litex-migen/pythondata-software-picolibc/pythondata_software_picolibc/data
+Build dir: /home/devel/litex-migen/verilator_testing/build/sim/software/libc
+Build type: cross build
+Project name: picolibc
+Project version: 1.7.9
+C compiler for the host machine: riscv64-unknown-elf-gcc (gcc 8.3.0 "riscv64-unknown-elf-gcc () 8.3.0")
+C linker for the host machine: riscv64-unknown-elf-gcc ld.bfd 2.32
+C compiler for the build machine: cc (gcc 10.2.1 "cc (Debian 10.2.1-6) 10.2.1 20210110")
+C linker for the build machine: cc ld.bfd 2.35.2
+Build machine cpu family: aarch64
+Build machine cpu: aarch64
+Host machine cpu family: riscv
+Host machine cpu: vexriscv
+Target machine cpu family: riscv
+Target machine cpu: vexriscv
+Compiler for C supports arguments -nostdlib: YES 
+Checking if "long double check" compiles: YES 
+Checking if "long double same as double" compiles: NO 
+Checking if "long double mantissa is 64 bits" compiles: NO 
+Checking if "long double mantissa is 113 bits" compiles: YES 
+Checking if "double same as float" compiles: NO 
+Compiler for C supports arguments -fno-common: YES 
+Compiler for C supports arguments -frounding-math: YES 
+Compiler for C supports arguments -fsignaling-nans: YES 
+Compiler for C supports arguments -Wno-unsupported-floating-point-opt: NO 
+Compiler for C supports arguments -fno-stack-protector: YES 
+Compiler for C supports arguments -fno-builtin-copysignl: YES 
+Program riscv64-unknown-elf-gcc-nm found: YES
+Program scripts/duplicate-names found: YES (/home/devel/litex-migen/pythondata-software-picolibc/pythondata_software_picolibc/data/scripts/duplicate-names)
+Compiler for C supports link arguments -Wl,--defsym=_start=0: YES 
+Compiler for C supports link arguments -Wl,-alias,main,testalias: NO 
+Compiler for C supports function attribute alias: YES 
+Compiler for C supports function attribute format: YES 
+Compiler for C supports function attribute weak: YES 
+Configuring picolibc.specs using configuration
+Configuring picolibcpp.specs using configuration
+Configuring test.specs using configuration
+Configuring picolibc.ld using configuration
+Configuring picolibcpp.ld using configuration
+Compiler for C supports arguments -Werror=implicit-function-declaration: YES 
+Compiler for C supports arguments -Werror=vla: YES 
+Compiler for C supports arguments -Warray-bounds: YES 
+Compiler for C supports arguments -Wold-style-definition: YES 
+Compiler for C supports arguments -Werror=double-promotion: YES 
+Compiler for C supports arguments -Wno-missing-braces: YES 
+Compiler for C supports arguments -Wno-implicit-int: YES 
+Compiler for C supports arguments -Wno-return-type: YES 
+Compiler for C supports arguments -Wno-unused-command-line-argument: NO 
+Checking if "packed structs may contain bitfields" compiles: YES 
+Checking if "has __builtin_mul_overflow" : links: YES 
+Checking if "has __builtin_add_overflow" : links: YES 
+Checking if "supports _Complex" compiles: YES 
+Checking if "has __builtin_expect" : links: YES 
+Compiler for C supports arguments -Werror: YES 
+Checking if "attribute __alloc_size__" compiles: YES 
+Checking if "attributes constructor/destructor" compiles: YES 
+Checking if "test for __builtin_alloca" : links: YES 
+Checking if "test for __builtin_ffs" : links: YES 
+Checking if "test for __builtin_ffsl" : links: YES 
+Checking if "test for __builtin_ffsll" : links: YES 
+Checking if "test for __builtin_ctz" : links: YES 
+Checking if "test for __builtin_ctzl" : links: YES 
+Checking if "test for __builtin_ctzll" : links: YES 
+Checking if "test for __builtin_copysignl" : links: YES 
+Checking if "test for __builtin_copysign" : links: YES 
+Checking if "test for __builtin_isinfl" : links: YES 
+Checking if "test for __builtin_isinf" : links: YES 
+Checking if "test for __builtin_isnanl" : links: YES 
+Checking if "test for __builtin_isnan" : links: YES 
+Checking if "test for __builtin_finitel" : links: YES 
+Checking if "test for __builtin_isfinite" : links: YES 
+Compiler for C supports arguments -fno-tree-loop-distribute-patterns: YES 
+Checking if "no_builtin attribute" compiles: NO 
+Compiler for C supports function attribute always_inline: YES 
+Compiler for C supports function attribute gnu_inline: YES 
+Compiler for C supports arguments -fno-builtin: YES 
+Compiler for C supports arguments -ffunction-sections: YES 
+Compiler for C supports arguments -fstack-protector-all: YES 
+Compiler for C supports arguments -fstack-protector-strong: YES 
+../../../../../pythondata-software-picolibc/pythondata_software_picolibc/data/meson.build:1242: DEPRECATION: Project uses feature that was always broken, and is now deprecated since '1.3.0': str.format: Value other than strings, integers, bools, options, dictionaries and lists thereof..
+../../../../../pythondata-software-picolibc/pythondata_software_picolibc/data/meson.build:1254: DEPRECATION: Project uses feature that was always broken, and is now deprecated since '1.3.0': str.format: Value other than strings, integers, bools, options, dictionaries and lists thereof..
+Compiler for C supports arguments -fno-builtin-malloc: YES 
+Compiler for C supports arguments -fno-builtin-free: YES 
+Message: libc/string/memcpy.c: machine overrides generic
+Message: libc/string/memmove.S: machine overrides generic
+Message: libc/string/memset.S: machine overrides generic
+Message: libc/string/strcpy.c: machine overrides generic
+Message: libc/string/strlen.c: machine overrides generic
+Message: libc/string/strcmp.S: machine overrides generic
+Message: libc/include/sys/fenv.h: machine overrides generic
+Message: libc/include/machine/math.h: machine overrides generic
+Message: libm/math/s_fabs.c: machine overrides generic
+Message: libm/math/s_sqrt.c: machine overrides generic
+Message: libm/math/sf_fabs.c: machine overrides generic
+Message: libm/math/sf_sqrt.c: machine overrides generic
+Message: libm/common/s_finite.c: machine overrides generic
+Message: libm/common/s_copysign.c: machine overrides generic
+Message: libm/common/s_isinf.c: machine overrides generic
+Message: libm/common/s_isnan.c: machine overrides generic
+Message: libm/common/s_fma.c: machine overrides generic
+Message: libm/common/s_fmax.c: machine overrides generic
+Message: libm/common/s_fmin.c: machine overrides generic
+Message: libm/common/s_fpclassify.c: machine overrides generic
+Message: libm/common/s_lrint.c: machine overrides generic
+Message: libm/common/s_llrint.c: machine overrides generic
+Message: libm/common/s_lround.c: machine overrides generic
+Message: libm/common/s_llround.c: machine overrides generic
+Message: libm/common/sf_finite.c: machine overrides generic
+Message: libm/common/sf_copysign.c: machine overrides generic
+Message: libm/common/sf_isinf.c: machine overrides generic
+Message: libm/common/sf_isnan.c: machine overrides generic
+Message: libm/common/sf_fma.c: machine overrides generic
+Message: libm/common/sf_fmax.c: machine overrides generic
+Message: libm/common/sf_fmin.c: machine overrides generic
+Message: libm/common/sf_fpclassify.c: machine overrides generic
+Message: libm/common/sf_lrint.c: machine overrides generic
+Message: libm/common/sf_llrint.c: machine overrides generic
+Message: libm/common/sf_lround.c: machine overrides generic
+Message: libm/common/sf_llround.c: machine overrides generic
+Message: libm/fenv/feclearexcept.c: machine overrides generic
+Message: libm/fenv/fegetenv.c: machine overrides generic
+Message: libm/fenv/fegetexceptflag.c: machine overrides generic
+Message: libm/fenv/fegetround.c: machine overrides generic
+Message: libm/fenv/feholdexcept.c: machine overrides generic
+Message: libm/fenv/feraiseexcept.c: machine overrides generic
+Message: libm/fenv/fesetenv.c: machine overrides generic
+Message: libm/fenv/fesetexceptflag.c: machine overrides generic
+Message: libm/fenv/fesetround.c: machine overrides generic
+Message: libm/fenv/fetestexcept.c: machine overrides generic
+Message: libm/fenv/feupdateenv.c: machine overrides generic
+Configuring picolibc.h using configuration
+Build targets in project: 9
+NOTICE: Future-deprecated features used:
+ * 0.56.0: {'meson.source_root'}
+ * 0.58.0: {'meson.get_cross_property'}
+WARNING: Broken features used:
+ * 1.3.0: {'str.format: Value other than strings, integers, bools, options, dictionaries and lists thereof.'}
+
+picolibc 1.7.9
+
+  User defined options
+    Cross files         : cross.txt
+    includedir          : picolibc/riscv64-unknown-elf/include
+    libdir              : picolibc/riscv64-unknown-elf/lib
+    atomic-ungetc       : false
+    format-default      : integer
+    io-long-long        : true
+    multilib            : false
+    picocrt             : false
+    thread-local-storage: false
+
+Found ninja-1.10.1 at /usr/bin/ninja
+WARNING: Running the setup command as `meson [options]` instead of `meson setup [options]` is ambiguous and deprecated.
+meson compile
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/bin/ninja
+[886/886] Generating newlib/libc_duplicates with a custom command
+cp newlib/libc.a __libc.a
+ CC       _libc.a
+ AR       _libc.a
+cp __libc.a _libc.a
+ CC       libc.a
+ AR       libc.a
+cp _libc.a libc.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libc'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libcompiler_rt'
+ CC       umodsi3.o
+ CC       udivsi3.o
+ CC       divsi3.o
+ CC       modsi3.o
+ CC       comparesf2.o
+/home/devel/litex-migen/pythondata-software-compiler_rt/pythondata_software_compiler_rt/data/lib/builtins/comparesf2.c:85:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+ FNALIAS(__cmpsf2, __lesf2);
+ ^~~~~~~
+ CC       comparedf2.o
+/home/devel/litex-migen/pythondata-software-compiler_rt/pythondata_software_compiler_rt/data/lib/builtins/comparedf2.c:85:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
+ FNALIAS(__cmpdf2, __ledf2);
+ ^~~~~~~
+ CC       negsf2.o
+ CC       negdf2.o
+ CC       addsf3.o
+ CC       subsf3.o
+ CC       mulsf3.o
+ CC       divsf3.o
+ CC       lshrdi3.o
+ CC       muldi3.o
+ CC       divdi3.o
+ CC       ashldi3.o
+ CC       ashrdi3.o
+ CC       udivmoddi4.o
+ CC       floatsisf.o
+ CC       floatunsisf.o
+ CC       fixsfsi.o
+ CC       fixdfdi.o
+ CC       fixunssfsi.o
+ CC       fixunsdfdi.o
+ CC       adddf3.o
+ CC       subdf3.o
+ CC       muldf3.o
+ CC       divdf3.o
+ CC       floatsidf.o
+ CC       floatunsidf.o
+ CC       floatdidf.o
+ CC       fixdfsi.o
+ CC       fixunsdfsi.o
+ CC       clzsi2.o
+ CC       ctzsi2.o
+ CC       udivdi3.o
+ CC       umoddi3.o
+ CC       moddi3.o
+ CC       ucmpdi2.o
+ CC       mulsi3.o
+ AR       libcompiler_rt.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libcompiler_rt'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libbase'
+ CC       crc16.o
+ CC       crc32.o
+ CC       console.o
+ CC       system.o
+ CC       progress.o
+ CC       memtest.o
+ CC       uart.o
+ CC       spiflash.o
+ CC       i2c.o
+ CC       isr.o
+ AR       libbase.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libbase'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libfatfs'
+ CC       ffunicode.o
+ CC       ff.o
+ AR       libfatfs.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libfatfs'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitespi'
+ CC       spiflash.o
+ AR       liblitespi.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitespi'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitedram'
+ CC       sdram.o
+ CC       bist.o
+ CC       sdram_dbg.o
+ CC       sdram_spd.o
+ CC       utils.o
+ CC       accessors.o
+ AR       liblitedram.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitedram'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libliteeth'
+ CC       udp.o
+ CC       tftp.o
+ CC       mdio.o
+ AR       libliteeth.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libliteeth'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesdcard'
+ CC       sdcard.o
+ CC       spisdcard.o
+ AR       liblitesdcard.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesdcard'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesata'
+ CC       sata.o
+ AR       liblitesata.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesata'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/bios'
+ CC       boot-helper.o
+ CC       boot.o
+ CC       helpers.o
+ CC       cmd_bios.o
+ CC       cmd_mem.o
+ CC       cmd_boot.o
+ CC       cmd_i2c.o
+ CC       cmd_spiflash.o
+ CC       cmd_litedram.o
+ CC       cmd_liteeth.o
+ CC       cmd_litesdcard.o
+ CC       cmd_litesata.o
+ CC       sim_debug.o
+ CC       main.o
+ CC       complete.o
+ CC       readline.o
+ CC       crt0.o
+ CC       bios.elf
+chmod -x bios.elf
+ OBJCOPY  bios.bin
+chmod -x bios.bin
+python3 -m litex.soc.software.crcfbigen bios.bin --little
+python3 -m litex.soc.software.memusage bios.elf /home/devel/litex-migen/verilator_testing/build/sim/software/bios/../include/generated/regions.ld riscv64-unknown-elf
+
+ROM usage: 23.34KiB 	(18.24%)
+RAM usage: 1.62KiB 	(20.21%)
+
+rm crt0.o
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/bios'
+INFO:SoC:Initializing ROM rom with contents (Size: 0x5d70).
+INFO:SoC:Auto-Resizing ROM rom from 0x20000 to 0x5d70.
+
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ ./build_sim.sh 
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware'
+mkdir -p modules
+make -C modules -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/Makefile
+make[1]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules'
+mkdir -p xgmii_ethernet
+make MOD=xgmii_ethernet -C xgmii_ethernet -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/xgmii_ethernet/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/xgmii_ethernet'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/xgmii_ethernet/../.. -o xgmii_ethernet.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/xgmii_ethernet/xgmii_ethernet.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o tapcfg.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/tapcfg.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o taplog.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/taplog.c
+cc -levent -shared -fPIC -lz -Wl,-soname,xgmii_ethernet.so -o xgmii_ethernet.so xgmii_ethernet.o tapcfg.o taplog.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/xgmii_ethernet'
+cp xgmii_ethernet/xgmii_ethernet.so xgmii_ethernet.so
+mkdir -p ethernet
+make MOD=ethernet -C ethernet -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/ethernet/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/ethernet'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/ethernet/../.. -o ethernet.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/ethernet/ethernet.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o tapcfg.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/tapcfg.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o taplog.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/taplog.c
+cc -levent -shared -fPIC -Wl,-soname,ethernet.so -o ethernet.so ethernet.o tapcfg.o taplog.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/ethernet'
+cp ethernet/ethernet.so ethernet.so
+mkdir -p serial2console
+make MOD=serial2console -C serial2console -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2console/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/serial2console'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2console/../.. -o serial2console.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2console/serial2console.c
+cc -levent -shared -fPIC -Wl,-soname,serial2console.so -o serial2console.so serial2console.o
+rm serial2console.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/serial2console'
+cp serial2console/serial2console.so serial2console.so
+mkdir -p serial2tcp
+make MOD=serial2tcp -C serial2tcp -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2tcp/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/serial2tcp'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2tcp/../.. -o serial2tcp.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/serial2tcp/serial2tcp.c
+cc -levent -shared -fPIC -Wl,-soname,serial2tcp.so -o serial2tcp.so serial2tcp.o
+rm serial2tcp.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/serial2tcp'
+cp serial2tcp/serial2tcp.so serial2tcp.so
+mkdir -p clocker
+make MOD=clocker -C clocker -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/clocker/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/clocker'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/clocker/../.. -o clocker.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/clocker/clocker.c
+cc -levent -shared -fPIC -Wl,-soname,clocker.so -o clocker.so clocker.o
+rm clocker.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/clocker'
+cp clocker/clocker.so clocker.so
+mkdir -p spdeeprom
+make MOD=spdeeprom -C spdeeprom -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/spdeeprom/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/spdeeprom'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/spdeeprom/../.. -o spdeeprom.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/spdeeprom/spdeeprom.c
+cc -levent -shared -fPIC -Wl,-soname,spdeeprom.so -o spdeeprom.so spdeeprom.o
+rm spdeeprom.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/spdeeprom'
+cp spdeeprom/spdeeprom.so spdeeprom.so
+mkdir -p gmii_ethernet
+make MOD=gmii_ethernet -C gmii_ethernet -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/gmii_ethernet/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/gmii_ethernet'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/gmii_ethernet/../.. -o gmii_ethernet.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/gmii_ethernet/gmii_ethernet.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o tapcfg.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/tapcfg.c
+cc -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/include -c -o taplog.o /home/devel/litex-migen/pythondata-misc-tapcfg/pythondata_misc_tapcfg/data/src/lib/taplog.c
+cc -levent -shared -fPIC -lz -Wl,-soname,gmii_ethernet.so -o gmii_ethernet.so gmii_ethernet.o tapcfg.o taplog.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/gmii_ethernet'
+cp gmii_ethernet/gmii_ethernet.so gmii_ethernet.so
+mkdir -p jtagremote
+make MOD=jtagremote -C jtagremote -f /home/devel/litex-migen/litex/litex/build/sim/core/modules/jtagremote/Makefile
+make[2]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/jtagremote'
+cc -c -Wall -O3 -ggdb -fPIC -Werror -I/home/devel/litex-migen/litex/litex/build/sim/core/modules/jtagremote/../.. -o jtagremote.o /home/devel/litex-migen/litex/litex/build/sim/core/modules/jtagremote/jtagremote.c
+cc -levent -shared -fPIC -Wl,-soname,jtagremote.so -o jtagremote.so jtagremote.o
+rm jtagremote.o
+make[2]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules/jtagremote'
+cp jtagremote/jtagremote.so jtagremote.so
+make[1]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/modules'
+mkdir -p /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/libdylib.o /home/devel/litex-migen/litex/litex/build/sim/core/libdylib.c
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/modules.o /home/devel/litex-migen/litex/litex/build/sim/core/modules.c
+In file included from /home/devel/litex-migen/litex/litex/build/sim/core/modules.c:6:
+In function ‘tinydir_readfile’,
+    inlined from ‘litex_sim_load_ext_modules’ at /home/devel/litex-migen/litex/litex/build/sim/core/modules.c:68:14:
+/home/devel/litex-migen/litex/litex/build/sim/core/tinydir.h:81:25: warning: ‘strcat’ accessing 4097 or more bytes at offsets 0 and 4096 may overlap 1 byte at offset 4096 [-Wrestrict]
+   81 | #define _tinydir_strcat strcat
+      |                         ^
+/home/devel/litex-migen/litex/litex/build/sim/core/tinydir.h:532:2: note: in expansion of macro ‘_tinydir_strcat’
+  532 |  _tinydir_strcat(file->path, file->name);
+      |  ^~~~~~~~~~~~~~~
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/pads.o /home/devel/litex-migen/litex/litex/build/sim/core/pads.c
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/parse.o /home/devel/litex-migen/litex/litex/build/sim/core/parse.c
+cc -c -ggdb -Wall -O3   -o /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir/sim.o /home/devel/litex-migen/litex/litex/build/sim/core/sim.c
+verilator -Wno-fatal -O3 --cc /home/devel/litex-migen/pythondata-cpu-vexriscv/pythondata_cpu_vexriscv/verilog/VexRiscv.v --cc /home/devel/litex-migen/verilator_testing/build/sim/gateware/sim.v  --top-module sim --exe \
+	-DPRINTF_COND=0 \
+	sim_init.cpp /home/devel/litex-migen/litex/litex/build/sim/core/veril.cpp libdylib.o modules.o pads.o parse.o sim.o \
+	--top-module sim \
+	 \
+	-CFLAGS "-ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core" \
+	-LDFLAGS "-lpthread -Wl,--no-as-needed -ljson-c -lz -lm -lstdc++ -Wl,--no-as-needed -ldl -levent " \
+	--trace \
+	 \
+	 \
+	--unroll-count 256 \
+	--output-split 5000 \
+	--output-split-cfuncs 500 \
+	--output-split-ctrace 500 \
+	 \
+	-Wno-BLKANDNBLK \
+	-Wno-WIDTH \
+	-Wno-COMBDLY \
+	-Wno-CASEINCOMPLETE \
+	--relative-includes
+make -j -C /home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir -f Vsim.mk Vsim
+make[1]: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir'
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -Os -c -o veril.o /home/devel/litex-migen/litex/litex/build/sim/core/veril.cpp
+g++  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -Os -c -o sim_init.o ../sim_init.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -c -o verilated.o /usr/local/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -c -o verilated_dpi.o /usr/local/share/verilator/include/verilated_dpi.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -c -o verilated_vcd_c.o /usr/local/share/verilator/include/verilated_vcd_c.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -c -o verilated_threads.o /usr/local/share/verilator/include/verilated_threads.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -x c++-header Vsim__pch.h -o Vsim__pch.h.fast.gch
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -x c++-header Vsim__pch.h -o Vsim__pch.h.slow.gch
+echo "" > Vsim__ALL.verilator_deplist.tmp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim.o Vsim.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim___024root__DepSet_h104c642d__0.o Vsim___024root__DepSet_h104c642d__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim___024root__DepSet_hb1836b75__0.o Vsim___024root__DepSet_hb1836b75__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_sim__DepSet_h837b84dc__0.o Vsim_sim__DepSet_h837b84dc__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_sim__DepSet_h40728c06__0.o Vsim_sim__DepSet_h40728c06__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_VexRiscv__DepSet_hda50bfa8__0.o Vsim_VexRiscv__DepSet_hda50bfa8__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_VexRiscv__DepSet_h9f7c89a9__0.o Vsim_VexRiscv__DepSet_h9f7c89a9__0.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim_VexRiscv__DepSet_h9f7c89a9__1.o Vsim_VexRiscv__DepSet_h9f7c89a9__1.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim__Dpi.o Vsim__Dpi.cpp
+g++ -Os  -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.fast -c -o Vsim__Trace__0.o Vsim__Trace__0.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__ConstPool_0.o Vsim__ConstPool_0.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim___024root__Slow.o Vsim___024root__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim___024root__DepSet_h104c642d__0__Slow.o Vsim___024root__DepSet_h104c642d__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim___024root__DepSet_hb1836b75__0__Slow.o Vsim___024root__DepSet_hb1836b75__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_sim__Slow.o Vsim_sim__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_sim__DepSet_h837b84dc__0__Slow.o Vsim_sim__DepSet_h837b84dc__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_sim__DepSet_h40728c06__0__Slow.o Vsim_sim__DepSet_h40728c06__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_VexRiscv__Slow.o Vsim_VexRiscv__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.o Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.o Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.o Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__Syms.o Vsim__Syms.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__Trace__0__Slow.o Vsim__Trace__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__TraceDecls__0__Slow.o Vsim__TraceDecls__0__Slow.cpp
+g++   -I.  -MMD -I/usr/local/share/verilator/include -I/usr/local/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=1 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=1 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -ggdb -Wall -O3   -I/home/devel/litex-migen/litex/litex/build/sim/core   -include Vsim__pch.h.slow -c -o Vsim__Trace__1__Slow.o Vsim__Trace__1__Slow.cpp
+Archive ar -rcs Vsim__ALL.a Vsim.o Vsim___024root__DepSet_h104c642d__0.o Vsim___024root__DepSet_hb1836b75__0.o Vsim_sim__DepSet_h837b84dc__0.o Vsim_sim__DepSet_h40728c06__0.o Vsim_VexRiscv__DepSet_hda50bfa8__0.o Vsim_VexRiscv__DepSet_h9f7c89a9__0.o Vsim_VexRiscv__DepSet_h9f7c89a9__1.o Vsim__Dpi.o Vsim__Trace__0.o Vsim__ConstPool_0.o Vsim___024root__Slow.o Vsim___024root__DepSet_h104c642d__0__Slow.o Vsim___024root__DepSet_hb1836b75__0__Slow.o Vsim_sim__Slow.o Vsim_sim__DepSet_h837b84dc__0__Slow.o Vsim_sim__DepSet_h40728c06__0__Slow.o Vsim_VexRiscv__Slow.o Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.o Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.o Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.o Vsim__Syms.o Vsim__Trace__0__Slow.o Vsim__TraceDecls__0__Slow.o Vsim__Trace__1__Slow.o
+g++    veril.o sim_init.o verilated.o verilated_dpi.o verilated_vcd_c.o verilated_threads.o Vsim__ALL.a   libdylib.o modules.o pads.o parse.o sim.o -lpthread -Wl,--no-as-needed -ljson-c -lz -lm -lstdc++ -Wl,--no-as-needed -ldl -levent  -pthread -lpthread -latomic   -o Vsim
+rm Vsim__ALL.verilator_deplist.tmp
+make[1]: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware/obj_dir'
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/gateware'
+
+
+(env) devel@pi4-30:~/litex-migen/verilator_testing/build/sim/gateware $ ls -la obj_dir/
+total 191872
+drwxr-xr-x 2 devel devel     4096 Mar 27 19:35 .
+drwxr-xr-x 4 devel devel     4096 Mar 27 19:34 ..
+-rw-r--r-- 1 devel devel    67360 Mar 27 19:34 libdylib.o
+-rw-r--r-- 1 devel devel    31536 Mar 27 19:34 modules.o
+-rw-r--r-- 1 devel devel    12904 Mar 27 19:34 pads.o
+-rw-r--r-- 1 devel devel    44784 Mar 27 19:34 parse.o
+-rw-r--r-- 1 devel devel      436 Mar 27 19:35 sim_init.d
+-rw-r--r-- 1 devel devel    35320 Mar 27 19:35 sim_init.o
+-rw-r--r-- 1 devel devel    29136 Mar 27 19:34 sim.o
+-rw-r--r-- 1 devel devel      616 Mar 27 19:35 verilated.d
+-rw-r--r-- 1 devel devel      670 Mar 27 19:35 verilated_dpi.d
+-rw-r--r-- 1 devel devel  2024440 Mar 27 19:35 verilated_dpi.o
+-rw-r--r-- 1 devel devel  6962608 Mar 27 19:35 verilated.o
+-rw-r--r-- 1 devel devel      410 Mar 27 19:35 verilated_threads.d
+-rw-r--r-- 1 devel devel   962272 Mar 27 19:35 verilated_threads.o
+-rw-r--r-- 1 devel devel      636 Mar 27 19:35 verilated_vcd_c.d
+-rw-r--r-- 1 devel devel  4145112 Mar 27 19:35 verilated_vcd_c.o
+-rw-r--r-- 1 devel devel      563 Mar 27 19:35 veril.d
+-rw-r--r-- 1 devel devel   234712 Mar 27 19:35 veril.o
+-rwxr-xr-x 1 devel devel  9331288 Mar 27 19:35 Vsim
+-rw-r--r-- 1 devel devel     6978 Mar 27 19:34 Vsim___024root__DepSet_h104c642d__0.cpp
+-rw-r--r-- 1 devel devel      127 Mar 27 19:35 Vsim___024root__DepSet_h104c642d__0.d
+-rw-r--r-- 1 devel devel   393536 Mar 27 19:35 Vsim___024root__DepSet_h104c642d__0.o
+-rw-r--r-- 1 devel devel     5307 Mar 27 19:34 Vsim___024root__DepSet_h104c642d__0__Slow.cpp
+-rw-r--r-- 1 devel devel      139 Mar 27 19:35 Vsim___024root__DepSet_h104c642d__0__Slow.d
+-rw-r--r-- 1 devel devel   386528 Mar 27 19:35 Vsim___024root__DepSet_h104c642d__0__Slow.o
+-rw-r--r-- 1 devel devel     5789 Mar 27 19:34 Vsim___024root__DepSet_hb1836b75__0.cpp
+-rw-r--r-- 1 devel devel      111 Mar 27 19:35 Vsim___024root__DepSet_hb1836b75__0.d
+-rw-r--r-- 1 devel devel   400600 Mar 27 19:35 Vsim___024root__DepSet_hb1836b75__0.o
+-rw-r--r-- 1 devel devel     6033 Mar 27 19:34 Vsim___024root__DepSet_hb1836b75__0__Slow.cpp
+-rw-r--r-- 1 devel devel      126 Mar 27 19:35 Vsim___024root__DepSet_hb1836b75__0__Slow.d
+-rw-r--r-- 1 devel devel   384288 Mar 27 19:35 Vsim___024root__DepSet_hb1836b75__0__Slow.o
+-rw-r--r-- 1 devel devel     1373 Mar 27 19:34 Vsim___024root.h
+-rw-r--r-- 1 devel devel      620 Mar 27 19:34 Vsim___024root__Slow.cpp
+-rw-r--r-- 1 devel devel       94 Mar 27 19:35 Vsim___024root__Slow.d
+-rw-r--r-- 1 devel devel   386320 Mar 27 19:35 Vsim___024root__Slow.o
+-rw-r--r-- 1 devel devel 10407318 Mar 27 19:35 Vsim__ALL.a
+-rw-r--r-- 1 devel devel     2217 Mar 27 19:34 Vsim_classes.mk
+-rw-r--r-- 1 devel devel     5397 Mar 27 19:34 Vsim__ConstPool_0.cpp
+-rw-r--r-- 1 devel devel       93 Mar 27 19:35 Vsim__ConstPool_0.d
+-rw-r--r-- 1 devel devel   118288 Mar 27 19:35 Vsim__ConstPool_0.o
+-rw-r--r-- 1 devel devel     5119 Mar 27 19:34 Vsim.cpp
+-rw-r--r-- 1 devel devel      191 Mar 27 19:35 Vsim.d
+-rw-r--r-- 1 devel devel      669 Mar 27 19:34 Vsim__Dpi.cpp
+-rw-r--r-- 1 devel devel       99 Mar 27 19:35 Vsim__Dpi.d
+-rw-r--r-- 1 devel devel      520 Mar 27 19:34 Vsim__Dpi.h
+-rw-r--r-- 1 devel devel    28752 Mar 27 19:35 Vsim__Dpi.o
+-rw-r--r-- 1 devel devel     3542 Mar 27 19:34 Vsim.h
+-rw-r--r-- 1 devel devel     2246 Mar 27 19:34 Vsim.mk
+-rw-r--r-- 1 devel devel   472288 Mar 27 19:35 Vsim.o
+-rw-r--r-- 1 devel devel      711 Mar 27 19:34 Vsim__pch.h
+-rw-r--r-- 1 devel devel      589 Mar 27 19:35 Vsim__pch.h.fast.d
+-rw-r--r-- 1 devel devel 75142134 Mar 27 19:35 Vsim__pch.h.fast.gch
+-rw-r--r-- 1 devel devel      589 Mar 27 19:35 Vsim__pch.h.slow.d
+-rw-r--r-- 1 devel devel 75142134 Mar 27 19:35 Vsim__pch.h.slow.gch
+-rw-r--r-- 1 devel devel    27645 Mar 27 19:34 Vsim_sim__DepSet_h40728c06__0.cpp
+-rw-r--r-- 1 devel devel       93 Mar 27 19:35 Vsim_sim__DepSet_h40728c06__0.d
+-rw-r--r-- 1 devel devel   380440 Mar 27 19:35 Vsim_sim__DepSet_h40728c06__0.o
+-rw-r--r-- 1 devel devel    28843 Mar 27 19:34 Vsim_sim__DepSet_h40728c06__0__Slow.cpp
+-rw-r--r-- 1 devel devel      105 Mar 27 19:35 Vsim_sim__DepSet_h40728c06__0__Slow.d
+-rw-r--r-- 1 devel devel   428464 Mar 27 19:35 Vsim_sim__DepSet_h40728c06__0__Slow.o
+-rw-r--r-- 1 devel devel    29729 Mar 27 19:34 Vsim_sim__DepSet_h837b84dc__0.cpp
+-rw-r--r-- 1 devel devel      106 Mar 27 19:35 Vsim_sim__DepSet_h837b84dc__0.d
+-rw-r--r-- 1 devel devel   382560 Mar 27 19:35 Vsim_sim__DepSet_h837b84dc__0.o
+-rw-r--r-- 1 devel devel    20082 Mar 27 19:34 Vsim_sim__DepSet_h837b84dc__0__Slow.cpp
+-rw-r--r-- 1 devel devel      121 Mar 27 19:35 Vsim_sim__DepSet_h837b84dc__0__Slow.d
+-rw-r--r-- 1 devel devel   379520 Mar 27 19:35 Vsim_sim__DepSet_h837b84dc__0__Slow.o
+-rw-r--r-- 1 devel devel    12001 Mar 27 19:34 Vsim_sim.h
+-rw-r--r-- 1 devel devel      566 Mar 27 19:34 Vsim_sim__Slow.cpp
+-rw-r--r-- 1 devel devel       73 Mar 27 19:35 Vsim_sim__Slow.d
+-rw-r--r-- 1 devel devel   375504 Mar 27 19:35 Vsim_sim__Slow.o
+-rw-r--r-- 1 devel devel     3590 Mar 27 19:34 Vsim__Syms.cpp
+-rw-r--r-- 1 devel devel       95 Mar 27 19:35 Vsim__Syms.d
+-rw-r--r-- 1 devel devel     1358 Mar 27 19:34 Vsim__Syms.h
+-rw-r--r-- 1 devel devel   421960 Mar 27 19:35 Vsim__Syms.o
+-rw-r--r-- 1 devel devel   148995 Mar 27 19:34 Vsim__Trace__0.cpp
+-rw-r--r-- 1 devel devel      212 Mar 27 19:35 Vsim__Trace__0.d
+-rw-r--r-- 1 devel devel  1097088 Mar 27 19:35 Vsim__Trace__0.o
+-rw-r--r-- 1 devel devel   410977 Mar 27 19:34 Vsim__Trace__0__Slow.cpp
+-rw-r--r-- 1 devel devel      224 Mar 27 19:35 Vsim__Trace__0__Slow.d
+-rw-r--r-- 1 devel devel  1093552 Mar 27 19:35 Vsim__Trace__0__Slow.o
+-rw-r--r-- 1 devel devel     7132 Mar 27 19:34 Vsim__Trace__1__Slow.cpp
+-rw-r--r-- 1 devel devel      224 Mar 27 19:35 Vsim__Trace__1__Slow.d
+-rw-r--r-- 1 devel devel   387528 Mar 27 19:35 Vsim__Trace__1__Slow.o
+-rw-r--r-- 1 devel devel      290 Mar 27 19:34 Vsim__TraceDecls__0__Slow.cpp
+-rw-r--r-- 1 devel devel      221 Mar 27 19:35 Vsim__TraceDecls__0__Slow.d
+-rw-r--r-- 1 devel devel    30112 Mar 27 19:35 Vsim__TraceDecls__0__Slow.o
+-rw-r--r-- 1 devel devel     1475 Mar 27 19:34 Vsim__ver.d
+-rw-r--r-- 1 devel devel     5110 Mar 27 19:34 Vsim__verFiles.dat
+-rw-r--r-- 1 devel devel   146578 Mar 27 19:34 Vsim_VexRiscv__DepSet_h9f7c89a9__0.cpp
+-rw-r--r-- 1 devel devel      124 Mar 27 19:35 Vsim_VexRiscv__DepSet_h9f7c89a9__0.d
+-rw-r--r-- 1 devel devel   457256 Mar 27 19:35 Vsim_VexRiscv__DepSet_h9f7c89a9__0.o
+-rw-r--r-- 1 devel devel    16629 Mar 27 19:34 Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.cpp
+-rw-r--r-- 1 devel devel      136 Mar 27 19:35 Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.d
+-rw-r--r-- 1 devel devel   375400 Mar 27 19:35 Vsim_VexRiscv__DepSet_h9f7c89a9__0__Slow.o
+-rw-r--r-- 1 devel devel    20771 Mar 27 19:34 Vsim_VexRiscv__DepSet_h9f7c89a9__1.cpp
+-rw-r--r-- 1 devel devel      124 Mar 27 19:35 Vsim_VexRiscv__DepSet_h9f7c89a9__1.d
+-rw-r--r-- 1 devel devel   377008 Mar 27 19:35 Vsim_VexRiscv__DepSet_h9f7c89a9__1.o
+-rw-r--r-- 1 devel devel    62864 Mar 27 19:34 Vsim_VexRiscv__DepSet_hda50bfa8__0.cpp
+-rw-r--r-- 1 devel devel      108 Mar 27 19:35 Vsim_VexRiscv__DepSet_hda50bfa8__0.d
+-rw-r--r-- 1 devel devel   401488 Mar 27 19:35 Vsim_VexRiscv__DepSet_hda50bfa8__0.o
+-rw-r--r-- 1 devel devel   154876 Mar 27 19:34 Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.cpp
+-rw-r--r-- 1 devel devel      120 Mar 27 19:35 Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.d
+-rw-r--r-- 1 devel devel   478344 Mar 27 19:35 Vsim_VexRiscv__DepSet_hda50bfa8__0__Slow.o
+-rw-r--r-- 1 devel devel     7522 Mar 27 19:34 Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.cpp
+-rw-r--r-- 1 devel devel      120 Mar 27 19:35 Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.d
+-rw-r--r-- 1 devel devel   383800 Mar 27 19:35 Vsim_VexRiscv__DepSet_hda50bfa8__1__Slow.o
+-rw-r--r-- 1 devel devel    38218 Mar 27 19:34 Vsim_VexRiscv.h
+-rw-r--r-- 1 devel devel      611 Mar 27 19:34 Vsim_VexRiscv__Slow.cpp
+-rw-r--r-- 1 devel devel       91 Mar 27 19:35 Vsim_VexRiscv__Slow.d
+
+
+(env) devel@pi4-30:~/litex-migen/verilator_testing $ litex_bare_metal_demo --build-path=build/sim/
+cp: -r not specified; omitting directory '/home/devel/litex-migen/litex/litex/soc/software/demo/__pycache__'
+ CC       donut.o
+ CC       helloc.o
+ CC       crt0.o
+ CC       main.o
+ CC       demo.elf
+chmod -x demo.elf
+ OBJCOPY  demo.bin
+chmod -x demo.bin
+(env) devel@pi4-30:~/litex-migen/verilator_testing $ litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --ram-init=demo.bin
+INFO:SoC:        __   _ __      _  __  
+INFO:SoC:       / /  (_) /____ | |/_/  
+INFO:SoC:      / /__/ / __/ -_)>  <    
+INFO:SoC:     /____/_/\__/\__/_/|_|  
+INFO:SoC:  Build your hardware, easily!
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Creating SoC... (2024-03-27 19:47:16)
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:FPGA device : SIM.
+INFO:SoC:System clock: 1.000MHz.
+INFO:SoCBusHandler:Creating Bus Handler...
+INFO:SoCBusHandler:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoCBusHandler:Adding reserved Bus Regions...
+INFO:SoCBusHandler:Bus Handler created.
+INFO:SoCCSRHandler:Creating CSR Handler...
+INFO:SoCCSRHandler:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoCCSRHandler:Adding reserved CSRs...
+INFO:SoCCSRHandler:CSR Handler created.
+INFO:SoCIRQHandler:Creating IRQ Handler...
+INFO:SoCIRQHandler:IRQ Handler (up to 32 Locations).
+INFO:SoCIRQHandler:Adding reserved IRQs...
+INFO:SoCIRQHandler:IRQ Handler created.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Initial SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoC:IRQ Handler (up to 32 Locations).
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Controller ctrl added.
+INFO:SoC:CPU vexriscv added.
+INFO:SoC:CPU vexriscv adding IO Region 0 at 0x80000000 (Size: 0x80000000).
+INFO:SoCBusHandler:io0 Region added at Origin: 0x80000000, Size: 0x80000000, Mode:  RW, Cached: False, Linker: False.
+INFO:SoC:CPU vexriscv overriding sram mapping from 0x01000000 to 0x10000000.
+INFO:SoC:CPU vexriscv setting reset address to 0x00000000.
+INFO:SoC:CPU vexriscv adding Bus Master(s).
+INFO:SoCBusHandler:cpu_bus0 added as Bus Master.
+INFO:SoCBusHandler:cpu_bus1 added as Bus Master.
+INFO:SoC:CPU vexriscv adding Interrupt(s).
+INFO:SoC:CPU vexriscv adding SoC components.
+INFO:SoCBusHandler:rom Region added at Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:rom added as Bus Slave.
+INFO:SoC:RAM rom added Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram Region added at Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram added as Bus Slave.
+INFO:SoC:RAM sram added Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram Region added at Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram added as Bus Slave.
+INFO:SoC:RAM main_ram added Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCIRQHandler:uart IRQ allocated at Location 0.
+INFO:SoCIRQHandler:timer0 IRQ allocated at Location 1.
+{'demo.bin': '00000000'}
+INFO:SoC:        __   _ __      _  __  
+INFO:SoC:       / /  (_) /____ | |/_/  
+INFO:SoC:      / /__/ / __/ -_)>  <    
+INFO:SoC:     /____/_/\__/\__/_/|_|  
+INFO:SoC:  Build your hardware, easily!
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Creating SoC... (2024-03-27 19:47:16)
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:FPGA device : SIM.
+INFO:SoC:System clock: 1.000MHz.
+INFO:SoCBusHandler:Creating Bus Handler...
+INFO:SoCBusHandler:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoCBusHandler:Adding reserved Bus Regions...
+INFO:SoCBusHandler:Bus Handler created.
+INFO:SoCCSRHandler:Creating CSR Handler...
+INFO:SoCCSRHandler:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoCCSRHandler:Adding reserved CSRs...
+INFO:SoCCSRHandler:CSR Handler created.
+INFO:SoCIRQHandler:Creating IRQ Handler...
+INFO:SoCIRQHandler:IRQ Handler (up to 32 Locations).
+INFO:SoCIRQHandler:Adding reserved IRQs...
+INFO:SoCIRQHandler:IRQ Handler created.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Initial SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+INFO:SoC:IRQ Handler (up to 32 Locations).
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Controller ctrl added.
+INFO:SoC:CPU vexriscv added.
+INFO:SoC:CPU vexriscv adding IO Region 0 at 0x80000000 (Size: 0x80000000).
+INFO:SoCBusHandler:io0 Region added at Origin: 0x80000000, Size: 0x80000000, Mode:  RW, Cached: False, Linker: False.
+INFO:SoC:CPU vexriscv setting reset address to 0x00000000.
+INFO:SoC:CPU vexriscv adding Bus Master(s).
+INFO:SoCBusHandler:cpu_bus0 added as Bus Master.
+INFO:SoCBusHandler:cpu_bus1 added as Bus Master.
+INFO:SoC:CPU vexriscv adding Interrupt(s).
+INFO:SoC:CPU vexriscv adding SoC components.
+INFO:SoCBusHandler:rom Region added at Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:rom added as Bus Slave.
+INFO:SoC:RAM rom added Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram Region added at Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:sram added as Bus Slave.
+INFO:SoC:RAM sram added Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram Region added at Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCBusHandler:main_ram added as Bus Slave.
+INFO:SoC:RAM main_ram added Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False.
+INFO:SoCIRQHandler:uart IRQ allocated at Location 0.
+INFO:SoCIRQHandler:timer0 IRQ allocated at Location 1.
+INFO:SoC:CSR Bridge csr added.
+INFO:SoCBusHandler:csr Region added at Origin: 0xf0000000, Size: 0x00010000, Mode:  RW, Cached: False, Linker: False.
+INFO:SoCBusHandler:csr added as Bus Slave.
+INFO:SoCCSRHandler:csr added as CSR Master.
+INFO:SoCBusHandler:Interconnect: InterconnectShared (2 <-> 4).
+INFO:SoCCSRHandler:ctrl CSR allocated at Location 0.
+INFO:SoCCSRHandler:identifier_mem CSR allocated at Location 1.
+INFO:SoCCSRHandler:timer0 CSR allocated at Location 2.
+INFO:SoCCSRHandler:uart CSR allocated at Location 3.
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:Finalized SoC:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:32-bit wishbone Bus, 4.0GiB Address Space.
+IO Regions: (1)
+io0                 : Origin: 0x80000000, Size: 0x80000000, Mode:  RW, Cached: False, Linker: False
+Bus Regions: (4)
+rom                 : Origin: 0x00000000, Size: 0x00020000, Mode:  RX, Cached:  True, Linker: False
+sram                : Origin: 0x10000000, Size: 0x00002000, Mode: RWX, Cached:  True, Linker: False
+main_ram            : Origin: 0x40000000, Size: 0x00010000, Mode: RWX, Cached:  True, Linker: False
+csr                 : Origin: 0xf0000000, Size: 0x00010000, Mode:  RW, Cached: False, Linker: False
+Bus Masters: (2)
+- cpu_bus0
+- cpu_bus1
+Bus Slaves: (4)
+- rom
+- sram
+- main_ram
+- csr
+INFO:SoC:32-bit CSR Bus, 32-bit Aligned, 16.0KiB Address Space, 2048B Paging, big Ordering (Up to 32 Locations).
+CSR Locations: (4)
+- ctrl           : 0
+- identifier_mem : 1
+- timer0         : 2
+- uart           : 3
+INFO:SoC:IRQ Handler (up to 32 Locations).
+IRQ Locations: (2)
+- uart   : 0
+- timer0 : 1
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:SoC Hierarchy:
+INFO:SoC:--------------------------------------------------------------------------------
+INFO:SoC:
+SimSoC
+└─── crg (CRG)
+└─── bus (SoCBusHandler)
+│    └─── _interconnect (InterconnectShared)
+│    │    └─── arbiter (Arbiter)
+│    │    │    └─── rr (RoundRobin)
+│    │    └─── decoder (Decoder)
+│    │    └─── timeout (Timeout)
+│    │    │    └─── waittimer_0* (WaitTimer)
+└─── csr (SoCCSRHandler)
+└─── irq (SoCIRQHandler)
+└─── ctrl (SoCController)
+└─── cpu (VexRiscv)
+│    └─── [VexRiscv]
+└─── rom (SRAM)
+└─── sram (SRAM)
+└─── main_ram (SRAM)
+└─── identifier (Identifier)
+└─── uart_phy (RS232PHYModel)
+└─── uart (UART)
+│    └─── ev (EventManager)
+│    │    └─── eventsourceprocess_0* (EventSourceProcess)
+│    │    └─── eventsourceprocess_1* (EventSourceProcess)
+│    └─── tx_fifo (SyncFIFO)
+│    │    └─── fifo (SyncFIFOBuffered)
+│    │    │    └─── fifo (SyncFIFO)
+│    └─── rx_fifo (SyncFIFO)
+│    │    └─── fifo (SyncFIFOBuffered)
+│    │    │    └─── fifo (SyncFIFO)
+└─── timer0 (Timer)
+│    └─── ev (EventManager)
+│    │    └─── eventsourceprocess_0* (EventSourceProcess)
+└─── csr_bridge (Wishbone2CSR)
+│    └─── fsm (FSM)
+└─── csr_bankarray (CSRBankArray)
+│    └─── csrbank_0* (CSRBank)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstorage_1* (CSRStorage)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    └─── sram_0* (SRAM)
+│    └─── csrbank_1* (CSRBank)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstorage_1* (CSRStorage)
+│    │    └─── csrstorage_2* (CSRStorage)
+│    │    └─── csrstorage_3* (CSRStorage)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    │    └─── csrstatus_1* (CSRStatus)
+│    │    └─── csrstatus_2* (CSRStatus)
+│    │    └─── csrstorage_4* (CSRStorage)
+│    └─── csrbank_2* (CSRBank)
+│    │    └─── csrstatus_0* (CSRStatus)
+│    │    └─── csrstatus_1* (CSRStatus)
+│    │    └─── csrstatus_2* (CSRStatus)
+│    │    └─── csrstatus_3* (CSRStatus)
+│    │    └─── csrstorage_0* (CSRStorage)
+│    │    └─── csrstatus_4* (CSRStatus)
+│    │    └─── csrstatus_5* (CSRStatus)
+└─── csr_interconnect (InterconnectShared)
+* : Generated name.
+[]: BlackBox.
+
+INFO:SoC:--------------------------------------------------------------------------------
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libc'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libc'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libcompiler_rt'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libcompiler_rt'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libbase'
+ CC       console.o
+ CC       system.o
+ CC       memtest.o
+ CC       uart.o
+ CC       spiflash.o
+ CC       i2c.o
+ CC       isr.o
+ AR       libbase.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libbase'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libfatfs'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libfatfs'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitespi'
+ CC       spiflash.o
+ AR       liblitespi.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitespi'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitedram'
+ CC       sdram.o
+ CC       bist.o
+ CC       sdram_dbg.o
+ CC       sdram_spd.o
+ CC       utils.o
+ CC       accessors.o
+ AR       liblitedram.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitedram'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libliteeth'
+ CC       udp.o
+ CC       mdio.o
+ AR       libliteeth.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/libliteeth'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesdcard'
+ CC       sdcard.o
+ CC       spisdcard.o
+ AR       liblitesdcard.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesdcard'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesata'
+ CC       sata.o
+ AR       liblitesata.a
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/liblitesata'
+make: Entering directory '/home/devel/litex-migen/verilator_testing/build/sim/software/bios'
+ CC       boot.o
+ CC       cmd_bios.o
+ CC       cmd_mem.o
+ CC       cmd_boot.o
+ CC       cmd_i2c.o
+ CC       cmd_spiflash.o
+ CC       cmd_litedram.o
+ CC       cmd_liteeth.o
+ CC       cmd_litesdcard.o
+ CC       cmd_litesata.o
+ CC       sim_debug.o
+ CC       main.o
+ CC       crt0.o
+ CC       bios.elf
+chmod -x bios.elf
+ OBJCOPY  bios.bin
+chmod -x bios.bin
+python3 -m litex.soc.software.crcfbigen bios.bin --little
+python3 -m litex.soc.software.memusage bios.elf /home/devel/litex-migen/verilator_testing/build/sim/software/bios/../include/generated/regions.ld riscv64-unknown-elf
+
+ROM usage: 23.33KiB 	(18.23%)
+RAM usage: 1.62KiB 	(20.21%)
+
+rm crt0.o
+make: Leaving directory '/home/devel/litex-migen/verilator_testing/build/sim/software/bios'
+INFO:SoC:Initializing ROM rom with contents (Size: 0x5d64).
+INFO:SoC:Auto-Resizing ROM rom from 0x20000 to 0x5d64.
+-rw-r--r-- 1 devel devel   375584 Mar 27 19:35 Vsim_VexRiscv__Slow.o
