@@ -1,0 +1,1019 @@
+ls /usr/bin/riscv64-unknown-elf-*
+/usr/bin/riscv64-unknown-elf-addr2line   /usr/bin/riscv64-unknown-elf-gcov-dump
+/usr/bin/riscv64-unknown-elf-ar          /usr/bin/riscv64-unknown-elf-gcov-tool
+/usr/bin/riscv64-unknown-elf-as          /usr/bin/riscv64-unknown-elf-gprof
+/usr/bin/riscv64-unknown-elf-c++         /usr/bin/riscv64-unknown-elf-ld
+/usr/bin/riscv64-unknown-elf-c++filt     /usr/bin/riscv64-unknown-elf-ld.bfd
+/usr/bin/riscv64-unknown-elf-cpp         /usr/bin/riscv64-unknown-elf-nm
+/usr/bin/riscv64-unknown-elf-elfedit     /usr/bin/riscv64-unknown-elf-objcopy
+/usr/bin/riscv64-unknown-elf-g++         /usr/bin/riscv64-unknown-elf-objdump
+/usr/bin/riscv64-unknown-elf-gcc         /usr/bin/riscv64-unknown-elf-ranlib
+/usr/bin/riscv64-unknown-elf-gcc-8.3.0   /usr/bin/riscv64-unknown-elf-readelf
+/usr/bin/riscv64-unknown-elf-gcc-ar      /usr/bin/riscv64-unknown-elf-size
+/usr/bin/riscv64-unknown-elf-gcc-nm      /usr/bin/riscv64-unknown-elf-strings
+/usr/bin/riscv64-unknown-elf-gcc-ranlib  /usr/bin/riscv64-unknown-elf-strip
+/usr/bin/riscv64-unknown-elf-gcov
+
+The following object were disam
+main.o donut.o helloc.o
+
+************************main.c************************
+// This file is Copyright (c) 2020 Florent Kermarrec <florent@enjoy-digital.fr>
+// License: BSD
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <irq.h>
+#include <libbase/uart.h>
+#include <libbase/console.h>
+#include <generated/csr.h>
+
+/*-----------------------------------------------------------------------*/
+/* Uart                                                                  */
+/*-----------------------------------------------------------------------*/
+
+static char *readstr(void)
+{
+	char c[2];
+	static char s[64];
+	static int ptr = 0;
+
+	if(readchar_nonblock()) {
+		c[0] = getchar();
+		c[1] = 0;
+		switch(c[0]) {
+			case 0x7f:
+			case 0x08:
+				if(ptr > 0) {
+					ptr--;
+					fputs("\x08 \x08", stdout);
+				}
+				break;
+			case 0x07:
+				break;
+			case '\r':
+			case '\n':
+				s[ptr] = 0x00;
+				fputs("\n", stdout);
+				ptr = 0;
+				return s;
+			default:
+				if(ptr >= (sizeof(s) - 1))
+					break;
+				fputs(c, stdout);
+				s[ptr] = c[0];
+				ptr++;
+				break;
+		}
+	}
+
+	return NULL;
+}
+
+static char *get_token(char **str)
+{
+	char *c, *d;
+
+	c = (char *)strchr(*str, ' ');
+	if(c == NULL) {
+		d = *str;
+		*str = *str+strlen(*str);
+		return d;
+	}
+	*c = 0;
+	d = *str;
+	*str = c+1;
+	return d;
+}
+
+static void prompt(void)
+{
+	printf("\e[92;1mlitex-demo-app\e[0m> ");
+}
+
+/*-----------------------------------------------------------------------*/
+/* Help                                                                  */
+/*-----------------------------------------------------------------------*/
+
+static void help(void)
+{
+	puts("\nLiteX minimal demo app built "__DATE__" "__TIME__"\n");
+	puts("Available commands:");
+	puts("help               - Show this command");
+	puts("reboot             - Reboot CPU");
+#ifdef CSR_LEDS_BASE
+	puts("led                - Led demo");
+#endif
+	puts("donut              - Spinning Donut demo");
+	puts("helloc             - Hello C");
+#ifdef WITH_CXX
+	puts("hellocpp           - Hello C++");
+#endif
+}
+
+/*-----------------------------------------------------------------------*/
+/* Commands                                                              */
+/*-----------------------------------------------------------------------*/
+
+static void reboot_cmd(void)
+{
+	ctrl_reset_write(1);
+}
+
+#ifdef CSR_LEDS_BASE
+static void led_cmd(void)
+{
+	int i;
+	printf("Led demo...\n");
+
+	printf("Counter mode...\n");
+	for(i=0; i<32; i++) {
+		leds_out_write(i);
+		busy_wait(100);
+	}
+
+	printf("Shift mode...\n");
+	for(i=0; i<4; i++) {
+		leds_out_write(1<<i);
+		busy_wait(200);
+	}
+	for(i=0; i<4; i++) {
+		leds_out_write(1<<(3-i));
+		busy_wait(200);
+	}
+
+	printf("Dance mode...\n");
+	for(i=0; i<4; i++) {
+		leds_out_write(0x55);
+		busy_wait(200);
+		leds_out_write(0xaa);
+		busy_wait(200);
+	}
+}
+#endif
+
+extern void donut(void);
+
+static void donut_cmd(void)
+{
+	printf("Donut demo...\n");
+	donut();
+}
+
+extern void helloc(void);
+
+static void helloc_cmd(void)
+{
+	printf("Hello C demo...\n");
+	helloc();
+}
+
+#ifdef WITH_CXX
+extern void hellocpp(void);
+
+static void hellocpp_cmd(void)
+{
+	printf("Hello C++ demo...\n");
+	hellocpp();
+}
+#endif
+
+/*-----------------------------------------------------------------------*/
+/* Console service / Main                                                */
+/*-----------------------------------------------------------------------*/
+
+static void console_service(void)
+{
+	char *str;
+	char *token;
+
+	str = readstr();
+	if(str == NULL) return;
+	token = get_token(&str);
+	if(strcmp(token, "help") == 0)
+		help();
+	else if(strcmp(token, "reboot") == 0)
+		reboot_cmd();
+#ifdef CSR_LEDS_BASE
+	else if(strcmp(token, "led") == 0)
+		led_cmd();
+#endif
+	else if(strcmp(token, "donut") == 0)
+		donut_cmd();
+	else if(strcmp(token, "helloc") == 0)
+		helloc_cmd();
+#ifdef WITH_CXX
+	else if(strcmp(token, "hellocpp") == 0)
+		hellocpp_cmd();
+#endif
+	prompt();
+}
+
+int main(void)
+{
+#ifdef CONFIG_CPU_HAS_INTERRUPT
+	irq_setmask(0);
+	irq_setie(1);
+#endif
+	uart_init();
+
+	help();
+	prompt();
+
+	while(1) {
+		console_service();
+	}
+
+	return 0;
+}
+
+************************main.c************************
+
+************************main.o************************
+riscv64-unknown-elf-objdump -d  main.o
+
+main.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <help>:
+   0:	00000537          	lui	a0,0x0
+   4:	ff010113          	addi	sp,sp,-16
+   8:	00050513          	mv	a0,a0
+   c:	00112623          	sw	ra,12(sp)
+  10:	00000097          	auipc	ra,0x0
+  14:	000080e7          	jalr	ra # 10 <help+0x10>
+
+00000018 <.LVL0>:
+  18:	00000537          	lui	a0,0x0
+  1c:	00050513          	mv	a0,a0
+  20:	00000097          	auipc	ra,0x0
+  24:	000080e7          	jalr	ra # 20 <.LVL0+0x8>
+
+00000028 <.LVL1>:
+  28:	00000537          	lui	a0,0x0
+  2c:	00050513          	mv	a0,a0
+  30:	00000097          	auipc	ra,0x0
+  34:	000080e7          	jalr	ra # 30 <.LVL1+0x8>
+
+00000038 <.LVL2>:
+  38:	00000537          	lui	a0,0x0
+  3c:	00050513          	mv	a0,a0
+  40:	00000097          	auipc	ra,0x0
+  44:	000080e7          	jalr	ra # 40 <.LVL2+0x8>
+
+00000048 <.LVL3>:
+  48:	00000537          	lui	a0,0x0
+  4c:	00050513          	mv	a0,a0
+  50:	00000097          	auipc	ra,0x0
+  54:	000080e7          	jalr	ra # 50 <.LVL3+0x8>
+
+00000058 <.LVL4>:
+  58:	00c12083          	lw	ra,12(sp)
+  5c:	00000537          	lui	a0,0x0
+  60:	00050513          	mv	a0,a0
+  64:	01010113          	addi	sp,sp,16
+  68:	00000317          	auipc	t1,0x0
+  6c:	00030067          	jr	t1 # 68 <.LVL4+0x10>
+
+Disassembly of section .text.startup:
+
+00000000 <main>:
+   0:	fc010113          	addi	sp,sp,-64
+   4:	02112e23          	sw	ra,60(sp)
+   8:	02812c23          	sw	s0,56(sp)
+   c:	02912a23          	sw	s1,52(sp)
+  10:	03212823          	sw	s2,48(sp)
+  14:	03312623          	sw	s3,44(sp)
+  18:	03412423          	sw	s4,40(sp)
+  1c:	03512223          	sw	s5,36(sp)
+
+00000020 <.LBB42>:
+  20:	00000793          	li	a5,0
+  24:	bc079073          	csrw	0xbc0,a5
+
+00000028 <.LBB43>:
+  28:	30046073          	csrsi	mstatus,8
+
+0000002c <.LBB45>:
+  2c:	00000937          	lui	s2,0x0
+
+00000030 <.LBE45>:
+  30:	00000097          	auipc	ra,0x0
+  34:	000080e7          	jalr	ra # 30 <.LBE45>
+
+00000038 <.LVL9>:
+  38:	00000097          	auipc	ra,0x0
+  3c:	000080e7          	jalr	ra # 38 <.LVL9>
+
+00000040 <.LBB48>:
+  40:	00090513          	mv	a0,s2
+  44:	00000097          	auipc	ra,0x0
+  48:	000080e7          	jalr	ra # 44 <.LBB48+0x4>
+
+0000004c <.LVL11>:
+  4c:	000007b7          	lui	a5,0x0
+  50:	0007aa03          	lw	s4,0(a5) # 0 <main>
+
+00000054 <.LBB49>:
+  54:	000007b7          	lui	a5,0x0
+  58:	0007a783          	lw	a5,0(a5) # 0 <main>
+  5c:	00000437          	lui	s0,0x0
+  60:	00040993          	mv	s3,s0
+  64:	00f12623          	sw	a5,12(sp)
+
+00000068 <.L20>:
+  68:	000004b7          	lui	s1,0x0
+  6c:	00000ab7          	lui	s5,0x0
+
+00000070 <.L4>:
+  70:	00000097          	auipc	ra,0x0
+  74:	000080e7          	jalr	ra # 70 <.L4>
+
+00000078 <.LVL12>:
+  78:	fe050ce3          	beqz	a0,70 <.L4>
+  7c:	00c12503          	lw	a0,12(sp)
+  80:	00000097          	auipc	ra,0x0
+  84:	000080e7          	jalr	ra # 80 <.LVL12+0x8>
+
+00000088 <.LVL13>:
+  88:	0ff57513          	andi	a0,a0,255
+  8c:	00a10e23          	sb	a0,28(sp)
+  90:	00010ea3          	sb	zero,29(sp)
+  94:	00a00793          	li	a5,10
+  98:	04f50663          	beq	a0,a5,e4 <.L7>
+  9c:	02a7ec63          	bltu	a5,a0,d4 <.L8>
+  a0:	00700793          	li	a5,7
+  a4:	fcf506e3          	beq	a0,a5,70 <.L4>
+  a8:	00800793          	li	a5,8
+
+000000ac <.L23>:
+  ac:	0af51863          	bne	a0,a5,15c <.L11>
+  b0:	0004a783          	lw	a5,0(s1) # 0 <main>
+  b4:	faf05ee3          	blez	a5,70 <.L4>
+  b8:	fff78793          	addi	a5,a5,-1
+  bc:	000a0593          	mv	a1,s4
+  c0:	000a8513          	mv	a0,s5
+  c4:	00f4a023          	sw	a5,0(s1)
+  c8:	00000097          	auipc	ra,0x0
+  cc:	000080e7          	jalr	ra # c8 <.L23+0x1c>
+
+000000d0 <.LBE57>:
+  d0:	fa1ff06f          	j	70 <.L4>
+
+000000d4 <.L8>:
+  d4:	00d00793          	li	a5,13
+  d8:	00f50663          	beq	a0,a5,e4 <.L7>
+  dc:	07f00793          	li	a5,127
+  e0:	fcdff06f          	j	ac <.L23>
+
+000000e4 <.L7>:
+  e4:	000004b7          	lui	s1,0x0
+  e8:	0004a783          	lw	a5,0(s1) # 0 <main>
+  ec:	00000537          	lui	a0,0x0
+  f0:	000a0593          	mv	a1,s4
+  f4:	00f987b3          	add	a5,s3,a5
+  f8:	00050513          	mv	a0,a0
+  fc:	00078023          	sb	zero,0(a5)
+ 100:	00000097          	auipc	ra,0x0
+ 104:	000080e7          	jalr	ra # 100 <.L7+0x1c>
+
+00000108 <.LBB59>:
+ 108:	02000593          	li	a1,32
+ 10c:	00098513          	mv	a0,s3
+
+00000110 <.LBB63>:
+ 110:	0004a023          	sw	zero,0(s1)
+
+00000114 <.LBB64>:
+ 114:	00000097          	auipc	ra,0x0
+ 118:	000080e7          	jalr	ra # 114 <.LBB64>
+
+0000011c <.LVL18>:
+ 11c:	06051c63          	bnez	a0,194 <.L21>
+
+00000120 <.LVL19>:
+ 120:	00098513          	mv	a0,s3
+
+00000124 <.LVL20>:
+ 124:	00000097          	auipc	ra,0x0
+ 128:	000080e7          	jalr	ra # 124 <.LVL20>
+
+0000012c <.L15>:
+ 12c:	000005b7          	lui	a1,0x0
+ 130:	00058593          	mv	a1,a1
+ 134:	00040513          	mv	a0,s0
+ 138:	00000097          	auipc	ra,0x0
+ 13c:	000080e7          	jalr	ra # 138 <.L15+0xc>
+
+00000140 <.LVL22>:
+ 140:	04051e63          	bnez	a0,19c <.L16>
+ 144:	00000097          	auipc	ra,0x0
+ 148:	000080e7          	jalr	ra # 144 <.LVL22+0x4>
+
+0000014c <.L17>:
+ 14c:	00090513          	mv	a0,s2
+ 150:	00000097          	auipc	ra,0x0
+ 154:	000080e7          	jalr	ra # 150 <.L17+0x4>
+
+00000158 <.LVL24>:
+ 158:	f11ff06f          	j	68 <.L20>
+
+0000015c <.L11>:
+ 15c:	0004a703          	lw	a4,0(s1)
+ 160:	03e00793          	li	a5,62
+ 164:	f0e7e6e3          	bltu	a5,a4,70 <.L4>
+ 168:	000a0593          	mv	a1,s4
+ 16c:	01c10513          	addi	a0,sp,28
+ 170:	00000097          	auipc	ra,0x0
+ 174:	000080e7          	jalr	ra # 170 <.L11+0x14>
+
+00000178 <.LVL26>:
+ 178:	0004a783          	lw	a5,0(s1)
+ 17c:	01c14683          	lbu	a3,28(sp)
+ 180:	00f98733          	add	a4,s3,a5
+ 184:	00178793          	addi	a5,a5,1
+ 188:	00d70023          	sb	a3,0(a4)
+ 18c:	00f4a023          	sw	a5,0(s1)
+
+00000190 <.LBE67>:
+ 190:	ee1ff06f          	j	70 <.L4>
+
+00000194 <.L21>:
+ 194:	00050023          	sb	zero,0(a0) # 0 <main>
+
+00000198 <.LVL29>:
+ 198:	f95ff06f          	j	12c <.L15>
+
+0000019c <.L16>:
+ 19c:	000005b7          	lui	a1,0x0
+ 1a0:	00058593          	mv	a1,a1
+ 1a4:	00040513          	mv	a0,s0
+ 1a8:	00000097          	auipc	ra,0x0
+ 1ac:	000080e7          	jalr	ra # 1a8 <.L16+0xc>
+
+000001b0 <.LVL31>:
+ 1b0:	00051a63          	bnez	a0,1c4 <.L18>
+
+000001b4 <.LBB69>:
+ 1b4:	f00007b7          	lui	a5,0xf0000
+ 1b8:	00100713          	li	a4,1
+ 1bc:	00e7a023          	sw	a4,0(a5) # f0000000 <.LASF1253+0xefff69fd>
+
+000001c0 <.LVL33>:
+ 1c0:	f8dff06f          	j	14c <.L17>
+
+000001c4 <.L18>:
+ 1c4:	000005b7          	lui	a1,0x0
+ 1c8:	00058593          	mv	a1,a1
+ 1cc:	00040513          	mv	a0,s0
+ 1d0:	00000097          	auipc	ra,0x0
+ 1d4:	000080e7          	jalr	ra # 1d0 <.L18+0xc>
+
+000001d8 <.LVL34>:
+ 1d8:	02051063          	bnez	a0,1f8 <.L19>
+
+000001dc <.LBB73>:
+ 1dc:	00000537          	lui	a0,0x0
+ 1e0:	00050513          	mv	a0,a0
+ 1e4:	00000097          	auipc	ra,0x0
+ 1e8:	000080e7          	jalr	ra # 1e4 <.LBB73+0x8>
+
+000001ec <.LVL35>:
+ 1ec:	00000097          	auipc	ra,0x0
+ 1f0:	000080e7          	jalr	ra # 1ec <.LVL35>
+
+000001f4 <.LVL36>:
+ 1f4:	f59ff06f          	j	14c <.L17>
+
+000001f8 <.L19>:
+ 1f8:	000005b7          	lui	a1,0x0
+ 1fc:	00058593          	mv	a1,a1
+ 200:	00040513          	mv	a0,s0
+ 204:	00000097          	auipc	ra,0x0
+ 208:	000080e7          	jalr	ra # 204 <.L19+0xc>
+
+0000020c <.LVL37>:
+ 20c:	f40510e3          	bnez	a0,14c <.L17>
+
+00000210 <.LBB75>:
+ 210:	00000537          	lui	a0,0x0
+ 214:	00050513          	mv	a0,a0
+ 218:	00000097          	auipc	ra,0x0
+ 21c:	000080e7          	jalr	ra # 218 <.LBB75+0x8>
+
+00000220 <.LVL38>:
+ 220:	00000097          	auipc	ra,0x0
+ 224:	000080e7          	jalr	ra # 220 <.LVL38>
+
+00000228 <.LVL39>:
+ 228:	f25ff06f          	j	14c <.L17>
+
+************************main.o************************
+
+************************donut.c************************
+// The donut code with fixed-point arithmetic; no sines, cosines, square roots, or anything.
+// a1k0n 2020
+// Code from: https://gist.github.com/a1k0n/80f48aa8911fffd805316b8ba8f48e83
+// For more info:
+// - https://www.a1k0n.net/2011/07/20/donut-math.html
+// - https://www.youtube.com/watch?v=DEqXNfs_HhY
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <libbase/console.h>
+
+#define R(mul,shift,x,y) \
+  _=x; \
+  x -= mul*y>>shift; \
+  y += mul*_>>shift; \
+  _ = 3145728-x*x-y*y>>11; \
+  x = x*_>>10; \
+  y = y*_>>10;
+
+signed char b[1760], z[1760];
+
+void donut(void);
+void donut(void) {
+  int sA=1024,cA=0,sB=1024,cB=0,_;
+  for (;;) {
+    memset(b, 32, 1760);  // text buffer
+    memset(z, 127, 1760);   // z buffer
+    int sj=0, cj=1024;
+    for (int j = 0; j < 90; j++) {
+      int si = 0, ci = 1024;  // sine and cosine of angle i
+      for (int i = 0; i < 324; i++) {
+        int R1 = 1, R2 = 2048, K2 = 5120*1024;
+
+        int x0 = R1*cj + R2,
+            x1 = ci*x0 >> 10,
+            x2 = cA*sj >> 10,
+            x3 = si*x0 >> 10,
+            x4 = R1*x2 - (sA*x3 >> 10),
+            x5 = sA*sj >> 10,
+            x6 = K2 + R1*1024*x5 + cA*x3,
+            x7 = cj*si >> 10,
+            x = 40 + 30*(cB*x1 - sB*x4)/x6,
+            y = 12 + 15*(cB*x4 + sB*x1)/x6,
+            N = (-cA*x7 - cB*((-sA*x7>>10) + x2) - ci*(cj*sB >> 10) >> 10) - x5 >> 7;
+
+        int o = x + 80 * y;
+        signed char zz = (x6-K2)>>15;
+        if (22 > y && y > 0 && x > 0 && 80 > x && zz < z[o]) {
+          z[o] = zz;
+          b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
+        }
+        R(5, 8, ci, si)  // rotate i
+      }
+      R(9, 7, cj, sj)  // rotate j
+    }
+    for (int k = 0; 1761 > k; k++)
+      putchar(k % 80 ? b[k] : 10);
+    R(5, 7, cA, sA);
+    R(5, 8, cB, sB);
+  	if (readchar_nonblock()) {
+  		getchar();
+  		break;
+  	}
+    fputs("\x1b[23A", stdout);
+  }
+}
+************************donut.c************************
+************************donut.o************************
+
+riscv64-unknown-elf-objdump -d  donut.o
+
+donut.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <donut>:
+   0:	000007b7          	lui	a5,0x0
+
+00000004 <.LBE2>:
+   4:	fa010113          	addi	sp,sp,-96
+
+00000008 <.LBB11>:
+   8:	00078793          	mv	a5,a5
+   c:	00f12e23          	sw	a5,28(sp)
+
+00000010 <.LBB19>:
+  10:	000007b7          	lui	a5,0x0
+  14:	0007a783          	lw	a5,0(a5) # 0 <donut>
+
+00000018 <.LBE19>:
+  18:	04812c23          	sw	s0,88(sp)
+  1c:	04912a23          	sw	s1,84(sp)
+  20:	05212823          	sw	s2,80(sp)
+  24:	05312623          	sw	s3,76(sp)
+  28:	04112e23          	sw	ra,92(sp)
+  2c:	05412423          	sw	s4,72(sp)
+  30:	05512223          	sw	s5,68(sp)
+  34:	05612023          	sw	s6,64(sp)
+  38:	03712e23          	sw	s7,60(sp)
+  3c:	03812c23          	sw	s8,56(sp)
+  40:	03912a23          	sw	s9,52(sp)
+  44:	03a12823          	sw	s10,48(sp)
+  48:	03b12623          	sw	s11,44(sp)
+  4c:	00000993          	li	s3,0
+  50:	40000913          	li	s2,1024
+  54:	00000493          	li	s1,0
+  58:	40000413          	li	s0,1024
+
+0000005c <.LBB20>:
+  5c:	00f12623          	sw	a5,12(sp)
+
+00000060 <.L10>:
+  60:	00000ab7          	lui	s5,0x0
+  64:	6e000613          	li	a2,1760
+  68:	02000593          	li	a1,32
+  6c:	000a8513          	mv	a0,s5
+  70:	00000097          	auipc	ra,0x0
+  74:	000080e7          	jalr	ra # 70 <.L10+0x10>
+
+00000078 <.LVL2>:
+  78:	000007b7          	lui	a5,0x0
+  7c:	07f00593          	li	a1,127
+  80:	00078513          	mv	a0,a5
+  84:	6e000613          	li	a2,1760
+  88:	00000097          	auipc	ra,0x0
+  8c:	000080e7          	jalr	ra # 88 <.LVL2+0x10>
+
+00000090 <.LBB12>:
+  90:	000017b7          	lui	a5,0x1
+  94:	000a8593          	mv	a1,s5
+  98:	80078793          	addi	a5,a5,-2048 # 800 <.LLST22>
+
+0000009c <.LBE12>:
+  9c:	05a00f93          	li	t6,90
+  a0:	40000513          	li	a0,1024
+  a4:	00000313          	li	t1,0
+
+000000a8 <.LBB13>:
+  a8:	00f12c23          	sw	a5,24(sp)
+  ac:	04e00a93          	li	s5,78
+  b0:	05000b13          	li	s6,80
+  b4:	ffb00bb7          	lui	s7,0xffb00
+  b8:	00058c13          	mv	s8,a1
+  bc:	40900cb3          	neg	s9,s1
+  c0:	40800d33          	neg	s10,s0
+
+000000c4 <.L2>:
+  c4:	02640e33          	mul	t3,s0,t1
+  c8:	00500737          	lui	a4,0x500
+  cc:	14400f13          	li	t5,324
+
+000000d0 <.LBE13>:
+  d0:	40000893          	li	a7,1024
+  d4:	00000813          	li	a6,0
+
+000000d8 <.LBB10>:
+  d8:	00500393          	li	t2,5
+  dc:	003002b7          	lui	t0,0x300
+  e0:	40ae5e13          	srai	t3,t3,0xa
+  e4:	00ae1793          	slli	a5,t3,0xa
+  e8:	00e787b3          	add	a5,a5,a4
+  ec:	00f12823          	sw	a5,16(sp)
+  f0:	02a907b3          	mul	a5,s2,a0
+  f4:	02648eb3          	mul	t4,s1,t1
+  f8:	40a7d793          	srai	a5,a5,0xa
+  fc:	00f12a23          	sw	a5,20(sp)
+ 100:	01812783          	lw	a5,24(sp)
+ 104:	00f500b3          	add	ra,a0,a5
+ 108:	40aede93          	srai	t4,t4,0xa
+
+0000010c <.L5>:
+ 10c:	03008733          	mul	a4,ra,a6
+ 110:	01012783          	lw	a5,16(sp)
+ 114:	01400a13          	li	s4,20
+ 118:	40a75713          	srai	a4,a4,0xa
+ 11c:	02e40633          	mul	a2,s0,a4
+ 120:	031086b3          	mul	a3,ra,a7
+ 124:	40a65613          	srai	a2,a2,0xa
+ 128:	40ce8633          	sub	a2,t4,a2
+ 12c:	02e48733          	mul	a4,s1,a4
+ 130:	40a6d693          	srai	a3,a3,0xa
+
+00000134 <.LVL6>:
+ 134:	00f70733          	add	a4,a4,a5
+
+00000138 <.LVL7>:
+ 138:	02d90db3          	mul	s11,s2,a3
+ 13c:	02c987b3          	mul	a5,s3,a2
+ 140:	01b787b3          	add	a5,a5,s11
+ 144:	00f00d93          	li	s11,15
+ 148:	03b787b3          	mul	a5,a5,s11
+ 14c:	02e7c7b3          	div	a5,a5,a4
+
+00000150 <.LVL8>:
+ 150:	00b78d93          	addi	s11,a5,11
+ 154:	0bba6863          	bltu	s4,s11,204 <.L3>
+ 158:	02c90633          	mul	a2,s2,a2
+
+0000015c <.LVL9>:
+ 15c:	02d986b3          	mul	a3,s3,a3
+
+00000160 <.LVL10>:
+ 160:	40c686b3          	sub	a3,a3,a2
+
+00000164 <.LVL11>:
+ 164:	01e00613          	li	a2,30
+
+00000168 <.LVL12>:
+ 168:	02c686b3          	mul	a3,a3,a2
+ 16c:	02e6c6b3          	div	a3,a3,a4
+ 170:	02768613          	addi	a2,a3,39
+ 174:	08cae863          	bltu	s5,a2,204 <.L3>
+ 178:	00c78793          	addi	a5,a5,12
+
+0000017c <.LVL13>:
+ 17c:	036787b3          	mul	a5,a5,s6
+
+00000180 <.LVL14>:
+ 180:	02868693          	addi	a3,a3,40
+ 184:	01770733          	add	a4,a4,s7
+
+00000188 <.LVL15>:
+ 188:	40f75713          	srai	a4,a4,0xf
+ 18c:	01871713          	slli	a4,a4,0x18
+ 190:	41875713          	srai	a4,a4,0x18
+ 194:	00d787b3          	add	a5,a5,a3
+ 198:	000006b7          	lui	a3,0x0
+ 19c:	00068693          	mv	a3,a3
+ 1a0:	00f68633          	add	a2,a3,a5
+ 1a4:	00060683          	lb	a3,0(a2)
+ 1a8:	04d75e63          	bge	a4,a3,204 <.L3>
+ 1ac:	030506b3          	mul	a3,a0,a6
+
+000001b0 <.LVL16>:
+ 1b0:	00e60023          	sb	a4,0(a2)
+ 1b4:	00fc07b3          	add	a5,s8,a5
+ 1b8:	40a6d693          	srai	a3,a3,0xa
+
+000001bc <.LVL17>:
+ 1bc:	02dd0733          	mul	a4,s10,a3
+ 1c0:	02dc8633          	mul	a2,s9,a3
+ 1c4:	40a75713          	srai	a4,a4,0xa
+ 1c8:	01412683          	lw	a3,20(sp)
+ 1cc:	01d70733          	add	a4,a4,t4
+ 1d0:	03370733          	mul	a4,a4,s3
+ 1d4:	031686b3          	mul	a3,a3,a7
+
+000001d8 <.LVL18>:
+ 1d8:	40e60733          	sub	a4,a2,a4
+ 1dc:	40d70733          	sub	a4,a4,a3
+ 1e0:	40a75713          	srai	a4,a4,0xa
+ 1e4:	41c70733          	sub	a4,a4,t3
+ 1e8:	40775713          	srai	a4,a4,0x7
+ 1ec:	00075463          	bgez	a4,1f4 <.L4>
+ 1f0:	00000713          	li	a4,0
+
+000001f4 <.L4>:
+ 1f4:	01c12683          	lw	a3,28(sp)
+
+000001f8 <.LVL19>:
+ 1f8:	00e68733          	add	a4,a3,a4
+ 1fc:	00074703          	lbu	a4,0(a4) # 500000 <.LASF94+0x4f7d63>
+ 200:	00e78023          	sb	a4,0(a5)
+
+00000204 <.L3>:
+ 204:	027807b3          	mul	a5,a6,t2
+ 208:	ffff0f13          	addi	t5,t5,-1
+
+0000020c <.LVL21>:
+ 20c:	4087d793          	srai	a5,a5,0x8
+ 210:	40f887b3          	sub	a5,a7,a5
+
+00000214 <.LVL22>:
+ 214:	027888b3          	mul	a7,a7,t2
+
+00000218 <.LVL23>:
+ 218:	4088d893          	srai	a7,a7,0x8
+ 21c:	01088833          	add	a6,a7,a6
+
+00000220 <.LVL24>:
+ 220:	02f78733          	mul	a4,a5,a5
+ 224:	030806b3          	mul	a3,a6,a6
+ 228:	40e28733          	sub	a4,t0,a4
+ 22c:	40d70733          	sub	a4,a4,a3
+ 230:	40b75713          	srai	a4,a4,0xb
+
+00000234 <.LVL25>:
+ 234:	02e788b3          	mul	a7,a5,a4
+ 238:	02e80833          	mul	a6,a6,a4
+
+0000023c <.LVL26>:
+ 23c:	40a8d893          	srai	a7,a7,0xa
+
+00000240 <.LVL27>:
+ 240:	40a85813          	srai	a6,a6,0xa
+
+00000244 <.LBE10>:
+ 244:	ec0f14e3          	bnez	t5,10c <.L5>
+
+00000248 <.LBE14>:
+ 248:	00900713          	li	a4,9
+ 24c:	02e307b3          	mul	a5,t1,a4
+ 250:	ffff8f93          	addi	t6,t6,-1
+
+00000254 <.LVL30>:
+ 254:	4077d793          	srai	a5,a5,0x7
+ 258:	40f507b3          	sub	a5,a0,a5
+
+0000025c <.LVL31>:
+ 25c:	02e50533          	mul	a0,a0,a4
+
+00000260 <.LVL32>:
+ 260:	02f78733          	mul	a4,a5,a5
+ 264:	40755513          	srai	a0,a0,0x7
+ 268:	00650333          	add	t1,a0,t1
+
+0000026c <.LVL33>:
+ 26c:	40e282b3          	sub	t0,t0,a4
+ 270:	02630733          	mul	a4,t1,t1
+ 274:	40e282b3          	sub	t0,t0,a4
+ 278:	40b2d293          	srai	t0,t0,0xb
+
+0000027c <.LVL34>:
+ 27c:	02578533          	mul	a0,a5,t0
+ 280:	02530333          	mul	t1,t1,t0
+
+00000284 <.LVL35>:
+ 284:	40a55513          	srai	a0,a0,0xa
+
+00000288 <.LVL36>:
+ 288:	40a35313          	srai	t1,t1,0xa
+
+0000028c <.LBE17>:
+ 28c:	e20f9ce3          	bnez	t6,c4 <.L2>
+
+00000290 <.LBB23>:
+ 290:	00000a93          	li	s5,0
+ 294:	00a00513          	li	a0,10
+
+00000298 <.LVL38>:
+ 298:	6e100b93          	li	s7,1761
+ 29c:	05000c13          	li	s8,80
+ 2a0:	00058b13          	mv	s6,a1
+ 2a4:	0180006f          	j	2bc <.L6>
+
+000002a8 <.L8>:
+ 2a8:	038ae7b3          	rem	a5,s5,s8
+ 2ac:	00a00513          	li	a0,10
+ 2b0:	00078663          	beqz	a5,2bc <.L6>
+ 2b4:	016a87b3          	add	a5,s5,s6
+ 2b8:	00078503          	lb	a0,0(a5)
+
+000002bc <.L6>:
+ 2bc:	00c12583          	lw	a1,12(sp)
+ 2c0:	001a8a93          	addi	s5,s5,1 # 1 <donut+0x1>
+ 2c4:	00000097          	auipc	ra,0x0
+ 2c8:	000080e7          	jalr	ra # 2c4 <.L6+0x8>
+
+000002cc <.LVL41>:
+ 2cc:	fd7a9ee3          	bne	s5,s7,2a8 <.L8>
+
+000002d0 <.LBE23>:
+ 2d0:	00500793          	li	a5,5
+ 2d4:	02f406b3          	mul	a3,s0,a5
+ 2d8:	00300737          	lui	a4,0x300
+ 2dc:	4076d693          	srai	a3,a3,0x7
+ 2e0:	40d486b3          	sub	a3,s1,a3
+
+000002e4 <.LVL43>:
+ 2e4:	02f484b3          	mul	s1,s1,a5
+
+000002e8 <.LVL44>:
+ 2e8:	4074d493          	srai	s1,s1,0x7
+ 2ec:	00848433          	add	s0,s1,s0
+ 2f0:	02d68633          	mul	a2,a3,a3
+ 2f4:	028405b3          	mul	a1,s0,s0
+ 2f8:	40c70633          	sub	a2,a4,a2
+ 2fc:	40b60633          	sub	a2,a2,a1
+ 300:	40b65613          	srai	a2,a2,0xb
+
+00000304 <.LVL46>:
+ 304:	02c684b3          	mul	s1,a3,a2
+ 308:	02f906b3          	mul	a3,s2,a5
+
+0000030c <.LVL47>:
+ 30c:	40a4d493          	srai	s1,s1,0xa
+
+00000310 <.LVL48>:
+ 310:	02f987b3          	mul	a5,s3,a5
+ 314:	4086d693          	srai	a3,a3,0x8
+ 318:	40d986b3          	sub	a3,s3,a3
+ 31c:	4087d793          	srai	a5,a5,0x8
+ 320:	01278933          	add	s2,a5,s2
+
+00000324 <.LVL49>:
+ 324:	02d687b3          	mul	a5,a3,a3
+ 328:	40f707b3          	sub	a5,a4,a5
+ 32c:	03290733          	mul	a4,s2,s2
+ 330:	40e787b3          	sub	a5,a5,a4
+ 334:	40b7d793          	srai	a5,a5,0xb
+ 338:	02c40433          	mul	s0,s0,a2
+
+0000033c <.LVL50>:
+ 33c:	02f689b3          	mul	s3,a3,a5
+
+00000340 <.LVL51>:
+ 340:	40a45413          	srai	s0,s0,0xa
+
+00000344 <.LVL52>:
+ 344:	02f90933          	mul	s2,s2,a5
+
+00000348 <.LVL53>:
+ 348:	40a9d993          	srai	s3,s3,0xa
+
+0000034c <.LVL54>:
+ 34c:	40a95913          	srai	s2,s2,0xa
+
+00000350 <.LVL55>:
+ 350:	00000097          	auipc	ra,0x0
+ 354:	000080e7          	jalr	ra # 350 <.LVL55>
+
+00000358 <.LVL56>:
+ 358:	04050663          	beqz	a0,3a4 <.L9>
+
+0000035c <.LBE26>:
+ 35c:	05812403          	lw	s0,88(sp)
+
+00000360 <.LBB27>:
+ 360:	000007b7          	lui	a5,0x0
+
+00000364 <.LBE27>:
+ 364:	05c12083          	lw	ra,92(sp)
+ 368:	05412483          	lw	s1,84(sp)
+
+0000036c <.LVL58>:
+ 36c:	05012903          	lw	s2,80(sp)
+
+00000370 <.LVL59>:
+ 370:	04c12983          	lw	s3,76(sp)
+
+00000374 <.LVL60>:
+ 374:	04812a03          	lw	s4,72(sp)
+ 378:	04412a83          	lw	s5,68(sp)
+
+0000037c <.LVL61>:
+ 37c:	04012b03          	lw	s6,64(sp)
+ 380:	03c12b83          	lw	s7,60(sp)
+ 384:	03812c03          	lw	s8,56(sp)
+ 388:	03412c83          	lw	s9,52(sp)
+
+0000038c <.LVL62>:
+ 38c:	03012d03          	lw	s10,48(sp)
+ 390:	02c12d83          	lw	s11,44(sp)
+
+00000394 <.LBB28>:
+ 394:	0007a503          	lw	a0,0(a5) # 0 <donut>
+
+00000398 <.LBE28>:
+ 398:	06010113          	addi	sp,sp,96
+
+0000039c <.LBB29>:
+ 39c:	00000317          	auipc	t1,0x0
+ 3a0:	00030067          	jr	t1 # 39c <.LBB29>
+
+000003a4 <.L9>:
+ 3a4:	00c12583          	lw	a1,12(sp)
+ 3a8:	00000537          	lui	a0,0x0
+ 3ac:	00050513          	mv	a0,a0
+ 3b0:	00000097          	auipc	ra,0x0
+ 3b4:	000080e7          	jalr	ra # 3b0 <.L9+0xc>
+
+000003b8 <.LBE29>:
+ 3b8:	ca9ff06f          	j	60 <.L10>
+
+************************donut.o************************
+
+************************helloc.c************************
+#include <stdio.h>
+
+void helloc(void);
+void helloc(void) {
+  printf("C: Hello, world!\n");
+}
+************************helloc.c************************
+
+************************helloc.o************************
+riscv64-unknown-elf-objdump -d  helloc.o
+
+helloc.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <helloc>:
+   0:	00000537          	lui	a0,0x0
+   4:	00050513          	mv	a0,a0
+   8:	00000317          	auipc	t1,0x0
+   c:	00030067          	jr	t1 # 8 <helloc+0x8>
+************************helloc.o************************

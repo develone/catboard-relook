@@ -257,3 +257,5 @@ icetime -d hx8k -c 100 fsm.asc
      SB_DFFSR                        2
      SB_DFFSS                        1
      SB_LUT4                        10
+
+https://github.com/enjoy-digital/litex/wiki/SoC-Simulator
