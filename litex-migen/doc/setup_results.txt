@@ -1,0 +1,517 @@
+(env) devel@pi4-30:~/litex-migen $ ./litex_setup.py --init --install devel
+          __   _ __      _  __         
+         / /  (_) /____ | |/_/         
+        / /__/ / __/ -_)>  <           
+       /____/_/\__/\__/_/|_|         
+     Build your hardware, easily!      
+          LiteX Setup utility.         
+
+[   0.005] LiteX Setup auto-update...
+[   0.005] Initializing Git repositories...
+[   0.005] --------------------------------
+[   0.006] Cloning migen Git repository...
+Cloning into 'migen'...
+remote: Enumerating objects: 12667, done.
+remote: Counting objects: 100% (236/236), done.
+remote: Compressing objects: 100% (101/101), done.
+remote: Total 12667 (delta 161), reused 193 (delta 135), pack-reused 12431
+Receiving objects: 100% (12667/12667), 3.09 MiB | 6.73 MiB/s, done.
+Resolving deltas: 100% (8241/8241), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+Note: switching to 'ccaee68e14d3636e1d8fb2e0864dd89b1b1f7384'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at ccaee68 Fix EFC pinout - HB09_N
+[   1.745] Cloning pythondata-software-picolibc Git repository...
+Cloning into 'pythondata-software-picolibc'...
+remote: Enumerating objects: 734, done.
+remote: Counting objects: 100% (266/266), done.
+remote: Compressing objects: 100% (194/194), done.
+remote: Total 734 (delta 122), reused 215 (delta 72), pack-reused 468
+Receiving objects: 100% (734/734), 132.85 KiB | 1.34 MiB/s, done.
+Resolving deltas: 100% (331/331), done.
+Submodule 'pythondata_software_picolibc/data' (https://github.com/picolibc/picolibc) registered for path 'pythondata_software_picolibc/data'
+Cloning into '/home/devel/litex-migen/pythondata-software-picolibc/pythondata_software_picolibc/data'...
+remote: Enumerating objects: 237127, done.        
+remote: Counting objects: 100% (15853/15853), done.        
+remote: Compressing objects: 100% (2036/2036), done.        
+remote: Total 237127 (delta 14098), reused 15138 (delta 13783), pack-reused 221274        
+Receiving objects: 100% (237127/237127), 129.58 MiB | 8.81 MiB/s, done.
+Resolving deltas: 100% (191581/191581), done.
+Submodule path 'pythondata_software_picolibc/data': checked out 'f165dc22f1f67e3e8bdc8edf750ff7dc596de2ff'
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  42.535] Cloning pythondata-software-compiler_rt Git repository...
+Cloning into 'pythondata-software-compiler_rt'...
+remote: Enumerating objects: 51970, done.
+remote: Counting objects: 100% (93/93), done.
+remote: Compressing objects: 100% (73/73), done.
+remote: Total 51970 (delta 53), reused 58 (delta 19), pack-reused 51877
+Receiving objects: 100% (51970/51970), 8.46 MiB | 8.34 MiB/s, done.
+Resolving deltas: 100% (42889/42889), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  46.764] Cloning litex Git repository...
+Cloning into 'litex'...
+remote: Enumerating objects: 65537, done.
+remote: Counting objects: 100% (5654/5654), done.
+remote: Compressing objects: 100% (1041/1041), done.
+remote: Total 65537 (delta 4825), reused 4985 (delta 4613), pack-reused 59883
+Receiving objects: 100% (65537/65537), 16.39 MiB | 9.49 MiB/s, done.
+Resolving deltas: 100% (45919/45919), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  50.953] Cloning liteiclink Git repository...
+Cloning into 'liteiclink'...
+remote: Enumerating objects: 2971, done.
+remote: Counting objects: 100% (687/687), done.
+remote: Compressing objects: 100% (229/229), done.
+remote: Total 2971 (delta 461), reused 667 (delta 453), pack-reused 2284
+Receiving objects: 100% (2971/2971), 690.65 KiB | 2.88 MiB/s, done.
+Resolving deltas: 100% (2006/2006), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  51.938] Cloning liteeth Git repository...
+Cloning into 'liteeth'...
+remote: Enumerating objects: 4096, done.
+remote: Counting objects: 100% (1343/1343), done.
+remote: Compressing objects: 100% (161/161), done.
+remote: Total 4096 (delta 1260), reused 1182 (delta 1182), pack-reused 2753
+Receiving objects: 100% (4096/4096), 1.30 MiB | 4.11 MiB/s, done.
+Resolving deltas: 100% (2986/2986), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  53.017] Cloning litedram Git repository...
+Cloning into 'litedram'...
+remote: Enumerating objects: 8563, done.
+remote: Counting objects: 100% (1665/1665), done.
+remote: Compressing objects: 100% (219/219), done.
+remote: Total 8563 (delta 1489), reused 1529 (delta 1438), pack-reused 6898
+Receiving objects: 100% (8563/8563), 3.40 MiB | 5.73 MiB/s, done.
+Resolving deltas: 100% (6324/6324), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  55.612] Cloning litepcie Git repository...
+Cloning into 'litepcie'...
+remote: Enumerating objects: 5417, done.
+remote: Counting objects: 100% (1684/1684), done.
+remote: Compressing objects: 100% (515/515), done.
+remote: Total 5417 (delta 1224), reused 1528 (delta 1146), pack-reused 3733
+Receiving objects: 100% (5417/5417), 1.61 MiB | 4.24 MiB/s, done.
+Resolving deltas: 100% (3705/3705), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  56.805] Cloning litesata Git repository...
+Cloning into 'litesata'...
+remote: Enumerating objects: 2377, done.
+remote: Counting objects: 100% (77/77), done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 2377 (delta 65), reused 60 (delta 56), pack-reused 2300
+Receiving objects: 100% (2377/2377), 1.10 MiB | 3.85 MiB/s, done.
+Resolving deltas: 100% (1628/1628), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  57.819] Cloning litesdcard Git repository...
+Cloning into 'litesdcard'...
+remote: Enumerating objects: 2043, done.
+remote: Counting objects: 100% (72/72), done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 2043 (delta 33), reused 38 (delta 29), pack-reused 1971
+Receiving objects: 100% (2043/2043), 7.34 MiB | 7.46 MiB/s, done.
+Resolving deltas: 100% (1314/1314), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  59.926] Cloning litescope Git repository...
+Cloning into 'litescope'...
+remote: Enumerating objects: 1235, done.
+remote: Counting objects: 100% (71/71), done.
+remote: Compressing objects: 100% (39/39), done.
+remote: Total 1235 (delta 29), reused 58 (delta 26), pack-reused 1164
+Receiving objects: 100% (1235/1235), 594.41 KiB | 2.12 MiB/s, done.
+Resolving deltas: 100% (647/647), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  60.868] Cloning litejesd204b Git repository...
+Cloning into 'litejesd204b'...
+remote: Enumerating objects: 1977, done.
+remote: Counting objects: 100% (216/216), done.
+remote: Compressing objects: 100% (110/110), done.
+remote: Total 1977 (delta 124), reused 191 (delta 102), pack-reused 1761
+Receiving objects: 100% (1977/1977), 486.64 KiB | 2.57 MiB/s, done.
+Resolving deltas: 100% (1308/1308), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  61.737] Cloning litespi Git repository...
+Cloning into 'litespi'...
+remote: Enumerating objects: 881, done.
+remote: Counting objects: 100% (274/274), done.
+remote: Compressing objects: 100% (131/131), done.
+remote: Total 881 (delta 194), reused 185 (delta 140), pack-reused 607
+Receiving objects: 100% (881/881), 212.78 KiB | 1.66 MiB/s, done.
+Resolving deltas: 100% (545/545), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  62.508] Cloning valentyusb Git repository...
+Cloning into 'valentyusb'...
+remote: Enumerating objects: 3073, done.
+remote: Counting objects: 100% (33/33), done.
+remote: Compressing objects: 100% (19/19), done.
+remote: Total 3073 (delta 14), reused 29 (delta 14), pack-reused 3040
+Receiving objects: 100% (3073/3073), 747.23 KiB | 2.36 MiB/s, done.
+Resolving deltas: 100% (1989/1989), done.
+Branch 'hw_cdc_eptri' set up to track remote branch 'hw_cdc_eptri' from 'origin'.
+Switched to a new branch 'hw_cdc_eptri'
+[  63.522] Cloning litex-boards Git repository...
+Cloning into 'litex-boards'...
+remote: Enumerating objects: 14558, done.
+remote: Counting objects: 100% (3455/3455), done.
+remote: Compressing objects: 100% (310/310), done.
+remote: Total 14558 (delta 3258), reused 3224 (delta 3145), pack-reused 11103
+Receiving objects: 100% (14558/14558), 3.78 MiB | 6.62 MiB/s, done.
+Resolving deltas: 100% (11343/11343), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  65.227] Cloning pythondata-misc-tapcfg Git repository...
+Cloning into 'pythondata-misc-tapcfg'...
+remote: Enumerating objects: 2874, done.
+remote: Counting objects: 100% (296/296), done.
+remote: Compressing objects: 100% (104/104), done.
+remote: Total 2874 (delta 184), reused 287 (delta 175), pack-reused 2578
+Receiving objects: 100% (2874/2874), 647.06 KiB | 2.59 MiB/s, done.
+Resolving deltas: 100% (1891/1891), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  66.216] Cloning pythondata-misc-usb_ohci Git repository...
+Cloning into 'pythondata-misc-usb_ohci'...
+remote: Enumerating objects: 19, done.
+remote: Counting objects: 100% (19/19), done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 19 (delta 2), reused 19 (delta 2), pack-reused 0
+Receiving objects: 100% (19/19), 43.22 KiB | 737.00 KiB/s, done.
+Resolving deltas: 100% (2/2), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  66.872] Cloning pythondata-cpu-lm32 Git repository...
+Cloning into 'pythondata-cpu-lm32'...
+remote: Enumerating objects: 820, done.
+remote: Counting objects: 100% (76/76), done.
+remote: Compressing objects: 100% (23/23), done.
+remote: Total 820 (delta 65), reused 62 (delta 53), pack-reused 744
+Receiving objects: 100% (820/820), 245.63 KiB | 1.46 MiB/s, done.
+Resolving deltas: 100% (474/474), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  67.719] Cloning pythondata-cpu-mor1kx Git repository...
+Cloning into 'pythondata-cpu-mor1kx'...
+remote: Enumerating objects: 4939, done.
+remote: Counting objects: 100% (923/923), done.
+remote: Compressing objects: 100% (339/339), done.
+remote: Total 4939 (delta 526), reused 906 (delta 509), pack-reused 4016
+Receiving objects: 100% (4939/4939), 1.84 MiB | 5.64 MiB/s, done.
+Resolving deltas: 100% (2853/2853), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  68.924] Cloning pythondata-cpu-naxriscv Git repository...
+Cloning into 'pythondata-cpu-naxriscv'...
+remote: Enumerating objects: 139, done.
+remote: Counting objects: 100% (139/139), done.
+remote: Compressing objects: 100% (82/82), done.
+remote: Total 139 (delta 72), reused 113 (delta 51), pack-reused 0
+Receiving objects: 100% (139/139), 18.80 KiB | 3.76 MiB/s, done.
+Resolving deltas: 100% (72/72), done.
+Branch 'smp' set up to track remote branch 'smp' from 'origin'.
+Switched to a new branch 'smp'
+[  69.603] Cloning pythondata-cpu-serv Git repository...
+Cloning into 'pythondata-cpu-serv'...
+remote: Enumerating objects: 2905, done.
+remote: Counting objects: 100% (199/199), done.
+remote: Compressing objects: 100% (144/144), done.
+remote: Total 2905 (delta 93), reused 140 (delta 51), pack-reused 2706
+Receiving objects: 100% (2905/2905), 1.99 MiB | 5.30 MiB/s, done.
+Resolving deltas: 100% (1802/1802), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  70.734] Cloning pythondata-cpu-vexriscv Git repository...
+Cloning into 'pythondata-cpu-vexriscv'...
+remote: Enumerating objects: 1097, done.
+remote: Counting objects: 100% (534/534), done.
+remote: Compressing objects: 100% (89/89), done.
+remote: Total 1097 (delta 440), reused 484 (delta 417), pack-reused 563
+Receiving objects: 100% (1097/1097), 2.81 MiB | 6.12 MiB/s, done.
+Resolving deltas: 100% (566/566), done.
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[  72.421] Cloning pythondata-cpu-vexriscv-smp Git repository...
+Cloning into 'pythondata-cpu-vexriscv-smp'...
+remote: Enumerating objects: 340, done.
+remote: Counting objects: 100% (251/251), done.
+remote: Compressing objects: 100% (44/44), done.
+remote: Total 340 (delta 222), reused 229 (delta 206), pack-reused 89
+Receiving objects: 100% (340/340), 4.54 MiB | 6.55 MiB/s, done.
+Resolving deltas: 100% (227/227), done.
+Submodule 'pythondata_cpu_vexriscv_smp/verilog/ext/SpinalHDL' (https://github.com/SpinalHDL/SpinalHDL.git) registered for path 'pythondata_cpu_vexriscv_smp/verilog/ext/SpinalHDL'
+Submodule 'pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv' (https://github.com/SpinalHDL/VexRiscv.git) registered for path 'pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv'
+Cloning into '/home/devel/litex-migen/pythondata-cpu-vexriscv-smp/pythondata_cpu_vexriscv_smp/verilog/ext/SpinalHDL'...
+remote: Enumerating objects: 105244, done.        
+remote: Counting objects: 100% (4407/4407), done.        
+remote: Compressing objects: 100% (1337/1337), done.        
+remote: Total 105244 (delta 2769), reused 4079 (delta 2511), pack-reused 100837        
+Receiving objects: 100% (105244/105244), 60.26 MiB | 9.44 MiB/s, done.
+Resolving deltas: 100% (50357/50357), done.
+Cloning into '/home/devel/litex-migen/pythondata-cpu-vexriscv-smp/pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv'...
+remote: Enumerating objects: 16540, done.        
+remote: Counting objects: 100% (4396/4396), done.        
+remote: Compressing objects: 100% (1055/1055), done.        
+remote: Total 16540 (delta 3477), reused 4048 (delta 3319), pack-reused 12144        
+Receiving objects: 100% (16540/16540), 13.07 MiB | 8.17 MiB/s, done.
+Resolving deltas: 100% (9941/9941), done.
+Submodule path 'pythondata_cpu_vexriscv_smp/verilog/ext/SpinalHDL': checked out '83efd666ab5aa1d513d3f55ca30a281b7bb8f8cf'
+Submodule 'tester/src/test/python/cocotblib' (https://github.com/SpinalHDL/CocotbLib.git) registered for path 'pythondata_cpu_vexriscv_smp/verilog/ext/SpinalHDL/tester/src/test/python/cocotblib'
+Cloning into '/home/devel/litex-migen/pythondata-cpu-vexriscv-smp/pythondata_cpu_vexriscv_smp/verilog/ext/SpinalHDL/tester/src/test/python/cocotblib'...
+remote: Enumerating objects: 124, done.        
+remote: Counting objects: 100% (19/19), done.        
+remote: Compressing objects: 100% (6/6), done.        
+remote: Total 124 (delta 15), reused 13 (delta 13), pack-reused 105        
+Receiving objects: 100% (124/124), 31.83 KiB | 1.67 MiB/s, done.
+Resolving deltas: 100% (68/68), done.
+Submodule path 'pythondata_cpu_vexriscv_smp/verilog/ext/SpinalHDL/tester/src/test/python/cocotblib': checked out 'a98830423924fc89bfebae84cb802fc90d352602'
+Submodule path 'pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv': checked out '3799ebfc671024a79ad41c545859dcb173f84efd'
+Submodule 'src/test/resources/VexRiscvRegressionData' (https://github.com/SpinalHDL/VexRiscvRegressionData.git) registered for path 'pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv/src/test/resources/VexRiscvRegressionData'
+Cloning into '/home/devel/litex-migen/pythondata-cpu-vexriscv-smp/pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv/src/test/resources/VexRiscvRegressionData'...
+remote: Enumerating objects: 78, done.        
+remote: Total 78 (delta 0), reused 0 (delta 0), pack-reused 78        
+Receiving objects: 100% (78/78), 10.88 MiB | 8.76 MiB/s, done.
+Resolving deltas: 100% (2/2), done.
+Submodule path 'pythondata_cpu_vexriscv_smp/verilog/ext/VexRiscv/src/test/resources/VexRiscvRegressionData': checked out '539398c1481203a51115b5f1228ea961f0ac9bd3'
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+[ 101.863] Installing Git repositories...
+[ 101.863] ------------------------------
+[ 101.863] Installing migen Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/migen
+Collecting colorama
+  Using cached https://www.piwheels.org/simple/colorama/colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Installing collected packages: colorama, migen
+  Running setup.py develop for migen
+Successfully installed colorama-0.4.6 migen
+[ 109.329] Installing pythondata-software-picolibc Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-software-picolibc
+Installing collected packages: pythondata-software-picolibc
+  Running setup.py develop for pythondata-software-picolibc
+Successfully installed pythondata-software-picolibc
+[ 114.607] Installing pythondata-software-compiler_rt Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-software-compiler_rt
+Installing collected packages: pythondata-software-compiler-rt
+  Running setup.py develop for pythondata-software-compiler-rt
+Successfully installed pythondata-software-compiler-rt
+[ 119.735] Installing litex Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/litex
+Requirement already satisfied: migen in /home/devel/litex-migen/migen (from litex==2023.12) (0.9.2)
+Collecting packaging
+  Using cached https://www.piwheels.org/simple/packaging/packaging-24.0-py3-none-any.whl (53 kB)
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))': /simple/pyserial/
+Collecting pyserial
+  Using cached https://www.piwheels.org/simple/pyserial/pyserial-3.5-py2.py3-none-any.whl (90 kB)
+Collecting requests
+  Using cached https://www.piwheels.org/simple/requests/requests-2.31.0-py3-none-any.whl (62 kB)
+Requirement already satisfied: colorama in /home/devel/litex-migen/env/lib/python3.9/site-packages (from migen->litex==2023.12) (0.4.6)
+Collecting charset-normalizer<4,>=2
+  Using cached charset_normalizer-3.3.2-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (138 kB)
+Collecting certifi>=2017.4.17
+  Using cached https://www.piwheels.org/simple/certifi/certifi-2024.2.2-py3-none-any.whl (163 kB)
+Collecting idna<4,>=2.5
+  Using cached https://www.piwheels.org/simple/idna/idna-3.6-py3-none-any.whl (61 kB)
+Collecting urllib3<3,>=1.21.1
+  Using cached https://www.piwheels.org/simple/urllib3/urllib3-2.2.1-py3-none-any.whl (121 kB)
+Installing collected packages: urllib3, idna, charset-normalizer, certifi, requests, pyserial, packaging, litex
+  Running setup.py develop for litex
+Successfully installed certifi-2024.2.2 charset-normalizer-3.3.2 idna-3.6 litex packaging-24.0 pyserial-3.5 requests-2.31.0 urllib3-2.2.1
+[ 136.317] Installing liteiclink Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/liteiclink
+Requirement already satisfied: litex in /home/devel/litex-migen/litex (from liteiclink==2023.12) (2023.12)
+Collecting pyyaml
+  Using cached PyYAML-6.0.1-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (731 kB)
+Requirement already satisfied: migen in /home/devel/litex-migen/migen (from litex->liteiclink==2023.12) (0.9.2)
+Requirement already satisfied: packaging in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->liteiclink==2023.12) (24.0)
+Requirement already satisfied: pyserial in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->liteiclink==2023.12) (3.5)
+Requirement already satisfied: requests in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->liteiclink==2023.12) (2.31.0)
+Requirement already satisfied: colorama in /home/devel/litex-migen/env/lib/python3.9/site-packages (from migen->litex->liteiclink==2023.12) (0.4.6)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->liteiclink==2023.12) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->liteiclink==2023.12) (3.6)
+Requirement already satisfied: certifi>=2017.4.17 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->liteiclink==2023.12) (2024.2.2)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->liteiclink==2023.12) (2.2.1)
+Installing collected packages: pyyaml, liteiclink
+  Running setup.py develop for liteiclink
+Successfully installed liteiclink pyyaml-6.0.1
+[ 143.008] Installing liteeth Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/liteeth
+Requirement already satisfied: liteiclink in /home/devel/litex-migen/liteiclink (from liteeth==2023.12) (2023.12)
+Requirement already satisfied: litex in /home/devel/litex-migen/litex (from liteeth==2023.12) (2023.12)
+Requirement already satisfied: pyyaml in /home/devel/litex-migen/env/lib/python3.9/site-packages (from liteeth==2023.12) (6.0.1)
+Requirement already satisfied: migen in /home/devel/litex-migen/migen (from litex->liteeth==2023.12) (0.9.2)
+Requirement already satisfied: packaging in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->liteeth==2023.12) (24.0)
+Requirement already satisfied: pyserial in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->liteeth==2023.12) (3.5)
+Requirement already satisfied: requests in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->liteeth==2023.12) (2.31.0)
+Requirement already satisfied: colorama in /home/devel/litex-migen/env/lib/python3.9/site-packages (from migen->litex->liteeth==2023.12) (0.4.6)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->liteeth==2023.12) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->liteeth==2023.12) (3.6)
+Requirement already satisfied: certifi>=2017.4.17 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->liteeth==2023.12) (2024.2.2)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->liteeth==2023.12) (2.2.1)
+Installing collected packages: liteeth
+  Running setup.py develop for liteeth
+Successfully installed liteeth
+[ 148.193] Installing litedram Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/litedram
+Requirement already satisfied: litex in /home/devel/litex-migen/litex (from litedram==2023.12) (2023.12)
+Requirement already satisfied: pyyaml in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litedram==2023.12) (6.0.1)
+Requirement already satisfied: migen in /home/devel/litex-migen/migen (from litex->litedram==2023.12) (0.9.2)
+Requirement already satisfied: packaging in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->litedram==2023.12) (24.0)
+Requirement already satisfied: pyserial in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->litedram==2023.12) (3.5)
+Requirement already satisfied: requests in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->litedram==2023.12) (2.31.0)
+Requirement already satisfied: colorama in /home/devel/litex-migen/env/lib/python3.9/site-packages (from migen->litex->litedram==2023.12) (0.4.6)
+Requirement already satisfied: idna<4,>=2.5 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litedram==2023.12) (3.6)
+Requirement already satisfied: certifi>=2017.4.17 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litedram==2023.12) (2024.2.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litedram==2023.12) (3.3.2)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litedram==2023.12) (2.2.1)
+Installing collected packages: litedram
+  Running setup.py develop for litedram
+Successfully installed litedram
+[ 153.381] Installing litepcie Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/litepcie
+Requirement already satisfied: litex in /home/devel/litex-migen/litex (from litepcie==2023.12) (2023.12)
+Requirement already satisfied: pyyaml in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litepcie==2023.12) (6.0.1)
+Requirement already satisfied: migen in /home/devel/litex-migen/migen (from litex->litepcie==2023.12) (0.9.2)
+Requirement already satisfied: packaging in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->litepcie==2023.12) (24.0)
+Requirement already satisfied: pyserial in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->litepcie==2023.12) (3.5)
+Requirement already satisfied: requests in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->litepcie==2023.12) (2.31.0)
+Requirement already satisfied: colorama in /home/devel/litex-migen/env/lib/python3.9/site-packages (from migen->litex->litepcie==2023.12) (0.4.6)
+Requirement already satisfied: certifi>=2017.4.17 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litepcie==2023.12) (2024.2.2)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litepcie==2023.12) (2.2.1)
+Requirement already satisfied: idna<4,>=2.5 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litepcie==2023.12) (3.6)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litepcie==2023.12) (3.3.2)
+Installing collected packages: litepcie
+  Running setup.py develop for litepcie
+Successfully installed litepcie
+[ 158.603] Installing litesata Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/litesata
+Installing collected packages: litesata
+  Running setup.py develop for litesata
+Successfully installed litesata
+[ 163.905] Installing litesdcard Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/litesdcard
+Installing collected packages: litesdcard
+  Running setup.py develop for litesdcard
+Successfully installed litesdcard
+[ 169.051] Installing litescope Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/litescope
+Installing collected packages: litescope
+  Running setup.py develop for litescope
+Successfully installed litescope
+[ 174.210] Installing litejesd204b Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/litejesd204b
+Installing collected packages: litejesd204b
+  Running setup.py develop for litejesd204b
+Successfully installed litejesd204b
+[ 179.364] Installing litespi Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/litespi
+Installing collected packages: litespi
+  Running setup.py develop for litespi
+Successfully installed litespi
+[ 184.581] Installing valentyusb Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/valentyusb
+Installing collected packages: valentyusb
+  Running setup.py develop for valentyusb
+Successfully installed valentyusb
+[ 189.774] Installing litex-boards Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/litex-boards
+Requirement already satisfied: litex in /home/devel/litex-migen/litex (from litex-boards==2023.12) (2023.12)
+Requirement already satisfied: migen in /home/devel/litex-migen/migen (from litex->litex-boards==2023.12) (0.9.2)
+Requirement already satisfied: packaging in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->litex-boards==2023.12) (24.0)
+Requirement already satisfied: pyserial in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->litex-boards==2023.12) (3.5)
+Requirement already satisfied: requests in /home/devel/litex-migen/env/lib/python3.9/site-packages (from litex->litex-boards==2023.12) (2.31.0)
+Requirement already satisfied: colorama in /home/devel/litex-migen/env/lib/python3.9/site-packages (from migen->litex->litex-boards==2023.12) (0.4.6)
+Requirement already satisfied: certifi>=2017.4.17 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litex-boards==2023.12) (2024.2.2)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litex-boards==2023.12) (2.2.1)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litex-boards==2023.12) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /home/devel/litex-migen/env/lib/python3.9/site-packages (from requests->litex->litex-boards==2023.12) (3.6)
+Installing collected packages: litex-boards
+  Running setup.py develop for litex-boards
+Successfully installed litex-boards
+[ 195.083] Installing pythondata-misc-tapcfg Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-misc-tapcfg
+Installing collected packages: pythondata-misc-tapcfg
+  Running setup.py develop for pythondata-misc-tapcfg
+Successfully installed pythondata-misc-tapcfg
+[ 200.337] Installing pythondata-misc-usb_ohci Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-misc-usb_ohci
+Installing collected packages: pythondata-misc-usb-ohci
+  Running setup.py develop for pythondata-misc-usb-ohci
+Successfully installed pythondata-misc-usb-ohci
+[ 205.572] Installing pythondata-cpu-lm32 Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-cpu-lm32
+Installing collected packages: pythondata-cpu-lm32
+  Running setup.py develop for pythondata-cpu-lm32
+Successfully installed pythondata-cpu-lm32
+[ 210.866] Installing pythondata-cpu-mor1kx Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-cpu-mor1kx
+Installing collected packages: pythondata-cpu-mor1kx
+  Running setup.py develop for pythondata-cpu-mor1kx
+Successfully installed pythondata-cpu-mor1kx
+[ 216.279] Installing pythondata-cpu-naxriscv Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-cpu-naxriscv
+Installing collected packages: pythondata-cpu-naxriscv
+  Running setup.py develop for pythondata-cpu-naxriscv
+Successfully installed pythondata-cpu-naxriscv
+[ 221.571] Installing pythondata-cpu-serv Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-cpu-serv
+Installing collected packages: pythondata-cpu-serv
+  Running setup.py develop for pythondata-cpu-serv
+Successfully installed pythondata-cpu-serv
+[ 226.892] Installing pythondata-cpu-vexriscv Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-cpu-vexriscv
+Installing collected packages: pythondata-cpu-vexriscv
+  Running setup.py develop for pythondata-cpu-vexriscv
+Successfully installed pythondata-cpu-vexriscv
+[ 232.207] Installing pythondata-cpu-vexriscv-smp Git repository...
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Obtaining file:///home/devel/litex-migen/pythondata-cpu-vexriscv-smp
+Installing collected packages: pythondata-cpu-vexriscv-smp
+  Running setup.py develop for pythondata-cpu-vexriscv-smp
+Successfully installed pythondata-cpu-vexriscv-smp
