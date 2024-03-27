@@ -1,0 +1,224 @@
+https://github.com/litex-hub/fpga_101?tab=readme-ov-file
+
+https://github.com/enjoy-digital/litex/wiki/Installation
+
+http://m-labs.hk/docs/migen-tutorial.pdf
+
+mkdir litex-migen
+
+cd litex-migen 
+
+python3 -m venv env ; source env/bin/activate
+
+wget https://raw.githubusercontent.com/enjoy-digital/litex/master/litex_setup.py
+
+chmod +x litex_setup.py
+
+./litex_setup.py --init --install --user (--user to install to user directory)
+./litex_setup.py --init --install devel
+
+git clone git://github.com/m-labs/migen.git
+
+git clone https://github.com/m-labs/migen.git
+
+python3 setup.py install
+
+export PYTHONPATH=‘pwd‘/migen
+
+https://github.com/enjoy-digital/litex/wiki/Tutorials-Resources
+
+cd migen/examples/basic
+
+run the *.py which generates several verilog modules.
+
+mkdir  verilog_generated/
+
+arrays.v  local_cd.v  namer.v  record.v   tristate.v
+fsm.v     memory.v    psync.v  reslice.v  two_dividers.v
+cd ~/litex-migen/migen/examples/sim
+
+pip3 install scipy
+
+python3 install matplotlib
+
+https://m-labs.hk/migen/manual/introduction.html
+
+https://m-labs.hk/migen/manual/fhdl.html
+
+import migen as M
+dir(M)
+['AnonymousState', 'Array', 'C', 'CEInserter', 'Case', 'Cat', 'ClockDomain', 'ClockDomainsRenamer', 'ClockSignal', 'Constant', 'DIR_M_TO_S', 'DIR_NONE', 'DIR_S_TO_M', 'DUID', 'Display', 'FSM', 'FinalizeError', 'Finish', 'FullMemoryWE', 'If', 'Instance', 'Memory', 'MemoryToArray', 'Module', 'ModuleTransformer', 'Mux', 'NO_CHANGE', 'NextState', 'NextValue', 'READ_FIRST', 'Record', 'Replicate', 'ResetInserter', 'ResetSignal', 'SPECIAL_INOUT', 'SPECIAL_INPUT', 'SPECIAL_OUTPUT', 'Signal', 'Simulator', 'SplitMemory', 'TSTriple', 'WRITE_FIRST', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', 'bits_for', 'core', 'fhdl', 'gcd_multiple', 'genlib', 'get_obj_var_name', 'layout_get', 'layout_len', 'layout_partial', 'log2_int', 'or_', 'passive', 'reduce', 'run_simulation', 'set_layout_parameters', 'sim', 'util', 'value_bits_sign', 'vcd', 'wrap']
+
+Generate a fsm using migen
+cd litex-migen
+
+python3 -m venv env ; source env/bin/activate
+
+cd migen/examples/basic
+
+
+
+(env) devel@pi4-30:~/litex-migen/migen/examples/basic/
+python3 fsm.py 
+
+/* Machine-generated using Migen */
+module top(
+	output reg s,
+	output reg [7:0] counter,
+	output is_el,
+	output reg is_el_1,
+	output is_el_2,
+	output reg is_el_3,
+	input sys_clk,
+	input sys_rst
+);
+
+reg a0 = 1'd0;
+reg a1 = 1'd0;
+reg a2 = 1'd0;
+reg a3 = 1'd0;
+reg a4 = 1'd0;
+reg a5 = 1'd0;
+reg a6 = 1'd0;
+reg state = 1'd0;
+reg next_state;
+reg [7:0] counter_next_value;
+reg counter_next_value_ce;
+reg next_value;
+reg next_value_ce;
+reg array_muxed = 1'd0;
+
+// synthesis translate_off
+reg dummy_s;
+initial dummy_s <= 1'd0;
+// synthesis translate_on
+
+assign is_el_2 = ((state == 1'd0) & (~(next_state == 1'd0)));
+assign is_el = ((~(state == 1'd0)) & (next_state == 1'd0));
+
+// synthesis translate_off
+reg dummy_d;
+// synthesis translate_on
+always @(*) begin
+	s <= 1'd0;
+	next_state <= 1'd0;
+	counter_next_value <= 8'd0;
+	counter_next_value_ce <= 1'd0;
+	next_value <= 1'd0;
+	next_value_ce <= 1'd0;
+	next_state <= state;
+	case (state)
+		1'd1: begin
+			s <= 1'd0;
+			counter_next_value <= (counter + 1'd1);
+			counter_next_value_ce <= 1'd1;
+			next_value <= 7'd89;
+			next_value_ce <= 1'd1;
+			next_state <= 1'd0;
+		end
+		default: begin
+			s <= 1'd1;
+			next_state <= 1'd1;
+		end
+	endcase
+// synthesis translate_off
+	dummy_d <= dummy_s;
+// synthesis translate_on
+end
+
+always @(posedge sys_clk) begin
+	is_el_1 <= is_el;
+	is_el_3 <= is_el_2;
+	state <= next_state;
+	if (counter_next_value_ce) begin
+		counter <= counter_next_value;
+	end
+	if (next_value_ce) begin
+		array_muxed = next_value;
+		case (counter)
+			1'd0: begin
+				a0 <= array_muxed;
+			end
+			1'd1: begin
+				a1 <= array_muxed;
+			end
+			2'd2: begin
+				a2 <= array_muxed;
+			end
+			2'd3: begin
+				a3 <= array_muxed;
+			end
+			3'd4: begin
+				a4 <= array_muxed;
+			end
+			3'd5: begin
+				a5 <= array_muxed;
+			end
+			default: begin
+				a6 <= array_muxed;
+			end
+		endcase
+	end
+	if (sys_rst) begin
+		counter <= 8'd0;
+		a0 <= 1'd0;
+		a1 <= 1'd0;
+		a2 <= 1'd0;
+		a3 <= 1'd0;
+		a4 <= 1'd0;
+		a5 <= 1'd0;
+		a6 <= 1'd0;
+		is_el_1 <= 1'd1;
+		is_el_3 <= 1'd0;
+		state <= 1'd0;
+	end
+end
+
+endmodule
+
+set_io --warn-no-port uart_rx[0] B5
+set_io --warn-no-port uart_tx[0] B3
+set_io sys_rst B9
+# pin definitions
+set_io led[0] A9
+set_io led[1] B8
+set_io led[2] A7
+set_io led[3] B7
+
+#       654321      
+#       xxxxxx  PMOD2 A
+#       xxxxxx  PMOD2 B
+#       654321
+#
+#PMOD2 A 
+set_io sys_clk C8               #IOT_197 USER_CLK
+ 
+
+
+set_io --warn-no-port uart_rx[1] B6                              
+set_io --warn-no-port uart_tx[1] A1
+
+these steps are similar to ~/tang-nano/catboard/uart/build.sh
+
+yosys -l yosys-fsm.log -p "read_verilog fsm.v; synth_ice40 -top top -json fsm.json"
+nextpnr-ice40 --hx8k --pcf-allow-unconstrained --package ct256 -l place_and_route.log --pcf helloworld.pcf --json fsm.json --asc fsm.asc
+icepack fsm.asc fsm.bin
+icetime -d hx8k -c 100 fsm.asc
+
+2.47. Printing statistics.
+
+=== top ===
+
+   Number of wires:                 14
+   Number of wire bits:             35
+   Number of public wires:          14
+   Number of public wire bits:      35
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 27
+     SB_CARRY                        6
+     SB_DFFESR                       8
+     SB_DFFSR                        2
+     SB_DFFSS                        1
+     SB_LUT4                        10
