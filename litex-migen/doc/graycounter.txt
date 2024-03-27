@@ -1,0 +1,5 @@
+A Gray counter is a binary counter where only one bit changes at a time. Here's how a 4bit Gray counter goes. 0000 0001 0011 0010 0110 0111 0101 0100 1100 1101 1111 1110 1010 1011 1001 1000 and then wraps back to 0000... Gray code is useful to send values across clock domains (this way it has an uncertainty of only 1).
+
+Gray codes are widely used to prevent spurious output from electromechanical switches and to facilitate error correction in digital communications such as digital terrestrial television and some cable TV systems.
+
+It will be helpful for error correction and signal transmission. The Gray counter is also useful in design and verification in the VLSI domain. A Gray Code encodes integers as sequences of bits with the property that the representations of adjacent integers differ in exactly one binary position.
